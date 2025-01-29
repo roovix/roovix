@@ -10,7 +10,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #000;
-    background-image: url("/image_assets/doll-looking-two-buttons.jpg");
+    background-image: url("./image_assets/doll-looking-two-buttons.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
