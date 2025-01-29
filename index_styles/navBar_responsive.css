@@ -1,0 +1,39 @@
+@media screen and (max-width: 1158px) {
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 300px;
+        padding: 50px;
+        background-color: #1313139a;
+        backdrop-filter: blur(10px) !important;
+        animation: navShowAnimation 0.5s ease-in-out;
+    }
+    nav ul li {
+        margin-bottom: 15px;
+    }
+    .menu-icon {
+        display: block;
+    }
+    .navCloseBtn {
+        display: block;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .logo img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@keyframes navShowAnimation {
+    0% {
+        right: -280px;
+    }
+    100% {
+        right: 0;
+    }
+}
