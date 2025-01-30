@@ -45,10 +45,20 @@
          <div class="hero-content">
              <h1>WHERE MACHINES THINK, <br> AND IDEAS TAKE FLIGHT</h1>
              <p>Shaping the Future, One Breakthrough at a Time.</p>
-             <div id="watch-video" class="watch-video">WATCH NOW 
+             <div id="videoPopupOpen" class="watch-video">WATCH NOW 
                 <!-- Play circle icon svg -->
                 <svg class="play-circle-svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
              </div>
+
+            <!-- Intro video -->
+             <div class="video-container" id="videoPopup">
+                <!-- Close Button -->
+                <button class="close-btn" id="closeVideo"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M256-227.69 227.69-256l224-224-224-224L256-732.31l224 224 224-224L732.31-704l-224 224 224 224L704-227.69l-224-224-224 224Z"/></svg></button>
+        
+                <!-- Video -->
+                <!-- <video id="intro_video" src="video-assets/robot_keyboard_typing.mov" controls></video> -->
+                <video id="intro_video" src="https://www.w3schools.com/html/mov_bbb.mp4" preload="auto" playsinline controls></video>
+            </div>
          </div>
          <div class="hero-cards">
             <div class="card">
@@ -102,5 +112,6 @@
      
      <!-- Link to js functional -->
      <script src="scripts/navBar_res.js"></script>
+     <script src="scripts/introVideoFunc.js"></script>
 </body>
 </html>
