@@ -270,34 +270,43 @@ nav ul li:hover {
     position: relative;
     width: 100vw;
     height: 400px;
-    color: #27272770;
-    backdrop-filter: blur(10px);
+    overflow: hidden;
     margin-top: 100px;
     margin-bottom: 20px;
+    background: rgba(31, 31, 31, 0.082);
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 20px;
 }
+
+@media screen and (max-width: 803px) {
+    .experience {
+        margin-top: 30px;
+    }
+}
+
 .experience .ex-content {
     display: flex;
     gap: 20px;
+    width: fit-content;
+    flex-shrink: 0;
     animation: experienceAnim 30s linear infinite;
-    width: max-content;
 }
+
+/* Smooth Infinite Scrolling */
 @keyframes experienceAnim {
-    0% {
+    from {
         transform: translateX(0);
     }
-    100% {
+    to {
         transform: translateX(-50%);
     }
 }
+
 .experience .ex-content img {
     width: 300px;
     height: 300px;
     object-fit: cover;
     border-radius: 20px;
-}
-/* Duplicate content for smooth animation */
-.experience .ex-content::after {
-    content: "";
-    display: flex;
 }
 /* Experience style end */
