@@ -310,3 +310,44 @@ nav ul li:hover {
     border-radius: 20px;
 }
 /* Experience style end */
+
+/* Intro video style start */
+.hero .video-container {
+    position: fixed; /* Ensures it stays on top */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black; /* Fixes the black background issue */
+    z-index: 1000; /* Ensures it's above all other content */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Video styles */
+.hero .video-container video {
+    width: 90vw; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100vh; /* Prevent overflow */
+    object-fit: contain; /* Crop to fit without stretching */
+    border-radius: 10px;
+}
+
+/* Close button */
+.hero .video-container .close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+.hero .video-container .close-btn svg {
+    width: 30px;
+    height: 30px;
+}
+/* Intro video style end */
