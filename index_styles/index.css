@@ -44,7 +44,8 @@ nav.scrolling {
 nav.transparent {
     background-color: transparent;
 }
-.logo {
+.logo a {
+    text-decoration: none;
     font-size: 1.8rem;
     color: white;
     cursor: pointer;
@@ -52,14 +53,10 @@ nav.transparent {
     align-items: center;
     gap: 15px;
 }
-.logo img {
+.logo a img {
     width: 30px;
     height: 30px;
 }
-.logo span {
-    margin-bottom: 5px;
-}
-
 nav ul {
     list-style: none;
     display: flex;
