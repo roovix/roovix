@@ -1,0 +1,19 @@
+@media screen and (max-width: 950px){
+    .poster-bg {
+        width: 90%;
+    }
+    .content-header .title {
+        font-size: 1.3rem;
+    }
+    .tags {
+        font-size: .8rem;
+    }
+    .description {
+        font-size: 0.95rem;
+    }
+}
+@media screen and (max-width: 780px){
+    .poster-bg {
+        width: 100%;
+    }
+}

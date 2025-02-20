@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roovix</title>
+
+    <!-- Link styles -->
+    <link rel="stylesheet" href="root_style/index.css">
+    <link rel="stylesheet" href="root_style/footer.css">
+    <link rel="stylesheet" href="index_styles/index.css">
+    <link rel="stylesheet" href="index_styles/heroCard_responsive.css">
+    <link rel="stylesheet" href="index_styles/heroContent_responsive.css">
+    <link rel="stylesheet" href="index_styles/navBar_responsive.css">
+    <link rel="stylesheet" href="index_styles/startForm_responsive.css">
+    <link rel="stylesheet" href="index_styles/createAccount_responsive.css">
+    <link rel="stylesheet" href="index_styles/loginAccount_responsive.css">
+
+    <!-- Font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Website favicon -->
+    <link rel="shortcut icon" href="logos/logo_png.png" type="image/x-icon">
+
+    <!-- Link to javaScript -->
+     <script src="scripts/onScroll_navBlur.js"></script>
+     <script src="scripts/exSlideAnim.js"></script>
+
+</head>
+<body>
+    <!-- Navbar start -->
+     <nav class="navbar">
+        <div class="logo">
+            <a href="/">
+                <img src="logos/logo_png.png" alt="Roovix Logo">
+                <span>Roovix</span>
+            </a>
+        </div>
+         <ul class="navList">
+
+            <button class="navCloseBtn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M256-227.69 227.69-256l224-224-224-224L256-732.31l224 224 224-224L732.31-704l-224 224 224 224L704-227.69l-224-224-224 224Z"/></svg></button>
+
+             <li><a href="?login=true">Log In</a></li>
+             <li><a id="start-for-free-nav-item" href="#start-for-free">Sign Up</a></li>
+             <li><a href="hub.html">Resources Hub</a></li>
+             <li><a href="https://www.facebook.com/hridoyhossen936" target="_blank">Contact US</a></li>
+         </ul>
+         <!-- Menu nav toggle icon -->
+         <button class="menu-icon navBarToggle"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M172-278v-28h616v28H172Zm0-188v-28h616v28H172Zm0-188v-28h616v28H172Z"/></svg></button>
+     </nav>
+    <!-- Navbar end -->
+
+    <!-- Hero section start -->
+     <section id="hero" class="hero">
+         <div class="hero-content">
+             <h1>WHERE MACHINES THINK, <br> AND IDEAS TAKE FLIGHT</h1>
+             <p>Shaping the Future, One Breakthrough at a Time.</p>
+             <div id="videoPopupOpen" class="watch-video">WATCH NOW 
+                <!-- Play circle icon svg -->
+                <svg class="play-circle-svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+             </div>
+
+             <!-- Intro video -->
+             <div class="video-container" id="videoPopup">
+                <!-- Close Button -->
+                <button class="close-btn" id="closeVideo"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M256-227.69 227.69-256l224-224-224-224L256-732.31l224 224 224-224L732.31-704l-224 224 224 224L704-227.69l-224-224-224 224Z"/></svg></button>
+        
+                <!-- Video -->
+                <video id="intro_video" src="video_assets/SAMPLE.mp4" preload="auto" playsinline controls></video>
+            </div>
+         </div>
+         <div class="hero-cards">
+            <div class="card">
+                <h2>Next-GEN robots for every vision</h2>
+                <p>Smart, Powerful, and Built for the Future.</p>
+                <div class="buttons">
+                    <a href="#" class="btn-or">ORDER NOW</a>
+                    <a href="#" class="btn-ex">EXPLORE</a>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Master robotics with expert-led videos</h2>
+                <p>Hands-On Tutorials, Advanced Projects & AI Insights.</p>
+                <div class="buttons">
+                    <a href="https://www.youtube.com/@roovix" target="_blank" class="btn-or">WATCH FREE</a>
+                    <a href="#" class="btn-ex">EXPLORE</a>
+                </div>
+            </div>
+         </div>
+     </section>
+     <!-- Hero section end -->
+
+     <!-- Start for free section start -->
+     <section id="start-for-free" class="start-for-free">
+         <form id="user_email_submit_form">
+             <h2>Instant Access to Cutting Edge Robotics Solutions</h2>
+             <p class="slow-gun">Start for free—just enter your email and unlock the future of automation today.</p>
+             <div class="form-group">
+                 <input type="email" id="user_email" placeholder="Enter Your Email">
+                 <button type="submit">Get Started Now</button>
+             </div>
+             <p class="term-condition">By signing up, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></p>
+         </form>
+
+         <!-- Login account -->
+         <div class="login-account" id="loginAccount">
+            <div class="login-container">
+                <a class="popup-close" href="/"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M256-227.69 227.69-256l224-224-224-224L256-732.31l224 224 224-224L732.31-704l-224 224 224 224L704-227.69l-224-224-224 224Z"/></svg></a>
+                <h3 class="login_title">Login to your account</h3>
+                <div class="form-group">
+                    <input type="email" id="login_email" placeholder="Email">
+                    <input type="password" id="login_pass" placeholder="Password">
+                    <button type="submit" id="login_btn"><span class="login-text">Login</span> <span id="login-load" class="login-load"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q17 0 28.5 11.5T520-840q0 17-11.5 28.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160q133 0 226.5-93.5T800-480q0-17 11.5-28.5T840-520q17 0 28.5 11.5T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Z"/></svg></span></button>
+                </div>
+                <p class="open-create-account">Don't have an account? <a href="?user_email=">Create one now</a></p>
+                <span id="login_error">Error while logging in, try again!</span>
+                <span id="login_success">Login Successful</span>
+            </div>
+        </div>
+
+         <!-- Password filed to create account -->
+          <div id="create_account" class="create_account">
+            <div id="create_account_loading" class="loading">
+                <img id="load-gif" src="https://www.roovix.com/image_assets/settings_loading.gif" alt="Settings Loading">
+                <img id="success-right" src="https://www.roovix.com/image_assets/success_right.webp" alt="Success Right">
+            </div>
+            <div class="create_container">
+                <a class="popup-close" href="/"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M256-227.69 227.69-256l224-224-224-224L256-732.31l224 224 224-224L732.31-704l-224 224 224 224L704-227.69l-224-224-224 224Z"/></svg></a>
+                <h3>Create an account</h3>
+                <div class="form-group">
+                    <input type="text" id="user_name" placeholder="Full Name">
+                    <input type="email" id="create_email" placeholder="Email">
+                    <input type="password" id="pass" placeholder="Password">
+                    <input type="password" id="confirm_pass" placeholder="Confirm Password">
+                    <button type="submit" id="create_account_btn">Create Account</button>
+                </div>
+                <p>Already have an account? <a href="?login=true">Login here</a></p>
+                <span id="create_accoutn_error">Error while creating account,Try again!</span>
+                
+                <ul class="hints">
+                    <h4>✨Suggestion</h4>
+                    <li>Name should be at least <strong>4</strong> char long.</li>
+                    <li>Make sure your password is <strong>6</strong> char or more for extra security.</li>
+                    <li>Double-check that your <strong>Password</strong> and <strong>Confirm Password</strong> match exactly!</li>
+                </ul>                
+            </div>
+          </div>
+     </section>
+     <!-- Start for free section end -->
+
+     <!-- Experience start -->
+     <div id="experience" class="experience">
+        <div class="ex-content">
+            <img src="https://www.msruas.ac.in/uploads/blogs/robotics.f1708523490_b8a7d9426d44becbfab22c3e3256f6d7.webp" alt="">
+            <img src="https://engineering.case.edu/sites/default/files/styles/page_image/public/robot-mantis067.jpg?itok=_1I59H7T" alt="">
+            <img src="https://rootsaid.com/wp-content/uploads/2021/02/Starting-a-Career-in-Robotics.png" alt="">
+            <img src="https://media.wired.com/photos/5cdef92d38916b321aa0c474/master/pass/Facebook-Robots-00.jpg" alt="">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20241224173023067198/Future-of-Robotics.webp" alt="">
+            <img src="https://images.shiksha.com/mediadata/images/articles/1688987166phpIofsMU.jpeg" alt="">
+            <img src="https://www.investopedia.com/thmb/YDiMCM5eEaqihHHFpPlOh3YnSDw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/INV_TopRoboticsStocks2Q23_GettyImages-1306826852-3170ea2d9b474ff0aa767b7da352c9d3.jpg" alt="">
+            <img src="https://jobs.washingtonpost.com/getasset/ec76f4fb-d75d-4591-b465-cc82e9a1d95b/" alt="">
+        </div>
+     </div>
+     <!-- Experience end -->
+
+          <!-- Footer start -->
+          <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <!-- Brand Section -->
+                    <div class="footer-section">
+                        <h2>Roovix</h2>
+                        <p>Roovix is your go-to hub for tech learning and innovation, offering expert AI and robotics tutorials alongside high-quality gadgets and electronics.</p>
+                    </div>
+    
+                    <!-- Quick Links 1 -->
+                    <div class="footer-section">
+                        <div class="footer-links">
+                            <a href="/">Home</a>
+                            <a href="#">About Us</a>
+                            <a href="#">Services</a>
+                            <a href="https://www.facebook.com/hridoyhossen936">Contact</a>
+                        </div>
+                    </div>
+    
+                    <!-- Quick Links 2 -->
+                    <div class="footer-section">
+                        <div class="footer-links">
+                            <a href="#">Team</a>
+                            <a href="#">Blogs</a>
+                            <a href="#">Articles</a>
+                            <a href="#">Career</a>
+                        </div>
+                    </div>
+    
+                    <!-- Contact Section -->
+                    <div class="footer-section">
+                        <div class="footer-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms & Conditions</a>
+                            <a href="#">Partners</a>
+                        </div>
+                        <div class="footer-section-contact-us">
+                            <a href="https://www.facebook.com/hridoyhossen936" target="_blank" class="contact-btn">Contact Us</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.youtube.com/@roovix" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/@roovixx" target="_blank"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Copyright -->
+                <div class="footer-bottom">
+                    © <script>document.write(new Date().getFullYear())</script> Copyright roovix.com
+                </div>
+            </div>
+        </footer>
+         <!-- Footer end -->
+     
+     <!-- Link to js functional -->
+     <script src="scripts/navBar_res.js"></script>
+     <script src="scripts/introVideoFunc.js"></script>
+     <script src="scripts/createAccount.js" type="module"></script>
+     <script src="scripts/loginAccount.js" type="module"></script>
+</body>
+</html>
