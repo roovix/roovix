@@ -16,4 +16,8 @@
     .poster-bg {
         width: 100%;
     }
+    .file-section-underline {
+        width: 100%;
+        overflow: hidden;
+    }
 }
