@@ -41,9 +41,8 @@ nav {
     padding: 0 5vw;
 }
 nav.scrolling {
-    background-color: rgba(15, 15, 15, 0.5);
     -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(50px);
 }
 nav.transparent {
     background-color: transparent;
