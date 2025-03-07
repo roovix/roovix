@@ -279,8 +279,7 @@ nav ul li:hover {
     overflow: hidden;
     margin-top: 100px;
     padding-top: 20px;
-    background: rgba(31, 31, 31, 0.082);
-    backdrop-filter: blur(10px);
+    background: #0c0f14;
     display: flex;
     gap: 20px;
 }
