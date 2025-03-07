@@ -71,12 +71,11 @@ ul {
     background-color: transparent;
     color: #c9d1d9;
     cursor: pointer;
-    transition: 0.5s;
+    transition: border-color 0.3s;
 }
 
 .footer-subscribe-button:hover {
-    background-color: #fff;
-    color: #0d1117;
+    border-color: #636970;
     text-decoration: none;
 }
 
@@ -108,7 +107,7 @@ ul {
 }
 
 .footer-column ul li a:hover {
-    color: #ffffff;
+    color: #0284c7;
 }
 
 .footer-bottom {
