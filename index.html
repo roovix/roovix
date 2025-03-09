@@ -10,8 +10,8 @@
 
     <!-- Link styles -->
     <link rel="stylesheet" href="root_style/index.css">
-    <link rel="stylesheet" href="root_style/footer.css">
     <link rel="stylesheet" href="index_styles/index.css">
+    <link rel="stylesheet" href="root_style/footer.css">
     <link rel="stylesheet" href="index_styles/heroCard_responsive.css">
     <link rel="stylesheet" href="index_styles/heroContent_responsive.css">
     <link rel="stylesheet" href="index_styles/navBar_responsive.css">
@@ -43,9 +43,9 @@
 
             <button class="navCloseBtn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M256-227.69 227.69-256l224-224-224-224L256-732.31l224 224 224-224L732.31-704l-224 224 224 224L704-227.69l-224-224-224 224Z"/></svg></button>
 
-             <li><a href="?login=true">Log In</a></li>
-             <li><a id="start-for-free-nav-item" href="#start-for-free">Sign Up</a></li>
-             <li><a href="hub.html">Resources Hub</a></li>
+             <li><a href="?login=true"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg><span>Log In</span></a></li>
+             <li><a id="start-for-free-nav-item" href="#join-roovix"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-400v-120H600v-80h120v-120h80v120h120v80H800v120h-80Zm-360-80q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm80-80h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0-80Zm0 400Z"/></svg><span>Sign Up</span></a></li>
+             <li><a href="hub.html"><span>Resources Hub</span></a></li>
              <li><a href="https://www.facebook.com/hridoyhossen936" target="_blank">Contact US</a></li>
          </ul>
          <!-- Menu nav toggle icon -->
@@ -58,9 +58,15 @@
          <div class="hero-content">
              <h1>WHERE MACHINES THINK, <br> AND IDEAS TAKE FLIGHT</h1>
              <p>Shaping the Future, One Breakthrough at a Time.</p>
-             <div id="videoPopupOpen" class="watch-video">WATCH NOW 
-                <!-- Play circle icon svg -->
-                <svg class="play-circle-svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+
+             <div class="hero-buttons-container">
+                <div id="videoPopupOpen" class="watch-video">WATCH NOW 
+                    <!-- Play circle icon svg -->
+                    <svg class="play-circle-svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+                 </div>
+    
+                 <!-- Join now button -->
+                  <a href="#join-roovix" class="join-now-button">Join</a>
              </div>
 
              <!-- Intro video -->
@@ -95,16 +101,6 @@
 
      <!-- Start for free section start -->
      <section id="start-for-free" class="start-for-free">
-         <form id="user_email_submit_form">
-             <h2>Instant Access to Cutting Edge Robotics Solutions</h2>
-             <p class="slow-gun">Start for free—just enter your email and unlock the future of automation today.</p>
-             <div class="form-group">
-                 <input type="email" id="user_email" placeholder="Enter Your Email">
-                 <button type="submit">Get Started Now</button>
-             </div>
-             <p class="term-condition">By signing up, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></p>
-         </form>
-
          <!-- Login account -->
          <div class="login-account" id="loginAccount">
             <div class="login-container">
@@ -149,6 +145,48 @@
             </div>
           </div>
      </section>
+     <!-- Join Roovix form -->
+     <section id="join-roovix">
+        <div class="join-roovix-container">
+            <!-- A 3d robot -->
+             <div class="join-roovix-3d-view-bg">
+
+             </div>
+
+            <h1 class="join-roovix-hero-title">Instant Access to Cutting-Edge Robotics Solutions</h1>
+            <p class="join-roovix-hero-description">
+                Whether it's robotics or AI, Roovix is your gateway to innovation. Join a community pushing technology's limits!
+            </p>
+            <div class="join-roovix-cta-container">
+                <form id="user_email_submit_form" class="input-group">
+                    <input type="email" id="user_email" class="join-roovix-email-input" placeholder="Enter your email" aria-label="Email">
+                    <button type="submit" class="join-roovix-btn join-roovix-btn-primary">Join Roovix</button>
+                </form>
+                <button class="join-roovix-btn join-roovix-btn-secondary">Try Roovix Infernex</button>
+            </div>
+            <div class="join-roovix-stats-container">
+                <div class="gh_stats_container">
+                    <div class="gh_stats_grid">
+                        <!-- Left Stat -->
+                        <div class="gh_stat_box gh_stat_box_left">
+                            <h2 class="gh_stat_heading">10x Smarter</h2>
+                            <p class="gh_stat_text">
+                                Transform your development process with Roovix’s AI-powered tools
+                            </p>
+                        </div>
+                        
+                        <!-- Right Stat -->
+                        <div class="gh_stat_box gh_stat_box_right">
+                            <h2 class="gh_stat_heading">Seamless Automation</h2>
+                            <p class="gh_stat_text gh_stat_text_highlight">
+                                Enhance efficiency with cutting-edge AI and robotics technology
+                            </p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>    
      <!-- Start for free section end -->
 
      <!-- Experience start -->
@@ -171,14 +209,23 @@
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-subscribe">
-                    <a href="#" class="footer-logo">
-<!--                         <svg height="32" viewBox="0 0 16 16" width="32">
-                            <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-                        </svg> -->
+                    <a href="/" class="footer-logo">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 485 488">
+                        <defs>
+                            <style>.cls-1{fill:#fefefe;}.cls-2{fill:#22262a;}</style>
+                            <clipPath id="circleClip">
+                            <circle cx="242.5" cy="244" r="242.5"/>
+                            </clipPath>
+                        </defs>
+                        <g clip-path="url(#circleClip)">
+                            <path class="cls-1" d="M-35.95,252H-235V-236H250V252H49.08a17.28,17.28,0,0,1,2.48-1.06c20.41-5.19,33.86-17.87,38.15-38.43,2.05-9.79.9-20.22,1.42-30.35.53-10.29-.81-19.82-10.56-27.18,3.88,0,6.52,0,9.15,0a68.51,68.51,0,0,0,62.42-42.26c5.12-12.38,5.34-25.29,4.91-38.3-.11-3.23.93-5,3.69-6.73,27.79-17.8,28.81-57.41,1.73-76.23-6.1-4.24-13.93-6-20.12-10.12C135.94-23,130.57-28.8,124.75-34a34.29,34.29,0,0,1-4.67-4.31c-12.7-16.58-33.89-19.86-51-7.86-1.18.83-2.54,2-3.82,2-14,.15-27.9.09-42.19.09,0-11.43.14-22.39-.07-33.35-.07-3.8.86-6.16,4.25-8.52,16.46-11.46,19.7-34.38,7.48-50.3A35.57,35.57,0,0,0-15.95-142C-31.63-129-34-105.15-19.57-91.16c6.59,6.37,8.26,12.51,7.73,20.75-.48,7.47-.09,15-.12,22.5,0,1.25-.2,2.51-.31,3.85-12.21,0-24,.14-35.87-.11a14.67,14.67,0,0,1-7.67-2.39C-72-57.77-93.25-54.75-105.48-39.34a39.44,39.44,0,0,1-5.41,5c-5.78,5-11.53,10-17.41,14.81A15.36,15.36,0,0,1-134-16.21c-18.74,4.46-31.07,15.89-35.59,34.47s.61,35.15,16.07,46.09c8.44,6,10.77,12.07,9.57,21.11a13.35,13.35,0,0,0,0,2,67.68,67.68,0,0,0,58,66.63c6.12.87,12.36.89,18.92,1.33-7,5.74-10.12,12.68-10,21.26s0,17,.05,25.5a49.72,49.72,0,0,0,31,46C-42.63,249.55-39.28,250.74-35.95,252Z" transform="translate(235 236)"/>
+                            <path class="cls-2" d="M-35.95,252c-3.33-1.26-6.68-2.45-10-3.81a49.72,49.72,0,0,1-31-46c-.05-8.5.13-17-.05-25.5s3-15.52,10-21.26c-6.56-.44-12.8-.46-18.92-1.33a67.68,67.68,0,0,1-58-66.63,13.35,13.35,0,0,1,0-2c1.2-9-1.13-15.13-9.57-21.11C-169,53.41-174.11,36.7-169.62,18.26s16.85-30,35.59-34.47a15.36,15.36,0,0,0,5.73-3.35c5.88-4.84,11.63-9.84,17.41-14.81a39.44,39.44,0,0,0,5.41-5C-93.25-54.75-72-57.77-55.81-46.56a14.67,14.67,0,0,0,7.67,2.39c11.83.25,23.66.11,35.87.11.11-1.34.31-2.6.31-3.85,0-7.5-.36-15,.12-22.5.53-8.24-1.14-14.38-7.73-20.75C-34-105.15-31.63-129-15.95-142a35.57,35.57,0,0,1,50.68,5.79c12.22,15.92,9,38.84-7.48,50.3-3.39,2.36-4.32,4.72-4.25,8.52.21,11,.07,21.92.07,33.35,14.29,0,28.24.06,42.19-.09,1.28,0,2.64-1.15,3.82-2,17.11-12,38.3-8.72,51,7.86A34.29,34.29,0,0,0,124.75-34c5.82,5.17,11.19,11,17.6,15.31,6.19,4.15,14,5.88,20.12,10.12,27.08,18.82,26.06,58.43-1.73,76.23-2.76,1.77-3.8,3.5-3.69,6.73.43,13,.21,25.92-4.91,38.3A68.51,68.51,0,0,1,89.72,155c-2.63,0-5.27,0-9.15,0,9.75,7.36,11.09,16.89,10.56,27.18-.52,10.13.63,20.56-1.42,30.35C85.42,233.07,72,245.75,51.56,250.94A17.28,17.28,0,0,0,49.08,252Z" transform="translate(235 236)"/>
+                        </g>
+                        </svg>
                     </a>
                     <h3>Get the Latest Dev Insights – Join Now</h3>
                     <p>Roovix is your go-to hub for tech learning and innovation, offering expert AI and robotics tutorials alongside high-quality gadgets and electronics.</p>
-                    <a href="#" class="footer-subscribe-button">Join</a>
+                    <a href="#join-roovix" class="footer-subscribe-button">Join</a>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
