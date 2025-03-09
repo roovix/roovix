@@ -56,6 +56,7 @@ nav .logo a {
     display: flex;
     align-items: center;
     gap: 10px;
+    user-select: none;
 }
 nav .logo a img {
     width: 25px;
@@ -74,6 +75,7 @@ nav ul li a {
     display: flex;
     align-items: center;
     gap: 5px;
+    user-select: none;
 }
 nav ul li a svg {
     width: 18px;
@@ -152,6 +154,7 @@ nav ul li:hover {
     flex-wrap: wrap;
 }
 .hero-buttons-container .join-now-button {
+    user-select: none;
     width: 200px;
     height: 40px;
     background-color: transparent;
