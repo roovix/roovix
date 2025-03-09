@@ -15,6 +15,9 @@
         font-size: 1.1rem;
         text-align: center;
     }
+    .hero-buttons-container {
+        justify-content: center;
+    }
 }
 @media screen and (max-width: 868px) {
     .hero-content, .hero-cards {
@@ -40,5 +43,13 @@
 @media screen and (max-width: 645px) {
     .hero-content {
         padding: 0 2vw;
+    }
+}
+@media screen and (max-width: 505px) {
+    .hero-buttons-container .join-now-button {
+        width: 80%;
+    }
+    .hero-content .watch-video {
+        width: 80%;
     }
 }
