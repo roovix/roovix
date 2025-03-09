@@ -1,3 +1,12 @@
+/* Revert responsive start */
+@media screen and (min-width: 1158px) {
+    nav .navList {
+        display: flex !important; /* Ensure it overrides inline styles */
+        position: relative;
+        gap: 50px;
+    }
+}
+/* Revert responsive end */
 @media screen and (max-width: 1158px) {
     nav .navList {
         display: none;
