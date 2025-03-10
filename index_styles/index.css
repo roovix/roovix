@@ -77,6 +77,9 @@ nav ul li a {
     gap: 5px;
     user-select: none;
 }
+nav ul li a span {
+    user-select: none;
+}
 nav ul li a svg {
     width: 18px;
     height: 18px;
@@ -206,7 +209,6 @@ nav ul li:hover {
     justify-content: space-around;
     gap: 25px;
     margin-top: 180px;
-    margin-bottom: 20px;
 }
 .hero-cards .card {
     background-color: #0c0c0c2a;
@@ -254,16 +256,18 @@ nav ul li:hover {
 
 /* Join Roovix start */
 .join-roovix-container {
+  position: relative;
   max-width: 100%;
   background-color: #0D1117;
   padding: 50px 24px;
-  padding-top: 300px;
+  padding-top: 30px;
 
       /* Create a gradient mask for bottom transparency     */
-      -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
-      mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+      -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+      mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+    
+   overflow-x: hidden;
 }
-
 
 .join-roovix-hero {
   display: flex;
@@ -271,6 +275,32 @@ nav ul li:hover {
   justify-content: center;
   text-align: center;
   padding: 80px 0;
+}
+
+.join-roobix-3d-model-viewr-bg {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#join-roobix-3d-model-viewr {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.robot-glow {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 100px;
+    background: linear-gradient(180deg, #4d320a, #412A08, #D61007);
+    filter: blur(100px);
+    z-index: 1;
+    opacity: .5;
 }
 
 .join-roovix-hero-title {
@@ -282,6 +312,7 @@ nav ul li:hover {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
 }
 
 .join-roovix-hero-description {
@@ -293,6 +324,7 @@ nav ul li:hover {
 
 /* Signup container */
 .join-roovix-cta-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
