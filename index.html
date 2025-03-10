@@ -28,6 +28,7 @@
     <!-- Link to javaScript -->
      <script src="scripts/onScroll_navBlur.js"></script>
      <script src="scripts/exSlideAnim.js"></script>
+     <script type="module" src="https://unpkg.com/@google/model-viewer@latest"></script>
 
 </head>
 <body>
@@ -148,10 +149,16 @@
      <!-- Join Roovix form -->
      <section id="join-roovix">
         <div class="join-roovix-container">
-            <!-- A 3d robot -->
-             <div class="join-roovix-3d-view-bg">
 
-             </div>
+            <!-- 3d model viewer to load glb 3d object -->
+            <div class="join-roobix-3d-model-viewr-bg">
+                <model-viewer id="join-roobix-3d-model-viewr" src="3d_models/scifi_drone.glb" 
+                        alt="A 3D model" 
+                        auto-rotate
+                        ar>
+                </model-viewer>
+                <span class="robot-glow"></span>
+            </div>
 
             <h1 class="join-roovix-hero-title">Instant Access to Cutting-Edge Robotics Solutions</h1>
             <p class="join-roovix-hero-description">
