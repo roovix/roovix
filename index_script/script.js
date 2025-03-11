@@ -10,5 +10,5 @@ user_email_submit_form.addEventListener('submit', ()=>{
     }
 
     user_email.classList.remove("empty-input-field");
-    window.location.href = `sign_up.html?user_email=${email}&source=join_roovix`;
+    window.location.href = `sign_up?user_email=${email}&source=join_roovix`;
 })
