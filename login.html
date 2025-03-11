@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to Roovix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #ffffff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 16px;
+        }
+
+        /* Stars background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#ffffff11 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        .logo {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            margin-right: 16px;
+            background-color: #8957e5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+        }
+
+        .login-box {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px 12px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: #0d1117;
+            color: #ffffff;
+            line-height: 20px;
+            height: 32px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #58a6ff;
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+        }
+
+        .error-message {
+            color: #f85149;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .button {
+            width: 100%;
+            padding: 5px 16px;
+            background-color: #238636;
+            color: #ffffff;
+            border: 1px solid rgba(240, 246, 252, 0.1);
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 32px;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #2ea043;
+        }
+
+        .forgot-password {
+            font-size: 12px;
+            text-align: right;
+            margin-top: 8px;
+        }
+
+        .forgot-password a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .create-account-box {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .create-account-box a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .create-account-box a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #8b949e;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .mascot {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            width: 120px;
+            height: 120px;
+            z-index: -1;
+            opacity: 0.5;
+            display: none;
+        }
+
+        .error input {
+            border-color: #f85149;
+        }
+
+        .error .error-message {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .mascot {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <div class="logo-icon">R</div>
+        Roovix
+    </div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Sign in to Roovix</h1>
+            
+            <form id="loginForm">
+                <div class="form-group" id="usernameGroup">
+                    <label for="username">Username or email address</label>
+                    <input type="text" id="username" name="username" autocomplete="username">
+                    <div class="error-message">Username or email cannot be blank</div>
+                </div>
+                
+                <div class="form-group" id="passwordGroup">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <label for="password">Password</label>
+                        <div class="forgot-password">
+                            <a href="#">Forgot password?</a>
+                        </div>
+                    </div>
+                    <input type="password" id="password" name="password" autocomplete="current-password">
+                    <div class="error-message">Password cannot be blank</div>
+                </div>
+                
+                <button type="submit" class="button">Sign in</button>
+            </form>
+        </div>
+        
+        <div class="create-account-box">
+            New to Roovix? <a href="sign_up.html">Create an account</a>.
+        </div>
+    </div>
+    
+    <div class="mascot">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="60" fill="#8957e5" opacity="0.8"/>
+            <circle cx="45" cy="50" r="7" fill="white"/>
+            <circle cx="75" cy="50" r="7" fill="white"/>
+            <path d="M45 75 Q60 90 75 75" stroke="white" stroke-width="4" fill="none"/>
+        </svg>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Security</a>
+            <a href="#">Contact Roovix</a>
+        </div>
+        <div style="margin-top: 8px;">
+            © 2025 Roovix Inc.
+        </div>
+    </div>
+
+    <script>
+        // Form validation
+        const form = document.getElementById('loginForm');
+        const usernameGroup = document.getElementById('usernameGroup');
+        const passwordGroup = document.getElementById('passwordGroup');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+            
+            // Validate username/email
+            if (!usernameInput.value.trim()) {
+                usernameGroup.classList.add('error');
+                isValid = false;
+            } else {
+                usernameGroup.classList.remove('error');
+            }
+            
+            // Validate password
+            if (!passwordInput.value.trim()) {
+                passwordGroup.classList.add('error');
+                isValid = false;
+            } else {
+                passwordGroup.classList.remove('error');
+            }
+            
+            if (isValid) {
+                alert('Successfully signed in to Roovix!');
+                form.reset();
+            }
+        });
+        
+        // Real-time validation
+        usernameInput.addEventListener('input', () => {
+            if (usernameInput.value.trim()) {
+                usernameGroup.classList.remove('error');
+            }
+        });
+        
+        passwordInput.addEventListener('input', () => {
+            if (passwordInput.value.trim()) {
+                passwordGroup.classList.remove('error');
+            }
+        });
+    </script>
+</body>
+</html>

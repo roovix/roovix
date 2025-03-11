@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Roovix Account</title>
+
+
+    <!-- Styles -->
+     <link rel="stylesheet" href="signUP_style/index.css">
+</head>
+<body>
+    <header class="header">
+        <a href="login.html" class="login-link">Already have an account? <span>Sign in →</span></a>
+    </header>
+
+    <div class="container">
+        <div class="left-section">
+            <h1>Create your free account</h1>
+            <p class="tagline">Explore Roovix's core features for robotics enthusiasts and AI innovators.</p>
+            
+            <div class="features-toggle" id="featuresToggle">
+                <span>See what's included</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="toggleIcon">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+            
+            <div class="features-list" id="featuresList">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <div class="feature-title">Access to Roovix AI</div>
+                        <div class="feature-description">Increase your productivity and accelerate robotics development.</div>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <div class="feature-title">Integrated code reviews</div>
+                        <div class="feature-description">Boost code quality with built-in review tools.</div>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <div class="feature-title">Community support</div>
+                        <div class="feature-description">Connect with developers worldwide for instant feedback and insights.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-section">
+            <h2>Sign up to Roovix</h2>
+            
+            <form id="signupForm">
+                <div class="form-group" id="emailGroup">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                    <div class="error-message">Email cannot be blank</div>
+                </div>
+                
+                <div class="form-group" id="passwordGroup">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                    <div class="error-message">Password cannot be blank</div>
+                    <div class="password-requirements">
+                        The password must be at least 8 characters long, including one number and one uppercase letter.
+                    </div>
+                </div>
+                
+                <div class="form-group" id="usernameGroup">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                    <div class="error-message">Username cannot be blank</div>
+                    <div class="username-requirements">
+                        Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.
+                    </div>
+                </div>
+                
+                <button type="submit" class="button">
+                    Continue
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </form>
+            
+            <div class="terms">
+                By creating an account, you agree to the <a href="#">Terms of Service</a>. For more information about Roovix's, see the <a href="#">Roovix Privacy Policy</a>.
+            </div>
+        </div>
+    </div>
+
+    <!-- Glow designs -->
+    <img src="image_assets/green_glow.png" class="glow-effect glow-effect-1"></img>
+    <img src="image_assets/pink_glow.png" class="glow-effect glow-effect-2"></img>
+
+    <script src="signUP_page_script/script.js"></script>
+</body>
+</html>
