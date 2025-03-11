@@ -217,7 +217,7 @@ input:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 32px;
+    height: 45px;
 }
 
 .button:hover {
