@@ -297,7 +297,7 @@ nav ul li:hover {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 100px;
-    background: linear-gradient(180deg, #4d320a, #412A08, #D61007);
+    background: linear-gradient(180deg, #0a344d, #ffffff85, #0779d6);
     filter: blur(100px);
     z-index: 1;
     opacity: .5;
