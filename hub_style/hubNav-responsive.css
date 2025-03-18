@@ -63,3 +63,13 @@
         backdrop-filter: blur(20px);
     }
 }
+
+@media (max-width: 520px) {
+    .logo-dropdown-items {
+        display: flex;
+        flex-direction: column;
+    }
+    .logo-dropdown-items .left-item {
+        border-right: none;
+    }
+}
