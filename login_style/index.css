@@ -68,7 +68,7 @@ body::before {
 }
 
 .login-box {
-    background-color: #191c20;
+    background-color: #242930;
     border: 1px solid #30363d;
     border-radius: 6px;
     padding: 16px;
@@ -93,22 +93,25 @@ label {
     font-weight: 400;
 }
 
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #40434b;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 50px;
+}
+
 input {
     width: 100%;
     padding: 5px 12px;
-    border: 1px solid #30363d;
-    border-radius: 6px;
+    outline: none;
     font-size: 14px;
-    background-color: #0d1117;
+    background-color: transparent;
     color: #ffffff;
     line-height: 20px;
     height: 40px;
-}
-
-input:focus {
-    outline: none;
-    border-color: #58a6ff;
-    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+    border: transparent;
 }
 
 .error-message {
@@ -116,6 +119,7 @@ input:focus {
     font-size: 12px;
     margin-top: 4px;
     display: none;
+    margin-left: 10px;
 }
 
 .button {
@@ -157,8 +161,8 @@ input:focus {
 }
 
 .create-account-box {
-    background-color: #161b22;
-    border: 1px solid #30363d;
+    background-color: transparent;
+    border: 1px solid #30363d6b;
     border-radius: 6px;
     padding: 16px;
     text-align: center;
