@@ -272,7 +272,7 @@ elements.form.addEventListener('submit', async (e) => {
         await saveUserData(user, username, imageUrl);
 
         // Success - redirect to dashboard
-        window.location.replace('/dashboard.html');
+        window.location.replace('/dashboard');
 
     } catch (error) {
         console.error('Signup error:', error);
