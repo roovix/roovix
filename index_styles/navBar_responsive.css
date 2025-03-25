@@ -1,0 +1,81 @@
+/* Revert responsive start */
+@media screen and (min-width: 1158px) {
+    nav .navList {
+        display: flex !important; /* Ensure it overrides inline styles */
+        position: relative;
+        gap: 50px;
+    }
+}
+/* Revert responsive end */
+@media screen and (max-width: 1158px) {
+    nav .navList {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 300px;
+        padding: 20px;
+        padding-top: 60px;
+        background-color: #0D1117;
+        border-left: 1px solid #181d27;
+        animation: navShowAnimation 0.3s ease-in-out;
+    }
+    nav ul li {
+        margin-bottom: 5px;
+        padding: 8px 15px;
+    }
+    nav ul li a{
+        font-size: 1rem;
+    }
+    nav .navList li:hover {
+        background-color: #181d27;
+        border-radius: 5px;
+    }
+    nav .navList li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background-color: #0366d6; /* Change to your desired blue */
+        transform: scaleY(0);
+        transition: transform 0.3s ease-in-out;
+    }
+    nav .navList li:hover::before {
+        transform: scaleY(1);
+    }
+    nav .navList li a:hover {
+        text-decoration: none;
+    }
+    .menu-icon {
+        display: block;
+    }
+    .navCloseBtn {
+        display: block;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .logo img {
+        width: 25px;
+        height: 25px;
+    }
+}
+@media screen and (max-width: 325px) {
+    nav .navList {
+        width: 100%;
+        padding: 10px;
+        padding-top: 50px;
+    }
+}
+
+@keyframes navShowAnimation {
+    0% {
+        right: -280px;
+    }
+    100% {
+        right: 0;
+    }
+}

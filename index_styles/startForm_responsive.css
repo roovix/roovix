@@ -1,0 +1,40 @@
+@media screen and (max-width: 1571px) {
+    .start-for-free form h2 {
+        font-size: 3.5rem;
+    }
+    .start-for-free form .slow-gun {
+        font-size: 1.2rem;
+    }
+    .start-for-free form .term-condition {
+        font-size: .7rem;
+    }
+}
+@media screen and (max-width: 800px) {
+    .start-for-free {
+        padding: 10% 5vw;
+    }
+}
+@media screen and (max-width: 645px) {
+    .start-for-free {
+        padding: 10% 2vw;
+    }
+    .start-for-free form h2 {
+        font-size: 2.9rem;
+    }
+    .start-for-free form .slow-gun {
+        font-size: 1.1rem;
+    }
+    .start-for-free form .term-condition {
+        font-size: .6rem;
+    }
+}
+@media screen and (max-width: 475px) {
+    .start-for-free form .form-group input {
+        width: 250px;
+    }
+}
+@media screen and (max-width: 431px) {
+    .start-for-free form .form-group button {
+        width: 250px;
+    }
+}

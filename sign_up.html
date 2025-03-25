@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- For search engine -->
+    <title>Sign Up for Roovix · Join the Future of Robotics and AI</title>
+    <meta name="description" content="Create your Roovix account and dive into the world of next-gen robotics and AI. Access cutting-edge tools, tutorials, and join a community of innovators.">
+
+    <!-- For Socials -->
+    <meta property="og:site_name" content="Roovix">
+    <meta name="hostname" content="roovix.com">
+    <meta name="expected-hostname" content="roovix.com">
+
+    <!-- Open Graph (OG) Meta Tags for Social Sharing (Facebook, LinkedIn, WhatsApp, Discord, etc.) -->
+    <meta property="og:title" content="Sign Up for Roovix · Innovate with Robotics and AI">
+    <meta property="og:description" content="Join Roovix and unlock the future of robotics and AI. Sign up to access expert tutorials, advanced tools, and a community driving technological innovation.">
+    <meta property="og:image" content="https://www.roovix.com/image_assets/social-share-thambnail.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.roovix.com/signup">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="roovix">
+    <meta property="twitter:creator" content="roovix">
+    <meta name="twitter:title" content="Sign Up for Roovix · Innovate with Robotics and AI">
+    <meta name="twitter:description" content="Create your Roovix account and explore next-gen robotics and AI solutions. Join a community of innovators shaping the future of technology.">
+    <meta name="twitter:image" content="https://www.roovix.com/image_assets/social-share-thambnail.png">
+    <meta name="twitter:image:width" content="1200">
+    <meta name="twitter:image:height" content="630">
+
+    <!-- Open Graph (OG) Meta Tags for WhatsApp -->
+    <meta property="og:title" content="Sign Up for Roovix · Join the Future of Robotics and AI">
+    <meta property="og:description" content="Create your Roovix account and access cutting-edge robotics and AI tools. Sign up to explore tutorials, automation solutions, and join a forward-thinking tech community.">
+    <meta property="og:image" content="https://www.roovix.com/image_assets/social-share-thambnail.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.roovix.com/signup">
+    <meta property="og:type" content="website">
+
+    <!-- Website favicon -->
+    <link rel="shortcut icon" href="https://www.roovix.com/logos/logo_png.png" type="image/x-icon">
+
+    <!-- Styles -->
+     <link rel="stylesheet" href="signUP_style/index.css">
+</head>
+<body>
+    <header class="header">
+        <a href="login.html?source=sign-up-page" class="login-link">Already have an account? <span>Sign in →</span></a>
+    </header>
+
+    <div class="container">
+        <div class="left-section">
+            <h1>Create your free account</h1>
+            <p class="tagline">Explore Roovix's core features for robotics enthusiasts and AI innovators.</p>
+            
+            <div class="features-toggle" id="featuresToggle">
+                <span>See what's included</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="toggleIcon">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+            
+            <div class="features-list" id="featuresList">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <div class="feature-title">Access to Roovix AI</div>
+                        <div class="feature-description">Increase your productivity and accelerate robotics development.</div>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <div class="feature-title">Integrated code reviews</div>
+                        <div class="feature-description">Boost code quality with built-in review tools.</div>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <div class="feature-title">Community support</div>
+                        <div class="feature-description">Connect with developers worldwide for instant feedback and insights.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-section">
+            <h2>Sign up to Roovix</h2>
+            
+            <form id="signupForm">
+
+
+            <div class="form-group" id="profile-pic-group">
+                <label for="profile-pic">Profile Picture</label>
+                <div class="profile-pic-container">
+                    <label for="profile-pic" class="profile-pic-preview">
+                        <img id="profile-pic-preview" src="image_assets/user_default.png" alt="User Profile Picture">
+                        <div class="upload-overlay">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440ZM120-120q-33 0-56.5-23.5T40-200v-480q0-33 23.5-56.5T120-760h126l74-80h240v80H355l-73 80H120v480h640v-360h80v360q0 33-23.5 56.5T760-120H120Zm640-560v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80ZM440-260q75 0 127.5-52.5T620-440q0-75-52.5-127.5T440-620q-75 0-127.5 52.5T260-440q0 75 52.5 127.5T440-260Zm0-80q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29Z"/></svg>
+                            <span>Upload Photo</span>
+                        </div>
+                    </label>
+                </div>
+                <input type="file" id="profile-pic" accept="image/*" name="profile-pic">
+                <div id="profile-pic-error" class="error-message" style="display: none;">Profile picture is required</div>
+            </div>
+
+
+                <div class="form-group" id="emailGroup">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                    <div id="email-error" class="error-message">Email cannot be blank</div>
+                </div>
+
+                
+                <div class="form-group" id="passwordGroup">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                    <div class="error-message">Password cannot be blank</div>
+                    <div class="password-requirements">
+                        The password must be at least 8 characters long, including one number and one uppercase letter.
+                    </div>
+                </div>
+                
+                <div class="form-group" id="usernameGroup">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                    <div id="username-error" class="error-message">Username cannot be blank</div>
+                    <div class="username-requirements">
+                        Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.
+                    </div>
+                </div>
+                
+                <button id="createAccountButton" type="submit" class="button">
+                    Continue
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </form>
+            
+            <div class="terms">
+                By creating an account, you agree to the <a href="#">Terms of Service</a>. For more information about Roovix's, see the <a href="#">Roovix Privacy Policy</a>.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Glow designs -->
+    <img src="image_assets/green_glow.png" class="glow-effect glow-effect-1"></img>
+    <img src="image_assets/pink_glow.png" class="glow-effect glow-effect-2"></img>
+
+    <script type="module" src="signUP_page_script/script.js"></script>
+    <script src="https://element.roovix.com/upload_image_to_cloudinary.js"></script>
+</body>
+</html>

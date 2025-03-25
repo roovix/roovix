@@ -1,0 +1,55 @@
+@media screen and (max-width: 1158px) {
+    .hero-content, .hero-cards {
+        padding: 0 7rem;
+    }
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    .hero-buttons-container {
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 868px) {
+    .hero-content, .hero-cards {
+        padding: 0 5rem;
+    }
+}
+@media screen and (max-width: 800px) {
+    .hero-content {
+        padding: 0 5vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .hero-content, .hero-cards {
+        padding: 0 2rem;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+}
+@media screen and (max-width: 645px) {
+    .hero-content {
+        padding: 0 2vw;
+    }
+}
+@media screen and (max-width: 505px) {
+    .hero-buttons-container .join-now-button {
+        width: 80%;
+    }
+    .hero-content .watch-video {
+        width: 80%;
+    }
+}

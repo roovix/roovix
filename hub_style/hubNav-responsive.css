@@ -1,0 +1,81 @@
+/* Default styles remain unchanged */
+@media (max-width: 1024px) {
+    .navBar {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        padding-top: 40px;
+        background-color: #161B22;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        border-right: 1px solid #24272c;
+    }
+
+    #small-screen-user-profile-picture-top-right {
+        display: block;
+    }
+
+    .navBar.open {
+        transform: translateX(0);
+    }
+
+    .list {
+        flex-direction: column;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .item {
+        width: 100%;
+        padding: 15px 20px;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    /* This is a page header with bg image top of the page under nabBar */
+    .page-header {
+        height: 150px;
+        padding-top: 60px;
+    }
+}
+
+@media (max-width: 785px) {
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 3px;
+        border-radius: 50%;
+        backdrop-filter: blur(20px);
+    }
+}
+
+
+@media (max-width: 520px) {
+    .logo-dropdown-items {
+        display: flex;
+        flex-direction: column;
+    }
+    .logo-dropdown-items .left-item {
+        border-right: none;
+    }
+}
