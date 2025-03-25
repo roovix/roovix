@@ -56,7 +56,7 @@ form.addEventListener('submit', async (e) => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
-            window.location.replace('dashboard.html'); // Redirect to dashboard
+            window.location.replace('dashboard'); // Redirect to dashboard
         } catch (error) {
             console.log(error.code);
             credentialErrorMessage.style.display = "block";
