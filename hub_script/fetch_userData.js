@@ -36,33 +36,33 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // Open profile when click
     document.getElementById("logo-nav-item").addEventListener('click', ()=>{
         if(uid !== "") {
-            window.location.href = `/dashboard.html`;
+            window.location.href = `/dashboard`;
         }else {
-            window.location.href = "/login.html";
+            window.location.href = "/login";
         }
     });
     // Open profile when join now button click if user logged in else open login page
     document.getElementById("join_now_button_hub_footer").addEventListener('click', ()=>{
         if(uid !== "") {
-            window.location.href = `/dashboard.html`;
+            window.location.href = `/dashboard`;
         } else {
-            window.location.href = "/login.html";
+            window.location.href = "/login";
         }
     });
     // Open profile when fotter dashboard click if user logged in else open login page
     document.getElementById("dashboard-option").addEventListener('click', ()=>{
         if(uid !== "") {
-            window.location.href = `/dashboard.html`;
+            window.location.href = `/dashboard`;
         } else {
-            window.location.href = "/login.html";
+            window.location.href = "/login";
         }
     });
     // Open profile when click small-screen-user-profile-picture-top-right 
     document.getElementById("small-screen-user-profile-picture-top-right").addEventListener('click', ()=>{
         if(uid!== "") {
-            window.location.href = `/dashboard.html`;
+            window.location.href = `/dashboard`;
         } else {
-            window.location.href = "/login.html";
+            window.location.href = "/login";
         }
     });
 });
