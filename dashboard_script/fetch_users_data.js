@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("joined-date").textContent = `Joined at - ${formatISODate(userInfo.createdAt)}`;
             
             // Update user profile pic in navbar
-            document.getElementById("profile-picture-on-profile-nam").src = userInfo.profile_picture;
             document.getElementById("profile-picture-on-dashboard-nam").src = userInfo.profile_picture;
             document.getElementById("profile-picture-on-market-nam").src = userInfo.profile_picture;
             document.getElementById("profile-picture-on-settings-nam").src = userInfo.profile_picture;
