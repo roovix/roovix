@@ -86,10 +86,10 @@
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     // If user is logged in, redirect to dashboard
-                    window.location.replace('dashboard.html');
+                    window.location.replace('dashboard');
                 } else {
                     // If user is not logged in, redirect to landing page
-                    window.location.replace('landing.html');
+                    window.location.replace('landing');
                 }
             });
 
