@@ -20,7 +20,7 @@ document.addEventListener("click", function (event) {
         const articleId = articleElement ? articleElement.getAttribute("data-article-id") : null;
 
         if (articleId) {
-            shareContent(`Stay Ahead of the Curve with Roovix's Latest Insights!`, `/hub?article_id=${articleId}`, articleId);
+            shareContent(`Stay Ahead of the Curve with Roovix's Latest Insights!`, `/hub.html?article_id=${articleId}`, articleId);
         }
     }
 
@@ -30,9 +30,9 @@ document.addEventListener("click", function (event) {
         const uploader_name = uploaderName.querySelector(".uploader-name");
         let user_uid = uploader_name.getAttribute("data-user-id");
         if(getCurrentUser().uid === user_uid){
-            window.location.href = `/dashboard?user_id=${user_uid}`;
+            window.location.href = `/dashboard.html?user_id=${user_uid}`;
         }else{
-            window.location.href = `/view-profile?user_id=${user_uid}`;
+            window.location.href = `/view-profile.html?user_id=${user_uid}`;
         }
     }
 });
@@ -52,7 +52,7 @@ function shareContent(title, url, articleId) {
         }
     }else{
         // Open login page because user not signed in
-        window.location.href = "/login";
+        window.location.href = "/login.html";
     }
 }
 
@@ -167,8 +167,14 @@ function generatePosters(poster, data_key){
                 const code = part.trim();
                 if (code) {
                     const firstWord = code.split(' ')[0];
-                    const codeWithoutLanguage = code.substring(firstWord.length).trim();
+                    let codeWithoutLanguage = code.substring(firstWord.length).trim();
                     
+                    // Unsure the \\n replaced with \n
+                    codeWithoutLanguage = codeWithoutLanguage.replace(/\\n/g, '\n');
+
+                    // Replace \n with <br>
+                    codeWithoutLanguage = codeWithoutLanguage.replace(/\n/g, '<br>');
+
                     processedContent += `
                         <div class="code-block">
                             <div class="action">
@@ -179,7 +185,7 @@ function generatePosters(poster, data_key){
                                     </svg> <span class="copy-btn-text">Copy code</span>
                                 </button>
                             </div>
-                            <pre class="line-numbers"><code class="language-${firstWord} code">${codeWithoutLanguage}</code></pre>
+                            <div class="line-numbers"><div class="language-${firstWord} code">${codeWithoutLanguage}</div></div>
                         </div>
                     `;
                 }
@@ -422,7 +428,7 @@ function generatePosters(poster, data_key){
                                 </div>
                                 <div class="comment-content">
                                     <div class="comment-by">
-                                        <a href="view-profile?user_id=${commentData.comment_by}" 
+                                        <a href="view-profile.html?user_id=${commentData.comment_by}" 
                                         class="comment-username">
                                             @${userData?.username || 'Unknown User'}
                                         </a>
@@ -521,7 +527,7 @@ function generatePosters(poster, data_key){
             const userData = userSnapshot.val();
 
             if (!userData) {
-                window.location.href = '/login';
+                window.location.href = '/login.html';
                 return;
             }
 
@@ -559,7 +565,7 @@ function generatePosters(poster, data_key){
                     </div>
                     <div class="comment-content">
                         <div class="comment-by">
-                            <a href="view-profile?user_id=${userId}" class="comment-username">
+                            <a href="view-profile.html?user_id=${userId}" class="comment-username">
                                 @${userData.username || 'Unknown User'}
                             </a>
                             <span class="comment-time-ago">Just now</span>
@@ -724,9 +730,9 @@ async function fetchPosters(limit) {
         if (poster_id_on_url) {
             // Fetch and display the specific poster
             generatePosters(article_data[poster_id_on_url], poster_id_on_url);
-            Prism.highlightAll();
+
             // Prevent further posters from being loaded if article_id exists in the URL
-            document.getElementById("end-of-article").innerHTML = `<a href="/hub">View More Articles</a>`; // Hide the end view
+            document.getElementById("end-of-article").innerHTML = `<a href="/hub.html">View More Articles</a>`; // Hide the end view
         } else {
             // Fetch and display the limited number of posters
             for (const data_key in article_data) {
@@ -739,9 +745,6 @@ async function fetchPosters(limit) {
 
             // Update the last fetched key for pagination
             lastFetchedKey = Object.keys(article_data)[posters_loaded - 1];
-
-            // Apply code syntax highlighting for code blocks
-            Prism.highlightAll();
         }
 
     } catch (error) {
