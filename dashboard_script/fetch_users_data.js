@@ -21,7 +21,7 @@ function formatISODate(isoString) {
     return `${month} ${day}, ${year}`;
 }
 
-
+// On load
 document.addEventListener("DOMContentLoaded", () => {
     // Wait for authentication state
     onAuthStateChanged(auth, async (user) => {
