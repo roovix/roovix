@@ -31,10 +31,9 @@
         <link rel="apple-touch-icon" sizes="180x180" href="https://www.roovix.com/logos/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="https://www.roovix.com/logos/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="https://www.roovix.com/logos/favicon-16x16.png">
-        <link rel="manifest" href="https://www.roovix.com/site.webmanifest">
-    
+
         <!-- Canonical Link -->
-        <link rel="canonical" href="https://www.roovix.com/user-profile">
+        <link rel="canonical" href="https://www.roovix.com/view-profile">
     
         <!-- Stylesheets -->
         <link rel="stylesheet" href="view-profile_style/index.css">
@@ -42,16 +41,83 @@
     
         <!-- JavaScript -->
         <script type="module" src="view-profile_script/replace-view-page-t0-my-page-if_currentUser.js"></script>
-        <script src="https://www.roovix.com/js/common.js" defer></script>
-    
+        
+        <!-- Font awesome icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <!-- Additional Meta Tags -->
         <meta name="robots" content="index, follow">
         <meta name="author" content="Roovix Team">
         <meta name="keywords" content="Roovix, user profile, AI, robotics, technology, insights">
     </head>    
 <body>
-    
+    <div class="nav-actions">
+        <a href="/dashboard" id="home-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg> Home</a>
+        <a href="/hub" id="resurces-hub-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M323-160q-11 0-20.5-5.5T288-181l-78-139h58l40 80h92v-40h-68l-40-80H188l-57-100q-2-5-3.5-10t-1.5-10q0-4 5-20l57-100h104l40-80h68v-40h-92l-40 80h-58l78-139q5-10 14.5-15.5T323-800h97q17 0 28.5 11.5T460-760v160h-60l-40 40h100v120h-88l-40-80h-92l-40 40h108l40 80h112v200q0 17-11.5 28.5T420-160h-97Zm237 0q-33 0-56.5-23.5T480-240q0-23 11-40.5t29-28.5v-342q-18-11-29-28.5T480-720q0-33 23.5-56.5T560-800q33 0 56.5 23.5T640-720q0 23-11 40.5T600-651v101l80-48q0-34 23.5-58t56.5-24q33 0 56.5 23.5T840-600q0 33-23.5 56.5T760-520q-11 0-20.5-2.5T721-530l-91 55 101 80q7-3 14-4t15-1q33 0 56.5 23.5T840-320q0 33-23.5 56.5T760-240q-37 0-60.5-28T681-332l-81-65v89q18 11 28.5 28.5T639-240q0 33-23 56.5T560-160Z"/></svg> Resources hub</a>
+    </div>
 
-    <script src="view-profile_script/script.js"></script>
+    <!-- Profile Card -->
+    <div class="card profile-card">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <img id="user-photo" src="image_assets/user_default.png" alt="Roovix User profile" class="avatar-img">
+                <div class="verified-badge">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+            <div class="profile-info">
+                <div class="profile-name-container">
+                    <h2 id="user-name" class="profile-name"></h2>
+                    <span class="profile-tag">CUSTOMER</span>
+                </div>
+                <p id="user-email" class="profile-email"></p>
+            </div>
+            <div class="profile-date">
+                <i class="fas fa-circle date-dot"></i> <span id="joined-date"></span>
+            </div>
+        </div>
+
+        <div class="profile-tabs">
+            <button class="tab-btn active" data-tab="interests">
+                <i class="far fa-compass"></i> Interests
+            </button>
+            <button class="tab-btn" data-tab="ai-fields">
+                <i class="fas fa-robot"></i> AI Generated Fields
+            </button>
+        </div>
+
+        <div class="tab-content active" id="interests-tab">
+            <div class="interests-container">
+                <div class="interest-tag">Content Creation and Media</div>
+                <div class="interest-tag">Engineering Innovation</div>
+                <div class="interest-tag">Community Building</div>
+                <div class="interest-tag">Humor and Creativity</div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="ai-fields-tab">
+            <div class="interests-container">
+                <div class="interest-tag">Data Science</div>
+                <div class="interest-tag">Machine Learning</div>
+                <div class="interest-tag">Neural Networks</div>
+                <div class="interest-tag">AI Ethics</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Security</a>
+            <a href="#">Contact Roovix</a>
+        </div>
+        <div style="margin-top: 8px;">
+            © <script>document.write(new Date().getFullYear())</script> Roovix Research Lab
+        </div>
+    </div>
+
+    <script type="module" src="view-profile_script/script.js"></script>
 </body>
 </html>
