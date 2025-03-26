@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("sidebar").classList.toggle("active")
   })
 
-  // When click any profile button
+  // When click any profile buttons
   document.querySelectorAll(".profile-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       // Navigate to profile page
