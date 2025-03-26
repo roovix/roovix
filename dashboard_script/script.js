@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".resources-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       // Navigate to hub page
-      window.location.href = "/hub.html";
+      window.location.href = "/hub";
     });
   });
 
