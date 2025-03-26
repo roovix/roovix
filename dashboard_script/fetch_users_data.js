@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const interestsList = document.getElementById('interests-list');
             const skillsList = document.getElementById('skills-list');
             
-            let interestsData = userData.interests;
-            let skillsData = userData.skills;
+            let interestsData = userInfo.interests;
+            let skillsData = userInfo.skills;
 
             // Show interests
             if(interestsData) {
