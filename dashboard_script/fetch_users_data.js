@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("joined-date").textContent = `Joined at - ${formatISODate(userInfo.createdAt)}`;
             
             if(userInfo.bio) {
-                document.getElementById("bio-content").textContent = userData.bio;
+                document.getElementById("bio-content").textContent = userInfo.bio;
             }else {
                 document.getElementById("bio-content").textContent = "No intro provided.";
             }
