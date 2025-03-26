@@ -60,13 +60,54 @@ if(userId) {
   const userDataSnapshot = await get(userRef);
 
   if (userDataSnapshot.exists()) {
+
     const userData = userDataSnapshot.val();
-    console.log(userData);
+
     // Update profile page with user data
     document.getElementById("user-name").textContent = userData.username;
     document.getElementById("user-email").textContent = userData.email;
     document.getElementById("joined-date").textContent = formatISODate(userData.createdAt);
     document.getElementById("user-photo").src = userData.profile_picture;
+    
+    
+    if(userData.bio) {
+      document.getElementById("bio-content").textContent = userData.bio;
+    }else{
+      document.getElementById("bio-content").textContent = 'No bio provided';
+    }
+
+    // Show interests and skills
+    const interestsList = document.getElementById('interests-list');
+    const skillsList = document.getElementById('skills-list');
+    
+    let interestsData = userData.interests;
+    let skillsData = userData.skills;
+
+    // Show interests
+    if(interestsData) {
+      interestsData = interestsData.split(',');
+      interestsData.forEach((interest)=>{
+        const interestItem = document.createElement('div');
+        interestItem.classList= 'interest-tag';
+        interestItem.textContent = interest;
+        interestsList.appendChild(interestItem);
+      })
+    }else{
+      interestsList.textContent = 'No interests found';
+    }
+
+    // Show skills
+    if(skillsData) {
+      skillsData = skillsData.split(',');
+      skillsData.forEach((skill)=>{
+        const skillItem = document.createElement('div');
+        skillItem.classList='interest-tag';
+        skillItem.textContent = skill;
+        skillsList.appendChild(skillItem);
+      })
+    }else{
+      skillsList.textContent = 'No skills found';
+    }
   }else {
     alert("User data not found");
   }
