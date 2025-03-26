@@ -1,6 +1,6 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-import { ref, set, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { ref, set, get, update } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
 // Form validation
 const form = document.getElementById('loginForm');
@@ -56,7 +56,10 @@ form.addEventListener('submit', async (e) => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
-            window.location.replace('dashboard'); // Redirect to dashboard
+            // Update last login time with ISOString format
+            const userRef = ref(db, `/users/${user.uid}`);
+            await update(userRef, { lastLogin: new Date().toISOString() });
+            window.location.replace('/dashboard'); // Redirect to dashboard
         } catch (error) {
             console.log(error.code);
             credentialErrorMessage.style.display = "block";
