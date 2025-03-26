@@ -1,5 +1,7 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { formatISODate } from 'https://element.roovix.com/functions/app.js';
+
 
 // Profile tab navigation
 const tabBtns = document.querySelectorAll(".tab-btn");
@@ -49,3 +51,25 @@ document.querySelectorAll(".profile-btn").forEach((btn) => {
 });
 
 // Fetch user profile data from Firebase Realtime Database
+let urlParams = window.location.search;
+let params = new URLSearchParams(urlParams);
+let userId = params.get('user_id');
+
+if(userId) {
+  const userRef = ref(db, `users/${userId}`);
+  const userDataSnapshot = await get(userRef);
+
+  if (userDataSnapshot.exists()) {
+    const userData = userDataSnapshot.val();
+    console.log(userData);
+    // Update profile page with user data
+    document.getElementById("user-name").textContent = userData.username;
+    document.getElementById("user-email").textContent = userData.email;
+    document.getElementById("joined-date").textContent = formatISODate(userData.createdAt);
+    document.getElementById("user-photo").src = userData.profile_picture;
+  }else {
+    alert("User data not found");
+  }
+}else{
+  alert("User ID not provided, Invalid url..!");
+}
