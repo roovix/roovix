@@ -561,6 +561,9 @@ pre br {
     display: block; /* Forces <br> to create a new line inside <pre> */
     content: ""; /* Ensures <br> actually breaks the line */
 }
+.code {
+    padding: 15px 25px;
+}
 .code-block .action {
     width: 100%;
     height: 60px;
