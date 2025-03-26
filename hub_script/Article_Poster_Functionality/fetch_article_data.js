@@ -20,7 +20,7 @@ document.addEventListener("click", function (event) {
         const articleId = articleElement ? articleElement.getAttribute("data-article-id") : null;
 
         if (articleId) {
-            shareContent(`Stay Ahead of the Curve with Roovix's Latest Insights!`, `/hub.html?article_id=${articleId}`, articleId);
+            shareContent(`Stay Ahead of the Curve with Roovix's Latest Insights!`, `/hub?article_id=${articleId}`, articleId);
         }
     }
 
@@ -30,9 +30,9 @@ document.addEventListener("click", function (event) {
         const uploader_name = uploaderName.querySelector(".uploader-name");
         let user_uid = uploader_name.getAttribute("data-user-id");
         if(getCurrentUser().uid === user_uid){
-            window.location.href = `/dashboard.html?user_id=${user_uid}`;
+            window.location.href = `/dashboard`;
         }else{
-            window.location.href = `/view-profile.html?user_id=${user_uid}`;
+            window.location.href = `/view-profile?user_id=${user_uid}`;
         }
     }
 });
@@ -52,7 +52,7 @@ function shareContent(title, url, articleId) {
         }
     }else{
         // Open login page because user not signed in
-        window.location.href = "/login.html";
+        window.location.href = "/login";
     }
 }
 
@@ -428,7 +428,7 @@ function generatePosters(poster, data_key){
                                 </div>
                                 <div class="comment-content">
                                     <div class="comment-by">
-                                        <a href="view-profile.html?user_id=${commentData.comment_by}" 
+                                        <a href="view-profile?user_id=${commentData.comment_by}" 
                                         class="comment-username">
                                             @${userData?.username || 'Unknown User'}
                                         </a>
@@ -527,7 +527,7 @@ function generatePosters(poster, data_key){
             const userData = userSnapshot.val();
 
             if (!userData) {
-                window.location.href = '/login.html';
+                window.location.href = '/login';
                 return;
             }
 
@@ -565,7 +565,7 @@ function generatePosters(poster, data_key){
                     </div>
                     <div class="comment-content">
                         <div class="comment-by">
-                            <a href="view-profile.html?user_id=${userId}" class="comment-username">
+                            <a href="view-profilel?user_id=${userId}" class="comment-username">
                                 @${userData.username || 'Unknown User'}
                             </a>
                             <span class="comment-time-ago">Just now</span>
@@ -732,7 +732,7 @@ async function fetchPosters(limit) {
             generatePosters(article_data[poster_id_on_url], poster_id_on_url);
 
             // Prevent further posters from being loaded if article_id exists in the URL
-            document.getElementById("end-of-article").innerHTML = `<a href="/hub.html">View More Articles</a>`; // Hide the end view
+            document.getElementById("end-of-article").innerHTML = `<a href="/hub">View More Articles</a>`; // Hide the end view
         } else {
             // Fetch and display the limited number of posters
             for (const data_key in article_data) {
