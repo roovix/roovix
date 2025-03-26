@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             if (urlUserId === currentUserId) {
                 // If user_id matches, redirect to dashboard.html
-                window.location.href = "dashboard.html";
+                window.location.href = "dashboard";
             }
         }
     });
