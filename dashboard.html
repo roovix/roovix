@@ -286,6 +286,55 @@
                         <!-- links will be displayed here -->
                     </ul>                                        
                 </div>
+                
+                <!-- Open button for profile share model -->
+                 <button id="openProfileShareModel">Share Profile</button>
+            </div>
+
+            <!-- Profile share absolute ui here -->
+            <div id="share-model-bg">
+                <div class="share-modal" id="share-modal">
+                    <div class="share-modal-header">
+                        <h2>Share Profile</h2>
+                        <button class="close-btn" id="closeShareUI">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="share-modal-divider"></div>
+                    
+                    <div class="share-modal-content">
+                        <!-- <p class="share-text">Share link via</p> -->
+                        
+                        <!-- <div class="social-icons">
+                            <a href="#" class="social-icon facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-icon telegram">
+                                <i class="fab fa-telegram-plane"></i>
+                            </a>
+                        </div> -->
+                        
+                        <!-- <p class="copy-text">Or copy link</p> -->
+                        
+                        <div class="copy-link" id="share-copy">
+                            <div class="link-container">
+                                <i class="fas fa-link"></i>
+                                <span class="link-text" id="share-link-text"></span>
+                            </div>
+                            <button class="copy-btn" id="copyBtn">Copy link</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="row">
