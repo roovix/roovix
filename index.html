@@ -81,6 +81,17 @@
         import { auth } from "https://www.roovix.com/config/firebase_config.js";
         import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
+        // Check for url params if user id or username exist then open view profile page
+        const urlParams = new URLSearchParams(window.location.search);
+        const user = urlParams.get('user');
+
+        if (user) {
+            // Open view profile page with user details
+            window.location.replace(`view-profile?user_id=${user}`);
+        } else {
+            // If no user id or username, continue with the loading process
+        }
+        
         // Wait 2 seconds before checking login status
         setTimeout(() => {
             onAuthStateChanged(auth, (user) => {
