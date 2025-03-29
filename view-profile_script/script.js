@@ -92,7 +92,9 @@ if(userId) {
     document.getElementById("user-email").textContent = userData.email;
     document.getElementById("joined-date").textContent = formatISODate(userData.createdAt);
     document.getElementById("user-photo").src = userData.profile_picture;
-    
+
+    // Change the title according user
+    document.title = `Roovix Profile · ${userData.username}`;
     
     if(userData.bio) {
       document.getElementById("bio-content").textContent = userData.bio;
