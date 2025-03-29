@@ -256,6 +256,53 @@
         gap: 16px;
         margin-top: 8px;
     }
+
+/* Links section */
+.links-section {
+  position: relative;
+  margin-top: 30px;
+}
+
+.links-section ul {
+  margin-top: 20px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links-section ul li a {
+  text-decoration: none;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-wrap: wrap; /* Allow wrapping inside the link */
+}
+
+/* Icon Styling */
+.links-section ul li a img {
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+/* Container for link text */
+.links-section ul li a .link-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Allow text to expand */
+  min-width: 0; /* Prevents overflow */
+}
+
+/* URL Text - Ensures Wrapping */
+.links-section ul li a .link-text .url-text {
+  color: #0069e0;
+  word-break: break-word; /* Break long words */
+  overflow-wrap: break-word; /* Ensures proper wrapping */
+  white-space: normal; /* Allow multiple lines */
+}
   
   /* Responsive adjustments for profile card */
   @media (max-width: 768px) {
