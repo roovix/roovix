@@ -118,6 +118,7 @@ main {
 
 /* Card Base Styles */
 .card {
+  position: relative;
   background-color: var(--card-bg);
   border-radius: 12px;
   padding: 24px;
