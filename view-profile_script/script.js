@@ -1,6 +1,6 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
-import { getDomain, formatISODate } from "https://element.roovix.com/functions/app.js";
+import { getDomain, formatISODate, ISoToTimeAgo } from "https://element.roovix.com/functions/app.js";
 
 // Profile tab navigation
 const tabBtns = document.querySelectorAll(".tab-btn");
