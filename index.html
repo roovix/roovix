@@ -86,8 +86,12 @@
         const user = urlParams.get('user');
 
         if (user) {
+            let userIdentity = user;
             // Open view profile page with user details
-            window.location.replace(`view-profile?user_id=${user}`);
+            if(user.includes("@")){
+                userIdentity = userIdentity.replace("@", "");
+            }
+            window.location.replace(`view-profile.html?user_id=${userIdentity}`);
         } else {
             // If no user id or username, continue with the loading process
         }
