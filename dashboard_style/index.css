@@ -28,6 +28,7 @@
 
 /* Root Scrollbars */
 html {
+ scroll-behavior: smooth;
   /* Scrollbar size */
   scrollbar-width: thin;
   scrollbar-color: #005ec9 var(--card-bg); /* Thumb and Track */
