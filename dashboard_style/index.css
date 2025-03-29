@@ -23,6 +23,37 @@
     "Helvetica Neue", sans-serif;
 }
 
+/* Root Scrollbars */
+html {
+  /* Scrollbar size */
+  scrollbar-width: thin;
+  scrollbar-color: #005ec9 var(--card-bg); /* Thumb and Track */
+}
+
+/* For Webkit Browsers (Chrome, Safari, etc.) */
+html::-webkit-scrollbar {
+  width: 12px; /* Width of the vertical scrollbar */
+  height: 12px; /* Height of the horizontal scrollbar */
+}
+
+/* Scrollbar Track */
+html::-webkit-scrollbar-track {
+  background-color: var(--card-bg); /* Background of the scrollbar track */
+  border-radius: 10px;
+}
+
+/* Scrollbar Thumb */
+html::-webkit-scrollbar-thumb {
+  background-color: var(--accent-blue); /* Color of the draggable thumb */
+  border-radius: 10px;
+  border: 3px solid var(--card-bg); /* Adds a small border to thumb for better visibility */
+}
+
+/* Scrollbar Thumb Hover */
+html::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-blue-glow); /* Glow effect on hover */
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-primary);
@@ -585,6 +616,7 @@ body {
   margin-top: 20px;
 }
 
+
 .engaged-header {
   display: flex;
   justify-content: space-between;
@@ -596,6 +628,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 300px;
 }
 
 .content-item {
@@ -661,19 +696,23 @@ body {
   z-index: 100;
 }
 
-  /* Bio section */
-  .bio-section {
-    width: 100%;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .bio-section span {
-    font-weight: 300;
-    text-align: center;
-    margin-bottom: 8px;
-  }
+/* Content Sections */
+.bio-section {
+  margin: 24px 0;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+.bio-heading {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.bio-section span {
+  color: var(--text-secondary);
+}
 
 /* Links section */
 .links-section {
