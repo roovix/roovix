@@ -139,6 +139,32 @@ if(userId) {
     }else {
         linksList.textContent = 'No links found';
     }
+
+    // Show projects list
+    const projectList = document.getElementById("project-content-list");
+    if(userData.projects) {
+        let projects = userData.projects;
+        let projectHtml = ``;
+
+        // Loop inside projects to fetch project one by one
+        projects.forEach((project)=>{
+            projectHtml += `
+                <a href="${project.url}" class="content-item">
+                    <div class="content-thumbnail">
+                        <img src="image_assets/success_right.webp" alt="">
+                    </div>
+                    <div class="content-details">
+                        <div class="content-title">${project.title}</div>
+                        <div class="content-tags">${project.tag_line}</div>
+                    </div>
+                    <div class="content-time">${ISoToTimeAgo(project.date)}</div>
+                </a>
+            `;
+        });
+        projectList.innerHTML = projectHtml;
+    }else {
+        projectList.innerHTML = `<span class="no-project-source-found">No sources found..!!</span>`;
+    }
     
   }else {
     alert("User data not found");
