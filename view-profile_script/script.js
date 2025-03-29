@@ -2,7 +2,6 @@ import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { getDomain, formatISODate } from "https://element.roovix.com/functions/app.js";
 
-
 // Profile tab navigation
 const tabBtns = document.querySelectorAll(".tab-btn");
 tabBtns.forEach((btn) => {
@@ -74,6 +73,15 @@ if(userId) {
       document.getElementById("bio-content").textContent = userData.bio;
     }else{
       document.getElementById("bio-content").textContent = 'No bio provided';
+    }
+
+    // Check for suer verified
+    if(userData.verified) {
+      document.querySelector(".verified-badge").classList.remove('unverified');
+      document.querySelector(".avatar-img").classList.remove('unverified');
+    }else{
+      document.querySelector(".avatar-img").classList.add('unverified');
+      document.querySelector(".verified-badge").classList.add('unverified');
     }
 
     // Show interests and skills
