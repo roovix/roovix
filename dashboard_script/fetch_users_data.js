@@ -33,6 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("bio-content").textContent = "No intro provided.";
             }
 
+            // Check for suer verified
+            if(userInfo.verified) {
+                document.querySelector(".verified-badge").classList.remove('unverified');
+                document.querySelector(".avatar-img").classList.remove('unverified');
+            }else{
+                document.querySelector(".avatar-img").classList.add('unverified');
+                document.querySelector(".verified-badge").classList.add('unverified');
+            }
+
             // Update user profile pic in navbar
             document.getElementById("profile-picture-on-dashboard-nam").src = userInfo.profile_picture;
             document.getElementById("profile-picture-on-market-nam").src = userInfo.profile_picture;
