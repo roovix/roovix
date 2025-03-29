@@ -106,33 +106,40 @@
         // Check for url params if user id or username exist then open view profile page
         const urlParams = new URLSearchParams(window.location.search);
         const user = urlParams.get('user');
+        const user_method_2 = urlParams.get('profile');
 
-        if (user) {
-            let userIdentity = user;
+        if (user || user_method_2) {
+            let userIdentity = "";
             // Open view profile page with user details
-            if(user.includes("@")){
-                userIdentity = userIdentity.replace("@", "");
+            if(user && !user_method_2 && user.includes("@")){
+                userIdentity = user.replace("@", "");
+            }else if(user && !user_method_2 && !user.includes("@")) {
+                userIdentity = user;
+            }
+            else if(user_method_2 && !user && user_method_2.includes("@")) {
+                userIdentity = user_method_2.replace("@", "");
+            }
+            else if(user_method_2 && !user && !user_method_2.includes("@")) {
+                userIdentity = user_method_2.replace("@", "");
             }
             window.location.replace(`view-profile?user_id=${userIdentity}`);
         } else {
-            // If no user id or username, continue with the loading process
+            // Wait 2 seconds before checking login status
+            setTimeout(() => {
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        // If user is logged in, redirect to dashboard
+                        window.location.replace('dashboard');
+                    } else {
+                        // If user is not logged in, redirect to landing page
+                        window.location.replace('landing');
+                    }
+                });
+
+                // Hide the loading screen after check
+                document.getElementById('loading').style.display = 'none';
+            }, 2000); // Wait for 2 seconds before redirect
         }
-
-        // Wait 2 seconds before checking login status
-        setTimeout(() => {
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    // If user is logged in, redirect to dashboard
-                    window.location.replace('dashboard');
-                } else {
-                    // If user is not logged in, redirect to landing page
-                    window.location.replace('landing');
-                }
-            });
-
-            // Hide the loading screen after check
-            document.getElementById('loading').style.display = 'none';
-        }, 2000); // Wait for 2 seconds before redirect
     </script>
 </body>
 </html>
