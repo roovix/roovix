@@ -576,6 +576,35 @@ body {
   font-size: 14px;
 }
 
+/* item tabs section */
+.item-tabs-container {
+  width: 100%;
+}
+.item-tabs-container ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+}
+.item-tabs-container ul li {
+  min-width: 200px;
+  background-color: rgba(255, 255, 255, 0.03);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 7px 10px;
+  transition: background-color 0.3s ease;
+  gap: 10px;
+}
+.item-tabs-container ul li:hover {
+  background-color: rgba(255, 255, 255, 0.055);
+}
+
 /* Share Modal Styles */
 #share-model-bg {
   width: 100%;
@@ -594,7 +623,7 @@ body {
 .share-modal {
   background-color: var(--card-bg);
   max-width: 500px;
-  width: 100%;
+  width: 93%;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -605,7 +634,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
+  padding: 15px 20px;
 }
 
 .share-modal-header h2 {
@@ -640,7 +669,7 @@ body {
 }
 
 .share-modal-content {
-  padding: 20px;
+  padding: 10px;
 }
 
 .share-text, .copy-text {
@@ -697,6 +726,7 @@ body {
 
 .copy-link {
   display: flex;
+  flex-wrap: wrap;
   border: 1px solid var(--border-color);
   border-radius: 6px;
   overflow: hidden;
@@ -717,11 +747,13 @@ body {
 }
 
 .link-text {
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 14px;
+  word-break: break-all; /* Ensures characters wrap individually */
+  white-space: normal; /* Allows text to break */
 }
+
 
 #share-copy {
   cursor: pointer;
@@ -736,6 +768,9 @@ body {
   cursor: pointer;
   transition: background-color 0.2s;
   height: 44px;
+  text-wrap: nowrap;
+  text-align: end;
+  width: 100%;
 }
 
 /* Project section */
