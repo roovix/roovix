@@ -682,6 +682,11 @@ body {
   white-space: nowrap;
 }
 
+.no-project-source-found {
+  text-align: center;
+  color: var(--text-secondary);
+}
+
 /* Responsive Styles */
 .mobile-toggle {
   display: none;
