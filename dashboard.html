@@ -27,10 +27,10 @@
         <link rel="shortcut icon" href="https://www.roovix.com/logos/logo_png.png" type="image/x-icon">
     
         <!-- Favicon & Icons -->
-        <link rel="icon" href="https://www.roovix.com/logos/logo_png.png" type="image/x-icon">
-        <link rel="apple-touch-icon" sizes="180x180" href="https://www.roovix.com/logos/logo_png.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="https://www.roovix.com/logos/logo_png.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="https://www.roovix.com/logos/logo_png.png">
+        <link rel="icon" href="https://www.roovix.com/logos/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.roovix.com/logos/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.roovix.com/logos/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.roovix.com/logos/favicon-16x16.png">
     
         <!-- Canonical Link -->
         <link rel="canonical" href="https://www.roovix.com/dashboard">
@@ -38,7 +38,7 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="dashboard_style/index.css">
-    
+
         <!-- Additional Meta Tags -->
         <meta name="robots" content="noindex, nofollow">
         <meta name="author" content="Roovix Team">
@@ -259,7 +259,7 @@
                         <i class="far fa-compass"></i> Interests
                     </button>
                     <button class="tab-btn" data-tab="ai-fields">
-                        <i class="fa-solid fa-bolt"></i> skills
+                        <i class="fa-solid fa-bolt"></i> Skills
                     </button>
                 </div>
 
@@ -293,8 +293,8 @@
                 <div class="card metric-card">
                     <div class="metric-title">Content Views</div>
                     <div class="metric-value-large">184</div>
-                    <div class="metric-change positive">
-                        2.1% <i class="fas fa-arrow-up"></i>
+                    <div class="metric-change negative">
+                        2.1% <i class="fas fa-arrow-down"></i>
                     </div>
                 </div>
 
@@ -302,8 +302,8 @@
                 <div class="card metric-card">
                     <div class="metric-title">Time on Site</div>
                     <div class="metric-value-large">35<span class="metric-unit">h</span></div>
-                    <div class="metric-change negative">
-                        1.7% <i class="fas fa-arrow-down"></i>
+                    <div class="metric-change positive">
+                        1.7% <i class="fas fa-arrow-up"></i>
                     </div>
                 </div>
             </div>
@@ -318,39 +318,8 @@
                     </div>
                 </div>
                 
-                <div class="content-list">
-                    <a href="#" class="content-item">
-                        <div class="content-thumbnail">
-                            <img src="image_assets/success_right.webp" alt="Content thumbnail">
-                        </div>
-                        <div class="content-details">
-                            <div class="content-title">The Benefits of Taking Notes</div>
-                            <div class="content-tags">Productivity, Education, Writing</div>
-                        </div>
-                        <div class="content-time">5h 23m</div>
-                    </a>
+                <div class="content-list" id="project-content-list">
                     
-                    <a href="#" class="content-item">
-                        <div class="content-thumbnail">
-                            <img src="image_assets/success_right.webp" alt="Content thumbnail">
-                        </div>
-                        <div class="content-details">
-                            <div class="content-title">The Future of Collaboration is here</div>
-                            <div class="content-tags">Teamwork, Workplace</div>
-                        </div>
-                        <div class="content-time">4h 47m</div>
-                    </a>
-                    
-                    <a href="#" class="content-item">
-                        <div class="content-thumbnail">
-                            <img src="image_assets/success_right.webp" alt="Content thumbnail">
-                        </div>
-                        <div class="content-details">
-                            <div class="content-title">From Flowcharts to Wireframing</div>
-                            <div class="content-tags">UX design, Design Tools</div>
-                        </div>
-                        <div class="content-time">4h 31m</div>
-                    </a>
                 </div>
             </div>
         </div>
@@ -422,7 +391,6 @@
         </div>
     </div>
 
-<!-- Scripts -->
     <script src="dashboard_script/script.js"></script>
     <script type="module" src="dashboard_script/fetch_users_data.js"></script>
 </body>
