@@ -44,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.querySelector(".verified-badge").classList.add('unverified');
             }
 
+            // Make a profile share link for current user
+            document.getElementById("share-link-text").textContent = `https://roovix.com?profile=${userInfo.username}`;
+
             // Update user profile pic in navbar
             document.getElementById("profile-picture-on-dashboard-nam").src = userInfo.profile_picture;
             document.getElementById("profile-picture-on-market-nam").src = userInfo.profile_picture;
