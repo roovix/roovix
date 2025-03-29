@@ -1,25 +1,8 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, set, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { getDomain, formatISODate } from "https://element.roovix.com/functions/app.js";
 
-
-function getFormattedDate() {
-    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-    const date = new Date();
-    const month = months[date.getMonth()];
-    const day = date.getDate();
-    const year = date.getFullYear();
-    return `${month} ${day}, ${year}`;
-}
-
-function formatISODate(isoString) {
-    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-    const date = new Date(isoString);
-    const month = months[date.getMonth()];
-    const day = date.getDate();
-    const year = date.getFullYear();
-    return `${month} ${day}, ${year}`;
-}
 
 // On load
 document.addEventListener("DOMContentLoaded", () => {
