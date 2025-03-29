@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const userData = await get(userRef);
             const userInfo = userData.val();
+
+            // Change the page title with user name
+            document.title = `Roovix - ${userInfo.username}`;
             
             // Update user information in the DOM
             document.getElementById("user-name").textContent = userInfo.username;
