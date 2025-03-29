@@ -95,6 +95,9 @@ if(userId) {
 
     // Change the title according user
     document.title = `Roovix Profile · ${userData.username}`;
+
+    // Make a profile share link for current user
+    document.getElementById("share-link-text").textContent = `https://roovix.com?profile=${userData.username}`;
     
     if(userData.bio) {
       document.getElementById("bio-content").textContent = userData.bio;
