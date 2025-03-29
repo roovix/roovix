@@ -205,16 +205,19 @@ main {
 }
 
 .profile-date {
-  font-size: 14px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 12px;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
 }
 
 .date-dot {
-  color: var(--accent-red);
-  margin-right: 6px;
+  color: #ff3b5c;
   font-size: 8px;
+  margin-right: 6px;
 }
 
 /* Tabs Navigation */
