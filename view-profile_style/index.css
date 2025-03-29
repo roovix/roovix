@@ -418,6 +418,11 @@ main {
   white-space: nowrap;
 }
 
+.no-project-source-found {
+  text-align: center;
+  color: var(--text-secondary);
+}
+
 /* Footer */
 .footer {
   margin-top: 40px;
