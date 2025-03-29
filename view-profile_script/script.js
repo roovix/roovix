@@ -1,6 +1,6 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
-import { getDomain, formatISODate, ISoToTimeAgo } from "https://element.roovix.com/functions/app.js";
+import { getDomain, formatISODate, ISoToTimeAgo, isValidUID, isValidUsername } from "https://element.roovix.com/functions/app.js";
 
 // Profile tab navigation
 const tabBtns = document.querySelectorAll(".tab-btn");
@@ -53,6 +53,18 @@ document.querySelectorAll(".profile-btn").forEach((btn) => {
 let urlParams = window.location.search;
 let params = new URLSearchParams(urlParams);
 let userId = params.get('user_id');
+
+
+// If user searching for a username
+if(!isValidUID(userId) && isValidUsername(userId)) {
+  // Fetch for uid of this username
+  const userRefForUId = ref(db, `user_uname/${userId}`);
+  const usernameDataSnapshot = await get(userRefForUId);
+  if(usernameDataSnapshot) {
+    userId = usernameDataSnapshot.val().uid;
+  }
+}
+
 
 if(userId) {
   const userRef = ref(db, `users/${userId}`);
