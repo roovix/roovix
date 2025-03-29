@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 projectList.innerHTML = projectHtml;
             }else {
-                projectList.textContent = "No projects sources found";
+                projectList.innerHTML = `<span class="no-project-source-found">No sources found..!!</span>`;
             }
             
         } catch (error) {
