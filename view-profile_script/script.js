@@ -1,5 +1,6 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { getDomain, formatISODate, ISoToTimeAgo, isValidUID, isValidUsername } from "https://element.roovix.com/functions/app.js";
 
 // Profile tab navigation
@@ -65,8 +66,20 @@ if(!isValidUID(userId) && isValidUsername(userId)) {
   }
 }
 
-
 if(userId) {
+
+  // Check authentication state
+  onAuthStateChanged(auth, (user) => {
+      if (user) {
+          const currentUserId = user.uid;
+          
+          if (userId === currentUserId) {
+              // If user_id matches, redirect to dashboard.html
+              window.location.href = "dashboard";
+          }
+      }
+  });
+
   const userRef = ref(db, `users/${userId}`);
   const userDataSnapshot = await get(userRef);
 
