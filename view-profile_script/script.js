@@ -1,6 +1,6 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
-import { formatISODate } from 'https://element.roovix.com/functions/app.js';
+import { getDomain, formatISODate } from "https://element.roovix.com/functions/app.js";
 
 
 // Profile tab navigation
@@ -108,6 +108,30 @@ if(userId) {
     }else{
       skillsList.textContent = 'No skills found';
     }
+
+    // show links that user provided
+    const linksList = document.getElementById('links-list');
+    if(userData.links) {
+        let linksData = userData.links;
+        let linkHtml = ``;                
+
+        // Loop inside links to fetch link one by one
+        linksData.forEach((link)=>{
+            // Get domain from link
+            let domain = getDomain(link.url);
+
+            linkHtml += `
+                <li><a href="${link.url}" target="_blank">
+                    <img class="link-icon" src="https://www.google.com/s2/favicons?sz=64&domain=${domain}" alt="${domain}">
+                    <div class="link-text">${link.title} <span class="url-text">${link.url}</span></div>
+                </a></li>
+            `;
+        });
+        linksList.innerHTML = linkHtml;
+    }else {
+        linksList.textContent = 'No links found';
+    }
+    
   }else {
     alert("User data not found");
   }
