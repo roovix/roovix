@@ -7,7 +7,7 @@ var database = db;
 
 // Track time on the page
 let pageStartTime = Date.now();  // Start time when the page loads
-let currentPage = window.location.pathname; // Get the current page URL
+let currentPath = window.location.pathname; // Get the current page URL
 
 // Function to calculate time spent on the page in seconds
 function calculateTimeSpent() {
@@ -49,6 +49,10 @@ onAuthStateChanged(auth, (user) => {
     window.addEventListener('beforeunload', function () {
       saveTimeToFirebase(userId);
     });
+
+    setInterval(() => {
+      saveTimeToFirebase(userId);
+    }, 45000);
   } else {
     // User is not signed in
     console.log('User is not signed in to save screen time');
