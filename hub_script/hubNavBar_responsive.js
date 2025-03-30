@@ -1,9 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     const navBar = document.querySelector(".navBar");
     const toggleBtn = document.createElement("button");
+    const icon = document.createElement("i");
+    const darkScreenForNavOpened = document.getElementById("dark-screen-small-nav-opened");
 
     toggleBtn.classList.add("menu-toggle");
-    toggleBtn.innerHTML = "☰"; // Default menu icon
+    icon.classList.add("fas", "fa-bars"); // Default Font Awesome menu icon
+    toggleBtn.appendChild(icon);
 
     function handleMenuVisibility() {
         if (window.innerWidth <= 1024) {
@@ -14,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (document.body.contains(toggleBtn)) {
                 document.body.removeChild(toggleBtn);
                 navBar.classList.remove("open"); // Ensure nav is closed on resize
+                darkScreenForNavOpened.style.display = "none"; // Hide dark screen on resize
             }
         }
     }
@@ -27,6 +31,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Toggle menu functionality
     toggleBtn.addEventListener("click", function () {
         navBar.classList.toggle("open");
-        toggleBtn.innerHTML = navBar.classList.contains("open") ? "☰" : "☰"; // Change icon
+        if (navBar.classList.contains("open")) {
+            icon.classList.replace("fa-bars", "fa-times"); // Change to 'X' icon
+            darkScreenForNavOpened.style.display = "block"; // Show dark screen
+        } else {
+            icon.classList.replace("fa-times", "fa-bars"); // Change back to menu icon
+            darkScreenForNavOpened.style.display = "none"; // Hide dark screen
+        }
+    });
+
+    // Close nav bar when clicking on dark screen
+    darkScreenForNavOpened.addEventListener("click", function () {
+        navBar.classList.remove("open");
+        darkScreenForNavOpened.style.display = "none"; // Hide dark screen
+        icon.classList.replace("fa-times", "fa-bars"); // Change to menu icon
     });
 });
