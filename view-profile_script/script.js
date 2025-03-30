@@ -98,6 +98,9 @@ if(userId) {
 
     // Make a profile share link for current user
     document.getElementById("share-link-text").textContent = `https://roovix.com?profile=${userData.username}`;
+
+    // Fetch user role
+    document.getElementById("profile-role").textContent = userData.role.value; 
     
     if(userData.bio) {
       document.getElementById("bio-content").textContent = userData.bio;
