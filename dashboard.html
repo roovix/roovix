@@ -356,7 +356,7 @@
                 <!-- Time on Site Card -->
                 <div class="card metric-card">
                     <div class="metric-title">Time on Site</div>
-                    <div class="metric-value-large">35<span class="metric-unit">h</span></div>
+                    <div class="metric-value-large"><span id="screen-time-count">0</span><span class="metric-unit" id="screen-time-unit">s</span></div>
                     <div class="metric-change positive">
                         1.7% <i class="fas fa-arrow-up"></i>
                     </div>
@@ -448,6 +448,7 @@
 
     <script src="dashboard_script/script.js"></script>
     <script src="dashboard_script/share-model.js"></script>
+    <script src="dashboard_script/calculate_screen_time.js" type="module"></script>
     <script type="module" src="scripts/screen-time-counting.js"></script>
     <script type="module" src="dashboard_script/fetch_users_data.js"></script>
 </body>
