@@ -166,6 +166,19 @@ nav ul li:hover {
     width: 30px;
     height: 30px;
 }
+
+#dark-screen--small-nav-opened {
+    position: fixed;
+    top: 0;
+    right: 300px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.589);
+    backdrop-filter: blur(1px);
+    z-index: 99;
+    display: none;
+    transition: 0.3 ease;
+}
 /* Navbar style end */
 
 /* Hero section style start */
