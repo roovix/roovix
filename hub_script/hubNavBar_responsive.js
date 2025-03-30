@@ -13,19 +13,26 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!document.body.contains(toggleBtn)) {
                 document.body.appendChild(toggleBtn);
             }
+            // Adjust icon based on the current menu state
+            if (navBar.classList.contains("open")) {
+                icon.classList.replace("fa-bars", "fa-times"); // Show 'X' icon when menu is open
+            } else {
+                icon.classList.replace("fa-times", "fa-bars"); // Show menu icon when menu is closed
+            }
         } else {
             if (document.body.contains(toggleBtn)) {
                 document.body.removeChild(toggleBtn);
                 navBar.classList.remove("open"); // Ensure nav is closed on resize
                 darkScreenForNavOpened.style.display = "none"; // Hide dark screen on resize
+                icon.classList.replace("fa-times", "fa-bars"); // Reset to menu icon
             }
         }
     }
 
-    // Initial check
+    // Initial check on load
     handleMenuVisibility();
 
-    // Recheck on window resize
+    // Recheck visibility on window resize
     window.addEventListener("resize", handleMenuVisibility);
 
     // Toggle menu functionality
