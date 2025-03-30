@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     item.addEventListener("click", function (e) {
       e.preventDefault()
 
+      // Remove the dark screen
+      document.getElementById("absoluteBarToRemoveNavigation").style.display = "none";
+
       // Remove active class from all nav items
       navItems.forEach((navItem) => {
         navItem.classList.remove("active")
@@ -46,11 +49,34 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // Mobile sidebar toggle
-  document.getElementById("mobileToggle").addEventListener("click", () => {
-    document.getElementById("sidebar").classList.toggle("active")
-  })
+  // Get elements once and store them in variables
+  const mobileToggle = document.getElementById("mobileToggle");
+  const sidebar = document.getElementById("sidebar");
+  const toggleIcon = document.getElementById("mobileToggle-icon");
+  const absoluteBar = document.getElementById("absoluteBarToRemoveNavigation");
 
-  // When click any profile buttons
+  // Sidebar toggle function
+  function toggleSidebar() {
+      sidebar.classList.toggle("active");
+      toggleIcon.classList.toggle("fa-xmark");
+
+      // Toggle absoluteBar display
+      absoluteBar.style.display = sidebar.classList.contains("active") ? "block" : "none";
+  }
+
+  // Close sidebar when absoluteBar is clicked
+  function closeSidebar() {
+      sidebar.classList.remove("active");
+      toggleIcon.classList.remove("fa-xmark");
+      absoluteBar.style.display = "none";
+  }
+
+  // Event Listeners
+  mobileToggle.addEventListener("click", toggleSidebar);
+  absoluteBar.addEventListener("click", closeSidebar);
+
+
+  // When click any profile button
   document.querySelectorAll(".profile-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       // Navigate to profile page
@@ -74,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".resources-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       // Navigate to hub page
-      window.location.href = "/hub";
+      window.location.href = "/hub.html";
     });
   });
 
