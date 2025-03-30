@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("user-email").textContent = userInfo.email;
             document.getElementById("user-photo").src = userInfo.profile_picture;
             document.getElementById("joined-date").textContent = `Joined - ${formatISODate(userInfo.createdAt)}`;
+
+            // Fetch user role
+            document.getElementById("profile-role").textContent = userInfo.role.value; 
             
             if(userInfo.bio) {
                 document.getElementById("bio-content").textContent = userInfo.bio;
