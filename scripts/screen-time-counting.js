@@ -43,12 +43,7 @@ function saveTimeToFirebase(userId) {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in
-    let userId = user.uid; // Get the user ID
-
-    // Save screen time when the user navigates away or closes the page
-    window.addEventListener('beforeunload', function () {
-      saveTimeToFirebase(userId);
-    });
+    let userId = user.uid;
 
     setInterval(() => {
       saveTimeToFirebase(userId);
