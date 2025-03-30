@@ -45,9 +45,13 @@ onAuthStateChanged(auth, (user) => {
     // User is signed in
     let userId = user.uid;
 
+    // Track time in 45-second intervals
     setInterval(() => {
+      // Save the time spent during the current 45 seconds interval
       saveTimeToFirebase(userId);
-    }, 45000);
+      // Reset the start time for the next 45-second interval
+      pageStartTime = Date.now();  // Reset the start time for the next interval
+    }, 45000); // Every 45 seconds
   } else {
     // User is not signed in
     console.log('User is not signed in to save screen time');
