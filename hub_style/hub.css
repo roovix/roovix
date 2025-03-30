@@ -97,6 +97,22 @@ body.comment-ui-active {
     z-index: 1000;
     padding: 0 30px;
 }
+#dark-screen-small-nav-opened {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.589);
+    backdrop-filter: blur(1px);
+    z-index: 99;
+    display: none;
+    transition: 0.3 ease;
+}
+#dark-screen-small-nav-opened.active {
+    visibility: visible;
+    opacity: 1;
+}
 
 .list {
     list-style: none;
