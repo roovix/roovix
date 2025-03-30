@@ -1,9 +1,0 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.roovix.deeplinking",
-    "sha256_cert_fingerprints":
-    ["F2:0B:99:09:05:BA:30:C7:A2:37:D5:44:17:26:D1:E2:28:F6:C3:1C:E9:2E:2D:BA:1D:B8:BF:08:B2:9D:D2:D9"]
-  }
-}]
