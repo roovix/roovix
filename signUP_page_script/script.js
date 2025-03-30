@@ -131,7 +131,8 @@ async function saveUserData(user, username, imageUrl) {
         username: username,
         profile_picture: user_image,
         createdAt: new Date().toISOString(),
-        lastLogin: new Date().toISOString()
+        lastLogin: new Date().toISOString(),
+        role: "Member"
     };
 
     // Use transaction to ensure data consistency
