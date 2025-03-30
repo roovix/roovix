@@ -83,6 +83,16 @@ body.comment-ui-active {
 }
 
 /* Nav style start */ 
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3px;
+    border-radius: 50%;
+    backdrop-filter: blur(20px);
+}
 .navBar {
     width: 100%;
     height: 70px;
@@ -96,6 +106,7 @@ body.comment-ui-active {
     left: 0;
     z-index: 1000;
     padding: 0 30px;
+    color: var(--text-primary);
 }
 #dark-screen-small-nav-opened {
     position: fixed;
@@ -188,12 +199,13 @@ body.comment-ui-active {
 }
 
 .sub-item {
+    text-decoration: none;
     display: flex;
     gap: 5px;
 }
 
 .logo-dropdown-items .left-item {
-    border-right: 1px solid #b8b8b863;
+    border-right: 0.5px solid var(--border-color);
 }
 
 .logo-dropdown-items .left-item li {
@@ -217,10 +229,10 @@ body.comment-ui-active {
     position: absolute;
     top: 40px;
     left: 0;
-    background: #0D1117;
+    background: var(--card-bg);
     list-style: none;
     border-radius: 10px;
-    border: 1px solid #292e36;
+    border: 1px solid var(--border-color);
     padding: 10px 0;
     min-width: 150px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
@@ -243,7 +255,7 @@ body.comment-ui-active {
     transition: background 0.3s ease;
     display: flex;
     align-items: center;
-    color: #fff;
+    color: var(--text-primary);
     font-weight: 400;
 }
 
@@ -254,7 +266,8 @@ body.comment-ui-active {
 
 /* Hover effect for sub-items */
 .sub-item:hover {
-    background: #252b35;
+    text-decoration: none;
+    background: var(--card-hover);
 }
 
 /* Show dropdown on hover */
