@@ -95,7 +95,7 @@ document.getElementById("post-btn").addEventListener("click", async () => {
                 const userData = userSnapshot.val();
                 if (userData.role === "admin" || userData.verified) {
                     const postRef = push(ref(db, "posters"));
-                    const postPushKey = push(ref(db, "posters")).key;
+                    const postPushKey = postRef.key;
                     const tagsArray = tags.split(",").map(tag => tag.trim()).filter(tag => tag);
                     let tagsObject = {};
                     tagsArray.forEach((tag, index) => {
