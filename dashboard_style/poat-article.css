@@ -1,0 +1,131 @@
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --sidebar-bg: #161b22;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent-blue: #58a6ff;
+    --accent-blue-glow: rgba(56, 139, 253, 0.3);
+    --accent-green: #3fb950;
+    --accent-red: #f85149;
+    --accent-orange: #d29922;
+    --accent-teal: #39c5cf;
+    --border-color: #30363d;
+    --card-hover: #21262d;
+    --chart-grid: #30363d;
+  }
+  
+  .hint-text {
+    width: 100%;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .hint-text ul {
+    margin-left: 40px;
+    margin-top: 10px;
+    font-size: .9rem;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #error-message {
+    color: #f85249c2;
+    display: none;
+    width: 100%;
+    text-align: center;
+    background-color: #f8524925;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  #article-post-bg {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .post-article-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 24px;
+    width: 95vw;
+    max-width: 600px;
+    min-width: 300px;
+  }
+
+  .post-article-form-group {
+    margin-bottom: 16px;
+  }
+
+  .post-article-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .post-article-input,
+  .post-article-textarea {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  .post-article-input:focus,
+  .post-article-textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px var(--accent-blue-glow);
+  }
+
+  .post-article-textarea {
+    min-height: 250px;
+    resize: none;
+  }
+
+  .post-article-option {
+    padding: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+  }
+
+  .post-article-container .button-section {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+  }
+  .post-article-container .button-section button:nth-child(1) {
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+  .post-article-container .button-section button:nth-child(2) {
+    background-color: var(--accent-green);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    border: 1px solid var(--accent-green);
+    cursor: pointer;
+  }
