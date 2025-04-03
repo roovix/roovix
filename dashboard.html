@@ -38,6 +38,7 @@
         <!-- Stylesheets -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="dashboard_style/index.css">
+        <link rel="stylesheet" href="dashboard_style/poat-article.css">
 
         <!-- Additional Meta Tags -->
         <meta name="robots" content="noindex, nofollow">
@@ -79,6 +80,56 @@
             </ul>
         </div>
     </div>
+
+    <!-- Post new article ui -->
+     <div id="article-post-bg">
+        <div class="container">
+            <div class="post-article-container">
+
+                <div class="post-article-form-group">
+                    <label class="post-article-label" for="post-title">Title</label>
+                    <input maxlength="250" class="post-article-input" type="text" id="post-title" placeholder="Add article title">
+                </div>
+
+                <div class="post-article-form-group">
+                    <label class="post-article-label" for="post-tags">Add tags</label>
+                    <input maxlength="100" class="post-article-input" type="text" id="post-tags" placeholder="Example: roovix, ai, robotics, ">
+                </div>
+
+                <div class="post-article-form-group">
+                    <label class="post-article-label" for="post-video">Youtube video</label>
+                    <input maxlength="100" class="post-article-input" type="text" id="post-video" placeholder="Add video link">
+                </div>
+            
+                <div class="post-article-form-group">
+                    <label class="post-article-label" for="textarea">Description</label>
+                    <textarea class="post-article-textarea" id="textarea"></textarea>
+                    <div class="hint-text">
+                        <strong>📌 Formatting Guide for Description:</strong>
+                        <ul>
+                            <li>Normal text: Just type as usual.</li>
+                            <li>Command block: Use triple backticks and specify the command type with first word. Example:
+                                ```bash
+                                sudo apt update
+                                ```
+                            </li>
+                            <li>Images: Wrap the link inside double backticks. Example:
+                                <br>
+                                <code>``https://example.com/image.jpg``</code>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="post-article-form-group button-section">
+                    <button id="post-cancel-btn">Cancel</button>
+                    <button id="post-btn">Post</button>
+                </div>
+
+                <p id="error-message"></p>
+            </div>
+        </div>
+     </div>
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
@@ -479,6 +530,7 @@
     <script src="dashboard_script/share-model.js"></script>
     <script src="dashboard_script/calculate_screen_time.js" type="module"></script>
     <script type="module" src="scripts/screen-time-counting.js"></script>
+    <script type="module" src="dashboard_script/postArticle.js"></script>
     <script type="module" src="dashboard_script/fetch_users_data.js"></script>
 </body>
 </html>
