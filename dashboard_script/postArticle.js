@@ -40,7 +40,7 @@ if(postArticleState === "true") {
     document.getElementById("article-post-bg").style.display = "none";
 }
 
-document.getElementById('post-cancel-btn').addEventListener('click', function() {
+function removePostParamAndReload() {
     // Get the current URL
     const currentUrl = new URL(window.location);
 
@@ -52,6 +52,10 @@ document.getElementById('post-cancel-btn').addEventListener('click', function() 
 
     // Update the page
     window.location.reload();
+}
+
+document.getElementById('post-cancel-btn').addEventListener('click', function() {
+    removePostParamAndReload();
 });
 
 
@@ -85,11 +89,13 @@ document.getElementById("post-btn").addEventListener("click", async () => {
         if (user) {
             const userRef = ref(db, `users/${user.uid}`);
             const userSnapshot = await get(userRef);
+            const userPostRef = push(ref(db, `users/${user.uid}/posts`));
 
             if (userSnapshot.exists()) {
                 const userData = userSnapshot.val();
                 if (userData.role === "admin" || userData.verified) {
                     const postRef = push(ref(db, "posters"));
+                    const postPushKey = push(ref(db, "posters")).key;
                     const tagsArray = tags.split(",").map(tag => tag.trim()).filter(tag => tag);
                     let tagsObject = {};
                     tagsArray.forEach((tag, index) => {
@@ -118,7 +124,16 @@ document.getElementById("post-btn").addEventListener("click", async () => {
                             profile_picture: userData.profile_picture
                         }
                     });
-                    alert("Post uploaded successfully!");
+                    
+                    // Push new post data in user metadata
+                    await set(userPostRef, {
+                        post_id: postPushKey,
+                        title: title,
+                        date: new Date().toISOString()
+                    });
+                    alert("Uploaded new post");
+
+                    removePostParamAndReload();
                 } else {
                     alert("You do not have permission to post.");
                 }
