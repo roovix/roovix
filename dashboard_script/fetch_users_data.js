@@ -28,10 +28,38 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("user-email").textContent = userInfo.email;
             document.getElementById("user-photo").src = userInfo.profile_picture;
             document.getElementById("joined-date").textContent = `Joined - ${formatISODate(userInfo.createdAt)}`;
-
+            document.getElementById('post-user-image').src = userInfo.profile_picture;
+            
             // Fetch user role
             document.getElementById("profile-role").textContent = userInfo.role.value; 
-            
+
+            // fetch for user post 
+            let postsHTML = ``;
+            const userPosts = userInfo.posts;
+            if(userPosts){
+                userPosts.forEach((post, index)=>{
+                    postsHTML += `
+                    <li>
+                        <a href="/hub?article_id=${post.post_id}" class="container">
+                            <div class="right">
+                                <span class="title">${post.title}</span>
+                                <span class="upload-date">${ISoToTimeAgo(post.date)}</span>
+                            </div>
+                        </a>
+                    </li>
+                    `
+                });
+            }else {
+                postsHTML = `
+                <div class="no-post-container">
+                    <div id="no-post-icon" class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h360v80H200v560h560v-360h80v360q0 33-23.5 56.5T760-120H200Zm120-160v-80h320v80H320Zm0-120v-80h320v80H320Zm0-120v-80h320v80H320Zm360-80v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Z"/></svg></div>
+                    <span>No post available</span>
+                 </div>
+                `
+            }
+            document.getElementById("posts-list").innerHTML = postsHTML;
+
+            // Fetch user bio
             if(userInfo.bio) {
                 document.getElementById("bio-content").textContent = userInfo.bio;
             }else {
