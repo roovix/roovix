@@ -51,7 +51,34 @@
         <i id="mobileToggle-icon" class="fas fa-bars"></i>
     </button>
     <div id="absoluteBarToRemoveNavigation"></div>
-    
+
+    <!-- Posts popup -->
+    <div id="post-container-bg">
+        <div class="post-container">
+            <button id="post-popup-close-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button>
+            <div class="header"><span>Posts</span></div>
+            <div class="add-new-post">
+                <div class="container">
+                    <img id="post-user-image" src="image_assets/user_default.png" alt="Roovix user profile picture">
+                    <span id="open-add-new-post">What's on your mind?</span>
+                </div>
+            </div>
+            <ul id="posts-list">
+                <!-- Posts will be displayed here -->
+                 <!-- <div class="container">
+                    <div class="left"><img src="image_assets/user_default.png" alt="Roovix user profile picture"></div>
+                    <div class="right">
+                        <span class="title">This is a test of user posts</span>
+                        <span class="upload-date">1 week ago</span>
+                    </div>
+                 </div> -->
+                 <!-- <div class="no-post-container">
+                    <div id="no-post-icon" class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h360v80H200v560h560v-360h80v360q0 33-23.5 56.5T760-120H200Zm120-160v-80h320v80H320Zm0-120v-80h320v80H320Zm0-120v-80h320v80H320Zm360-80v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Z"/></svg></div>
+                    <span>No post available</span>
+                 </div> -->
+            </ul>
+        </div>
+    </div>
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
