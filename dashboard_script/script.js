@@ -15,6 +15,30 @@ class Chart {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // open post popup
+  const openPostBtn = document.getElementById("open-posts");
+  const postPopupBg = document.getElementById("post-container-bg");
+  const popupCloseBtn = document.getElementById("post-popup-close-btn");
+  openPostBtn.addEventListener("click", ()=> {
+    if(postPopupBg.style.display === 'none') {
+      postPopupBg.style.display = 'flex';
+    }else {
+      postPopupBg.style.display = 'none';
+    }
+  })
+  popupCloseBtn.addEventListener("click", ()=> {
+    if(postPopupBg.style.display === 'none') {
+      postPopupBg.style.display = 'flex';
+    }else {
+      postPopupBg.style.display = 'none';
+    }
+  })
+  postPopupBg.addEventListener("click", ()=> {
+    postPopupBg.style.display = 'none';
+  })
+  document.querySelector(".post-container").addEventListener("click", (e)=>{
+    e.stopPropagation();
+  });
 
   // Tab navigation
   const navItems = document.querySelectorAll(".nav-item")
