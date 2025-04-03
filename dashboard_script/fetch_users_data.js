@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 userPosts.forEach((post) => {
                     postsHTML += `
                     <li>
-                        <a href="/hub.html?article_id=${post.post_id}" class="container">
+                        <a href="/hub?article_id=${post.post_id}" class="container">
                             <div class="right">
                                 <span class="title">${post.title}</span>
                                 <span class="upload-date">${ISoToTimeAgo(post.date)}</span>
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 postsArray.forEach((post) => {
                     postsHTML += `
                     <li>
-                        <a href="/hub.html?article_id=${post.post_id}" class="container">
+                        <a href="/hub?article_id=${post.post_id}" class="container">
                             <div class="right">
                                 <span class="title">${post.title}</span>
                                 <span class="upload-date">${ISoToTimeAgo(post.date)}</span>
