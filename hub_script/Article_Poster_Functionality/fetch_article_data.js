@@ -93,6 +93,13 @@ function timeAgo(isoString) {
 
 // Function to generate article posters
 function generatePosters(poster, data_key){
+        // Add validation at the start of the function
+        if (!poster || typeof poster !== 'object') {
+            alert("Article id you have provided is not valid or the article was removed..!!");
+            window.location.replace("/hub");
+            return;
+        }
+    
         let poster_HTML = `
                 <div class="poster-bg" id="poster-${data_key}">
                     <div class="header">
