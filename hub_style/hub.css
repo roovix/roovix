@@ -679,8 +679,6 @@ pre br {
     align-items: center;
     justify-content: center;
     position: relative;
-    user-select: none;
-    pointer-events: none;
 }
 
 /* New comment post background effect start */
