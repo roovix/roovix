@@ -61,8 +61,11 @@ if(!isValidUID(userId) && isValidUsername(userId)) {
   // Fetch for uid of this username
   const userRefForUId = ref(db, `user_uname/${userId}`);
   const usernameDataSnapshot = await get(userRefForUId);
-  if(usernameDataSnapshot) {
+  if(usernameDataSnapshot.exists()) {
     userId = usernameDataSnapshot.val().uid;
+  }else {
+    alert("Invalid username or user id..!!");
+    window.location.replace('/dashboard');
   }
 }
 
