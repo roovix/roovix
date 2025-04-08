@@ -354,13 +354,40 @@ function generatePosters(poster, data_key){
 
     // Comments section start
 
-    // Add event listener to dynamically handle button clicks
+    // Open comments and push a new state
     document.addEventListener('click', function (event) {
-        if (event.target.closest('.comment-container')) {
-            const articleId = event.target.closest('.comment-container').dataset.articleId;
+        const container = event.target.closest('.comment-container');
+        if (container) {
+            const articleId = container.dataset.articleId;
+
+            // Push state with param
+            const newUrl = `?comments=${articleId}`;
+            window.history.pushState({comments: articleId}, '', newUrl);
+
+            // Call your comment open logic
             openAndFetchComments(articleId);
         }
     });
+
+    // Listen to browser back button
+    window.addEventListener('popstate', function (event) {
+        const params = new URLSearchParams(window.location.search);
+        const articleId = params.get('comments');
+
+        if (articleId) {
+            // Still has comment param after back, do nothing
+            document.getElementById('comment-view-bg').style.display = 'none';  
+            document.querySelector('.main-body').classList.remove('comment-ui-active');
+            window.history.pushState({}, '', window.location.pathname);
+        }
+    });
+
+    // On initial page load
+    const initialParams = new URLSearchParams(window.location.search);
+    const initialArticleId = initialParams.get('comments');
+    if (initialArticleId) {
+        openAndFetchComments(initialArticleId);
+    }
 
     /**
      * Fetches and displays comments for a specific article
@@ -511,7 +538,8 @@ function generatePosters(poster, data_key){
     // Hide the comment section UI
     document.getElementById('close-comment-view').addEventListener('click', () => {
         document.getElementById('comment-view-bg').style.display = 'none';  
-        document.querySelector('.main-body').classList.remove('comment-ui-active');            
+        document.querySelector('.main-body').classList.remove('comment-ui-active');
+        window.history.pushState({}, '', window.location.pathname);
     });
 
     // Post a new comment
