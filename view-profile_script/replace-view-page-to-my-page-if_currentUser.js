@@ -37,5 +37,5 @@ onAuthStateChanged(auth, async (user) => {
 
 // Dummy function to simulate opening dashboard
 function openDashboard() {
-  window.location.replace('dashboard.html');
+  window.location.replace('dashboard');
 }
