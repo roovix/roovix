@@ -451,7 +451,6 @@ body.comment-ui-active {
 .content-body {
     clear: both;
     width: 100%;
-    padding: 10px;
 }
 .poster-bg .content-body .video .video-frame {
     width: 100%;
@@ -472,7 +471,6 @@ body.comment-ui-active {
 
 .content-description {
     width: 100%;
-    padding: 5px 0px;
     margin-top: 40px;
     max-width: 100%; /* Ensures the content doesn't overflow */
 }
