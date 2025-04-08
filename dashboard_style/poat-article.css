@@ -14,7 +14,19 @@
     --card-hover: #21262d;
     --chart-grid: #30363d;
   }
-  
+
+  .form-title {
+    width: 100%;
+    text-align: center;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
   .hint-text {
     width: 100%;
     font-size: 1rem;
