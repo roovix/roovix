@@ -101,6 +101,51 @@ if(userId) {
 
     // Fetch user role
     document.getElementById("profile-role").textContent = userData.role.value; 
+
+
+    // fetch for user post 
+    let postsHTML = ``;
+    const userPosts = userData.posts;
+
+    // Ensure userPosts is an array
+    if (Array.isArray(userPosts)) {
+        userPosts.forEach((post) => {
+            postsHTML += `
+            <li>
+                <a href="/hub.html?article_id=${post.post_id}" class="container">
+                    <div class="right">
+                        <span class="title">${post.title}</span>
+                        <span class="upload-date">${ISoToTimeAgo(post.date)}</span>
+                    </div>
+                </a>
+            </li>
+            `;
+        });
+    } else if (userPosts && typeof userPosts === 'object') {
+        // If it's an object, convert it to an array
+        const postsArray = Object.values(userPosts);
+        postsArray.forEach((post) => {
+            postsHTML += `
+            <li>
+                <a href="/hub.html?article_id=${post.post_id}" class="container">
+                    <div class="right">
+                        <span class="title">${post.title}</span>
+                        <span class="upload-date">${ISoToTimeAgo(post.date)}</span>
+                    </div>
+                </a>
+            </li>
+            `;
+        });
+    } else {
+        postsHTML = `
+        <div class="no-post-container">
+            <div id="no-post-icon" class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h360v80H200v560h560v-360h80v360q0 33-23.5 56.5T760-120H200Zm120-160v-80h320v80H320Zm0-120v-80h320v80H320Zm0-120v-80h320v80H320Zm360-80v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Z"/></svg></div>
+            <span>No post available</span>
+          </div>
+        `;
+    }            
+    document.getElementById("posts-list").innerHTML = postsHTML;
+    
     
     if(userData.bio) {
       document.getElementById("bio-content").textContent = userData.bio;
@@ -205,3 +250,29 @@ if(userId) {
 }else{
   alert("User ID not provided, Invalid url..!");
 }
+
+
+// open post popup
+const openPostBtn = document.getElementById("open-posts");
+const postPopupBg = document.getElementById("post-container-bg");
+const popupCloseBtn = document.getElementById("post-popup-close-btn");
+openPostBtn.addEventListener("click", ()=> {
+  if(postPopupBg.style.display === 'none') {
+    postPopupBg.style.display = 'flex';
+  }else {
+    postPopupBg.style.display = 'none';
+  }
+})
+popupCloseBtn.addEventListener("click", ()=> {
+  if(postPopupBg.style.display === 'none') {
+    postPopupBg.style.display = 'flex';
+  }else {
+    postPopupBg.style.display = 'none';
+  }
+})
+postPopupBg.addEventListener("click", ()=> {
+  postPopupBg.style.display = 'none';
+})
+document.querySelector(".post-container").addEventListener("click", (e)=>{
+  e.stopPropagation();
+});
