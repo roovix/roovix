@@ -265,8 +265,6 @@ main {
 
 .interests-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 16px;
@@ -852,6 +850,12 @@ main {
   .nav-actions {
     flex-direction: column;
     gap: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .interests-container {
+    justify-content: center;
   }
 }
 
