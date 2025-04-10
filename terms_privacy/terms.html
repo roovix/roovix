@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- For search engine -->
+  <title>Roovix · Terms of Service</title>
+  <meta name="description" content="Read the Roovix Terms of Service to understand the rules and guidelines for using our AI and robotics solutions.">
+
+  <!-- For Socials -->
+  <meta property="og:site_name" content="Roovix">
+  <meta name="hostname" content="roovix.com">
+  <meta name="expected-hostname" content="roovix.com">
+
+  <!-- Open Graph (OG) Meta Tags -->
+  <meta property="og:title" content="Roovix · Terms of Service">
+  <meta property="og:description" content="Understand the terms and conditions for using Roovix services and platforms.">
+  <meta property="og:image" content="https://www.roovix.com/image_assets/terms-thumbnail.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.roovix.com/terms">
+  <meta property="og:type" content="article">
+
+  <!-- Website favicon -->
+  <link rel="shortcut icon" href="https://www.roovix.com/logos/logo_png.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="https://www.roovix.com/logos/logo_png.png" alt="Roovix Logo" class="logo">
+        <h1>Privacy & Terms</h1>
+      </div>
+      <div class="header-actions">
+        <button onclick="openHome()" class="icon-button" aria-label="Home">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="privacy" class="nav-item">Privacy Policy</a>
+      <a href="terms" class="nav-item active">Terms of Service</a>
+      <a href="#" class="nav-item">FAQ</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <a href="#agreement" class="side-nav-item active">User Agreement</a>
+        <a href="#services" class="side-nav-item">Services</a>
+        <a href="#account" class="side-nav-item">Account Terms</a>
+        <a href="#content" class="side-nav-item">Content Policy</a>
+        <a href="#restrictions" class="side-nav-item">Restrictions</a>
+        <a href="#termination" class="side-nav-item">Termination</a>
+        <a href="#liability" class="side-nav-item">Liability</a>
+        <a href="#changes" class="side-nav-item">Changes to Terms</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <section id="agreement" class="section">
+        <h2>User Agreement</h2>
+        <p>By accessing or using Roovix services, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access our services.</p>
+      </section>
+
+      <section id="services" class="section">
+        <h2>Services</h2>
+        <p>Roovix provides AI and robotics solutions designed to enhance productivity and automation. Our services are subject to change and improvement without prior notice.</p>
+        <p>We strive to maintain high availability of our services but do not guarantee uninterrupted access.</p>
+      </section>
+
+      <section id="account" class="section">
+        <h2>Account Terms</h2>
+        <p>You are responsible for maintaining the security of your account and password. Roovix cannot and will not be liable for any loss or damage from your failure to comply with this security obligation.</p>
+        <p>You are responsible for all content posted and activity that occurs under your account.</p>
+      </section>
+
+      <section id="content" class="section">
+        <h2>Content Policy</h2>
+        <p>You retain all rights to any content you submit, post or display on or through Roovix. By submitting content, you grant Roovix a worldwide, non-exclusive license to use, reproduce, and display your content solely for the purpose of providing our services.</p>
+      </section>
+
+      <section id="restrictions" class="section">
+        <h2>Restrictions</h2>
+        <p>You may not use Roovix services for any illegal or unauthorized purpose. You must not violate any laws in your jurisdiction.</p>
+        <p>You may not:</p>
+        <ul>
+          <li>Modify, adapt or hack the service</li>
+          <li>Use the service for spamming or any malicious activities</li>
+          <li>Attempt to access data not intended for you</li>
+          <li>Sell, resell, or lease the service without explicit permission</li>
+        </ul>
+      </section>
+
+      <section id="termination" class="section">
+        <h2>Termination</h2>
+        <p>Roovix may terminate or suspend your account and access to the service immediately, without prior notice, for conduct that we determine violates these Terms or is harmful to other users, us, or third parties, or for any other reason.</p>
+      </section>
+
+      <section id="liability" class="section">
+        <h2>Liability</h2>
+        <p>Roovix services are provided "as is" without warranty of any kind. In no event shall Roovix be liable for any damages, including, without limitation, direct, indirect, special, incidental, or consequential damages arising out of the use or inability to use our services.</p>
+      </section>
+
+      <section id="changes" class="section">
+        <h2>Changes to Terms</h2>
+        <p>We reserve the right to modify these terms at any time. We will notify users of significant changes by posting an announcement on our website or sending an email.</p>
+        <p>Your continued use of Roovix after such modifications constitutes your acceptance of the revised terms.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Roovix. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple script to handle active state for sidebar navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const sideNavItems = document.querySelectorAll('.side-nav-item');
+      
+      // Add click event listeners to side navigation items
+      sideNavItems.forEach(item => {
+        item.addEventListener('click', function() {
+          // Remove active class from all items
+          sideNavItems.forEach(i => i.classList.remove('active'));
+          // Add active class to clicked item
+          this.classList.add('active');
+        });
+      });
+
+      // Highlight active section on scroll
+      window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('.section');
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if(pageYOffset >= (sectionTop - 200)) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+        
+        sideNavItems.forEach(item => {
+          item.classList.remove('active');
+          if(item.getAttribute('href') === `#${currentSection}`) {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+  <script src="scripts/functions.js"></script>
+  <script type="module" src="/scripts/screen-time-counting.js"></script>
+</body>
+</html>
