@@ -263,6 +263,12 @@ strong {
     object-fit: contain;
 }
 
+.section-video {
+    aspect-ratio: 16/9;
+    width: 100%;
+    border-radius: 10px;
+}
+
 /* Footer styles */
 footer {
     border-top: 1px solid var(--border-color);
