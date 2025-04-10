@@ -1,23 +1,59 @@
 /* Base styles */
 :root {
-    --primary-color: #4285f4;
+    --primary-color: #4285f4;             /* Google-style blue */
+    --accent-blue: #1a73e8;
+    --accent-blue-glow: #0c66d3;
     --text-color: #202124;
     --light-text: #5f6368;
     --border-color: #dadce0;
     --hover-color: #f1f3f4;
     --active-color: #e8f0fe;
     --background-color: #ffffff;
+    --card-bg: #f8f9fa;                   /* Light card background */
     --sidebar-width: 240px;
     --header-height: 64px;
     --nav-height: 48px;
     --section-spacing: 40px;
-}
-
-* {
+    --scrollbar-thumb: var(--accent-blue);
+    --scrollbar-track: var(--card-bg);
+  }
+  
+  /* Reset & Base */
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
+  
+  /* Smooth Scroll Behavior */
+  html {
+    scroll-behavior: smooth;
+    
+    /* Firefox scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+  
+  /* WebKit Scrollbars (Chrome, Edge, Safari) */
+  html::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  
+  html::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track);
+    border-radius: 10px;
+  }
+  
+  html::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 10px;
+    border: 3px solid var(--scrollbar-track); /* thumb border gap */
+  }
+  
+  html::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-blue-glow);
+  }   
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
@@ -48,7 +84,6 @@ li {
 /* Header styles */
 header {
     height: var(--header-height);
-    border-bottom: 1px solid var(--border-color);
 }
 
 .header-container {
@@ -74,6 +109,7 @@ header {
 .logo-container h1 {
     font-size: 20px;
     font-weight: 500;
+    margin-bottom: -8px;
 }
 
 .header-actions {
