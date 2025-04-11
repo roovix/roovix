@@ -424,26 +424,6 @@
                 </div>
             </div>
 
-            <div class="row">
-                <!-- Content Views Card -->
-                <div class="card metric-card">
-                    <div class="metric-title">Content Views</div>
-                    <div class="metric-value-large">184</div>
-                    <div class="metric-change negative">
-                        2.1% <i class="fas fa-arrow-down"></i>
-                    </div>
-                </div>
-
-                <!-- Time on Site Card -->
-                <div class="card metric-card">
-                    <div class="metric-title">Time on Site</div>
-                    <div class="metric-value-large"><span id="screen-time-count">0</span><span class="metric-unit" id="screen-time-unit">s</span></div>
-                    <div class="metric-change positive">
-                        <span id="screen-time-masourment"></span> <i id="screen-time-mesourment-arrow" class="fas"></i>
-                    </div>
-                </div>
-            </div>
-
             <!-- Engaged Content Card -->
             <div class="card engaged-content-card">
                 <div href="#" class="engaged-header">
@@ -456,6 +436,19 @@
                 
                 <div class="content-list" id="project-content-list">
                      <!-- Projects will be displayed here -->
+                </div>
+            </div>
+
+            <!-- Profile footer -->
+            <div class="footer">
+                <div class="footer-links">
+                    <a href="/terms_privacy/terms.html">Terms</a>
+                    <a href="/terms_privacy/privacy.html">Privacy</a>
+                    <a href="#">Security</a>
+                    <a href="#">Contact Roovix</a>
+                </div>
+                <div style="margin-top: 8px;">
+                    © <script>document.write(new Date().getFullYear())</script> Roovix Research Lab
                 </div>
             </div>
         </div>
@@ -529,7 +522,6 @@
 
     <script src="dashboard_script/script.js"></script>
     <script src="dashboard_script/share-model.js"></script>
-    <script src="dashboard_script/calculate_screen_time.js" type="module"></script>
     <script type="module" src="scripts/screen-time-counting.js"></script>
     <script type="module" src="dashboard_script/postArticle.js"></script>
     <script type="module" src="dashboard_script/fetch_users_data.js"></script>
