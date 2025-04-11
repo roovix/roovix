@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Privacy & Terms</title>
+    <style>
+        :root {
+            --primary-color: #4285f4;             /* Google-style blue */
+            --accent-blue: #1a73e8;
+            --accent-blue-glow: #0c66d3;
+            --text-color: #202124;
+            --light-text: #5f6368;
+            --border-color: #dadce0;
+            --hover-color: #f1f3f4;
+            --active-color: #e8f0fe;
+            --background-color: #ffffff;
+            --card-bg: #f8f9fa;                   /* Light card background */
+            --sidebar-width: 240px;
+            --header-height: 64px;
+            --nav-height: 48px;
+            --section-spacing: 40px;
+            --scrollbar-thumb: var(--accent-blue);
+            --scrollbar-track: var(--card-bg);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.5;
+        }
+
+        /* Content style */
+        h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            color: var(--text-color);
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-color);
+        }
+
+        strong {
+            font-weight: 500;
+        }
+
+        ul,
+        ol {
+            padding-left: 24px;
+            margin: 16px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Header styles */
+        header {
+            height: var(--header-height);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            height: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 32px;
+            margin-right: 12px;
+        }
+
+        .logo-container h1 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: -8px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            color: var(--light-text);
+        }
+
+        .icon-button svg {
+            fill: #b8b8b8;
+        }
+
+        .icon-button:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* Navigation styles */
+        .main-nav {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            height: var(--nav-height);
+            padding-left: 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            position: relative;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .nav-item:hover {
+            color: var(--accent-blue);
+            background-color: var(--hover-color);
+        }
+
+        .nav-item.active {
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-blue);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        /* Main content layout */
+        .content-wrapper {
+            display: flex;
+            min-height: calc(100vh - var(--header-height) - var(--nav-height));
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+        }
+
+        .sidebar-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar-item:hover {
+            background-color: var(--hover-color);
+        }
+
+        .sidebar-item.active {
+            background-color: var(--active-color);
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        /* Main content styles */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .divider {
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 30px 0;
+        }
+
+        /* FAQ Accordion Styles */
+        .faq-container {
+            max-width: 800px;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            padding: 16px;
+            background-color: var(--card-bg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: var(--hover-color);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--accent-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question {
+            background-color: var(--active-color);
+            color: var(--accent-blue);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 16px;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px; /* Increased to accommodate videos */
+            padding: 16px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Category animation */
+        .category-content {
+            display: none;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        .category-content.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* YouTube Video Styling */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-blue);
+            opacity: 0.1;
+            z-index: 1;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-container:hover::before {
+            opacity: 0;
+        }
+
+        .video-title {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-top: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 50px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue-glow);
+        }
+
+        /* Footer styles */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 24px 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            text-align: center;
+            color: var(--light-text);
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .content-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .sidebar {
+                display: flex;
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding: 10px 0px;
+                gap: 16px; /* Optional: space between items */
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            }
+
+            .sidebar-item {
+                flex: 0 0 auto; /* Prevent items from shrinking */
+                white-space: nowrap;
+            }
+             /* Main content styles */
+            .main-content {
+                padding: 10px;
+            }
+            body {
+                padding: 0px 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+    <div class="header-container">
+        <div class="logo-container">
+        <img src="https://www.roovix.com/logos/logo_png.png" alt="Roovix Logo" class="logo">
+        <h1>Privacy & Terms</h1>
+        </div>
+        <div class="header-actions">
+        <button onclick="openHome()" class="icon-button" aria-label="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z"/></svg>
+        </button>
+        </div>
+    </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="privacy.html" class="nav-item">Privacy Policy</a>
+            <a href="terms.html" class="nav-item">Terms of Service</a>
+            <a href="faq.html" class="nav-item active">FAQ</a>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <aside class="sidebar">
+            <a href="#general" class="sidebar-item active" data-category="general">General Questions</a>
+            <a href="#account" class="sidebar-item" data-category="account">Account & Security</a>
+            <a href="#privacy" class="sidebar-item" data-category="privacy">Privacy Concerns</a>
+            <a href="#billing" class="sidebar-item" data-category="billing">Billing & Payments</a>
+            <a href="#technical" class="sidebar-item" data-category="technical">Technical Support</a>
+            <a href="#videos" class="sidebar-item" data-category="videos">Video Tutorials</a>
+        </aside>
+
+        <main class="main-content">
+            <div id="general" class="category-content active" data-category="general">
+                <h1 class="section-title">General Questions</h1>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">What is Roovix?</div>
+                        <div class="faq-answer">
+                            <p>Roovix is an AI and robotics platform designed to enhance productivity and automation. Our services provide cutting-edge solutions for businesses and individuals looking to streamline their workflows and processes.</p>
+                            
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/KKNCiRWd0" title="What is Roovix?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Introduction to Roovix Platform</div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How do I get started with Roovix?</div>
+                        <div class="faq-answer">
+                            <p>Getting started with Roovix is easy:</p>
+                            <ol>
+                                <li>Create an account on our website</li>
+                                <li>Choose the service plan that fits your needs</li>
+                                <li>Follow the onboarding tutorial</li>
+                                <li>Start using our AI and robotics solutions</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What platforms does Roovix support?</div>
+                        <div class="faq-answer">
+                            <p>Roovix supports a wide range of platforms including:</p>
+                            <ul>
+                                <li>Web browsers (Chrome, Firefox, Safari, Edge)</li>
+                                <li>Mobile devices (iOS and Android)</li>
+                                <li>Desktop applications (Windows, macOS, Linux)</li>
+                                <li>API integrations with popular services</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Is Roovix available internationally?</div>
+                        <div class="faq-answer">
+                            <p>Yes, Roovix services are available worldwide. However, some features may vary by region due to local regulations and technical limitations. Please check our regional availability page for specific details about service availability in your country.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="account" class="category-content" data-category="account">
+                <h1 class="section-title">Account & Security</h1>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">How do I reset my password?</div>
+                        <div class="faq-answer">
+                            <p>To reset your password:</p>
+                            <ol>
+                                <li>Go to the login page</li>
+                                <li>Click on "Forgot Password"</li>
+                                <li>Enter your email address</li>
+                                <li>Follow the instructions sent to your email</li>
+                            </ol>
+                            
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/KKNCiRWd0" title="Password Reset Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">How to Reset Your Password</div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How can I enable two-factor authentication?</div>
+                        <div class="faq-answer">
+                            <p>To enable two-factor authentication:</p>
+                            <ol>
+                                <li>Log in to your account</li>
+                                <li>Go to Account Settings > Security</li>
+                                <li>Click on "Enable Two-Factor Authentication"</li>
+                                <li>Follow the setup instructions</li>
+                            </ol>
+                            <p>We recommend using an authenticator app like Google Authenticator or Authy for the most secure experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I change my email address?</div>
+                        <div class="faq-answer">
+                            <p>Yes, you can change your email address in your account settings. For security reasons, we'll send a verification link to both your old and new email addresses to confirm the change.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="privacy" class="category-content" data-category="privacy">
+                <h1 class="section-title">Privacy Concerns</h1>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">How is my data protected?</div>
+                        <div class="faq-answer">
+                            <p>We take data protection seriously. Your data is protected through:</p>
+                            <ul>
+                                <li>End-to-end encryption for sensitive information</li>
+                                <li>Regular security audits and penetration testing</li>
+                                <li>Strict access controls and authentication</li>
+                                <li>Compliance with global data protection regulations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I request deletion of my data?</div>
+                        <div class="faq-answer">
+                            <p>Yes, you can request deletion of your personal data at any time. Go to Account Settings > Privacy > Delete My Data to initiate the process. Please note that some data may be retained for legal and compliance purposes, as outlined in our Privacy Policy.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Does Roovix share my data with third parties?</div>
+                        <div class="faq-answer">
+                            <p>We only share your data with third parties in specific circumstances:</p>
+                            <ul>
+                                <li>With service providers who help us deliver our services</li>
+                                <li>When required by law or legal process</li>
+                                <li>With your explicit consent</li>
+                            </ul>
+                            <p>We never sell your personal information to advertisers or data brokers.</p>
+                            
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/KKNCiRWd0" title="Data Privacy at Roovix" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">How We Protect Your Data</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="billing" class="category-content" data-category="billing">
+                <h1 class="section-title">Billing & Payments</h1>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">What payment methods do you accept?</div>
+                        <div class="faq-answer">
+                            <p>We accept various payment methods including:</p>
+                            <ul>
+                                <li>Credit/debit cards (Visa, Mastercard, American Express)</li>
+                                <li>PayPal</li>
+                                <li>Bank transfers (for annual enterprise plans)</li>
+                                <li>Google Pay and Apple Pay</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">How do I cancel my subscription?</div>
+                        <div class="faq-answer">
+                            <p>To cancel your subscription:</p>
+                            <ol>
+                                <li>Log in to your account</li>
+                                <li>Go to Account Settings > Billing</li>
+                                <li>Click on "Cancel Subscription"</li>
+                                <li>Follow the prompts to confirm cancellation</li>
+                            </ol>
+                            <p>Please note that cancellations take effect at the end of your current billing cycle.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Do you offer refunds?</div>
+                        <div class="faq-answer">
+                            <p>We offer a 14-day money-back guarantee for new subscriptions. If you're not satisfied with our service within the first 14 days, you can request a full refund. For refund requests after this period, please contact our support team to discuss your specific situation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="technical" class="category-content" data-category="technical">
+                <h1 class="section-title">Technical Support</h1>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">How do I contact technical support?</div>
+                        <div class="faq-answer">
+                            <p>You can contact our technical support team through multiple channels:</p>
+                            <ul>
+                                <li>Email: support@roovix.com</li>
+                                <li>Live chat: Available on our website 24/7</li>
+                                <li>Phone: +1-800-ROOVIX (Business hours: 9am-5pm EST)</li>
+                                <li>Help Center: Browse our knowledge base at help.roovix.com</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What are the system requirements?</div>
+                        <div class="faq-answer">
+                            <p>For optimal performance, we recommend:</p>
+                            <ul>
+                                <li>Modern web browser (Chrome, Firefox, Safari, Edge - latest versions)</li>
+                                <li>Stable internet connection (minimum 5 Mbps)</li>
+                                <li>For desktop applications: Windows 10/11, macOS 10.15+, or Ubuntu 20.04+</li>
+                                <li>For mobile apps: iOS 14+ or Android 10+</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Is there an API available?</div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer a comprehensive API for developers. Our API allows you to integrate Roovix services into your own applications and workflows. Documentation is available at developers.roovix.com. API access is included in Business and Enterprise plans.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="videos" class="category-content" data-category="videos">
+                <h1 class="section-title">Video Tutorials</h1>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">Getting Started with Roovix</div>
+                        <div class="faq-answer">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/KKNCiRWd0" title="Getting Started with Roovix" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Complete Beginner's Guide to Roovix</div>
+                            <p>This comprehensive tutorial walks you through the basics of setting up and using Roovix for the first time. Perfect for new users who want to get up and running quickly.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Advanced Features Tutorial</div>
+                        <div class="faq-answer">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/KKNCiRWd0" title="Advanced Features Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Mastering Roovix Advanced Features</div>
+                            <p>Learn how to use the advanced features of Roovix to maximize your productivity. This tutorial covers automation workflows, custom integrations, and power user tips.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Troubleshooting Common Issues</div>
+                        <div class="faq-answer">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/KKNCiRWd0" title="Troubleshooting Common Issues" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">How to Solve Common Roovix Issues</div>
+                            <p>This video guide helps you troubleshoot the most common issues users face with Roovix. Learn how to diagnose and fix problems quickly to minimize downtime.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What is AI and How Does Roovix Use It?</div>
+                        <div class="faq-answer">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/KKNCiRWd0" title="What is AI and How Does Roovix Use It?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-title">Understanding AI in Roovix</div>
+                            <p>This educational video explains the basics of artificial intelligence and how Roovix leverages AI technology to provide intelligent automation and insights for your business.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+          <p>&copy; <script>document.write(new Date().getFullYear())</script> Roovix. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle FAQ items
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                });
+                
+                // If the clicked item wasn't active, open it
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Category navigation
+        document.querySelectorAll('.sidebar-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const category = item.getAttribute('data-category');
+                
+                // Update sidebar active state
+                document.querySelectorAll('.sidebar-item').forEach(sidebarItem => {
+                    sidebarItem.classList.remove('active');
+                });
+                item.classList.add('active');
+                
+                // Update content visibility
+                document.querySelectorAll('.category-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.querySelector(`.category-content[data-category="${category}"]`).classList.add('active');
+            });
+        });
+    </script>
+    <script src="scripts/functions.js"></script>
+</body>
+</html>
