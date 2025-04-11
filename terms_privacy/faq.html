@@ -34,6 +34,8 @@
     <!-- Website favicon -->
     <link rel="shortcut icon" href="https://www.roovix.com/logos/logo_png.png" type="image/x-icon">
 
+    <!-- Styles -->
+     <link rel="stylesheet" href="styles/style.css">
     <style>
         :root {
             --primary-color: #4285f4;             /* Google-style blue */
@@ -94,113 +96,6 @@
             margin-bottom: 8px;
         }
 
-        /* Header styles */
-        header {
-            height: var(--header-height);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 16px;
-            height: 100%;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            height: 32px;
-            margin-right: 12px;
-        }
-
-        .logo-container h1 {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: -8px;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-        }
-
-        .icon-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            color: var(--light-text);
-        }
-
-        .icon-button svg {
-            fill: #b8b8b8;
-        }
-
-        .icon-button:hover {
-            background-color: var(--hover-color);
-        }
-
-        /* Navigation styles */
-        .main-nav {
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            display: flex;
-            height: var(--nav-height);
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 10px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            color: var(--text-color);
-            text-decoration: none;
-            position: relative;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .nav-item:hover {
-            color: var(--accent-blue);
-            background-color: var(--hover-color);
-        }
-
-        .nav-item.active {
-            color: var(--accent-blue);
-            font-weight: 500;
-        }
-
-        .nav-item.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--accent-blue);
-            animation: slideIn 0.3s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: scaleX(0);
-            }
-            to {
-                transform: scaleX(1);
-            }
-        }
-
         /* Main content layout */
         .content-wrapper {
             display: flex;
@@ -228,6 +123,7 @@
 
         .sidebar-item:hover {
             background-color: var(--hover-color);
+            text-decoration: none !important;
         }
 
         .sidebar-item.active {
@@ -435,7 +331,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
-                padding: 0 16px;
+                padding: 0 8px;
             }
 
             .sidebar {
@@ -452,12 +348,16 @@
                 flex: 0 0 auto; /* Prevent items from shrinking */
                 white-space: nowrap;
             }
-             /* Main content styles */
             .main-content {
-                padding: 10px;
+                padding: 5px;
             }
-            body {
-                padding: 0px 10px;
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --header-height: 56px;
+                --nav-height: 40px;
+                --section-spacing: 32px;
             }
         }
 
