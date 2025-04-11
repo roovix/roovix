@@ -155,6 +155,8 @@
         .nav-container {
             display: flex;
             height: var(--nav-height);
+            max-width: 1200px;
+            margin: 0 auto;
             padding-left: 10px;
         }
 
@@ -202,6 +204,8 @@
         /* Main content layout */
         .content-wrapper {
             display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
             min-height: calc(100vh - var(--header-height) - var(--nav-height));
         }
 
@@ -209,6 +213,8 @@
         .sidebar {
             width: var(--sidebar-width);
             overflow-y: auto;
+            border-right: 1px solid var(--border-color);
+            padding-top: 25px;
         }
 
         .sidebar-item {
@@ -429,6 +435,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
+                padding: 0 16px;
             }
 
             .sidebar {
