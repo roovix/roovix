@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Close mobile sidebar after navigation
       document.getElementById("sidebar").classList.remove("active")
+      document.getElementById("mobileToggle-icon").classList.toggle("fa-xmark")
     })
   })
 
