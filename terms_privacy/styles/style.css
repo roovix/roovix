@@ -28,32 +28,26 @@
   /* Smooth Scroll Behavior */
   html {
     scroll-behavior: smooth;
-    
-    /* Firefox scrollbar */
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   }
   
-  /* WebKit Scrollbars (Chrome, Edge, Safari) */
-  html::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
-  
-  html::-webkit-scrollbar-track {
-    background-color: var(--scrollbar-track);
-    border-radius: 10px;
-  }
-  
-  html::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb);
-    border-radius: 10px;
-    border: 3px solid var(--scrollbar-track); /* thumb border gap */
-  }
-  
-  html::-webkit-scrollbar-thumb:hover {
-    background-color: var(--accent-blue-glow);
-  }   
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--scrollbar-track);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb);
+        border-radius: 50px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-blue-glow);
+    }  
 
 body {
     font-family: 'Roboto', Arial, sans-serif;
@@ -144,19 +138,19 @@ header {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 16px;
     height: 100%;
+    padding-left: 10px;
 }
 
 .nav-item {
     display: flex;
     align-items: center;
-    padding: 0 16px;
+    padding: 0 20px;
     color: var(--text-color);
     font-size: 14px;
-    font-weight: 500;
     position: relative;
 }
+
 
 .nav-item:hover {
     color: var(--primary-color);
@@ -182,13 +176,11 @@ header {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 16px;
 }
 
 /* Sidebar styles */
 .sidebar {
     width: var(--sidebar-width);
-    padding: 24px 16px 24px 0;
     flex-shrink: 0;
 }
 
@@ -199,7 +191,7 @@ header {
 
 .side-nav-item {
     display: block;
-    padding: 8px 16px;
+    padding: 12px 20px;
     margin-bottom: 4px;
     color: var(--text-color);
     font-size: 14px;
@@ -288,23 +280,30 @@ footer {
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
+        padding: 10px;
     }
 
     .sidebar {
         width: 100%;
-        padding: 16px 0;
+        padding: 10px 0;
     }
 
     .side-nav {
         position: relative;
         top: 0;
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 10px;
+        gap: 16px; /* Optional: space between items */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     }
 
     .side-nav-item {
         margin-bottom: 0;
+        flex: 0 0 auto; /* Prevent items from shrinking */
+        white-space: nowrap;
+        padding: 12px 20px;
     }
 
     .content {
