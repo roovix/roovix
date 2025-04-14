@@ -1255,6 +1255,27 @@ body {
   background-color: var(--accent-green);
   color: #fff;
 }
+.edit-hint {
+  margin-left: 5px;
+  font-size: .75rem;
+  color: var(--text-secondary);
+}
+.edit-err {
+  margin-left: 5px;
+  font-size: .75rem;
+  color: var(--accent-red);
+}
+#open-add-project {
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  padding: 6px 10px;
+  background-color: var(--text-secondary);
+  transition: background-color .3s ease;
+}
+#open-add-project:hover {
+  cursor: pointer;
+  background-color: var(--text-primary);
+}
 
 /* Responsive */
 @media (max-width: 1440px) {
