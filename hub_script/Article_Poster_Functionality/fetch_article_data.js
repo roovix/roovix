@@ -30,7 +30,7 @@ document.addEventListener("click", function (event) {
         const uploader_name = uploaderName.querySelector(".uploader-name");
         let user_uid = uploader_name.getAttribute("data-user-id");
         if(getCurrentUser().uid === user_uid){
-            window.location.href = `/dashboard`;
+            window.location.href = `/dashboard?user_id=${user_uid}`;
         }else{
             window.location.href = `/view-profile?user_id=${user_uid}`;
         }
@@ -56,6 +56,40 @@ function shareContent(title, url, articleId) {
     }
 }
 
+const DEFAULT_USERNAME = "Anonymous";
+const DEFAULT_PROFILE_PICTURE = "https://www.roovix.com/image_assets/user_default.png";
+
+// Get uploader username
+async function getUploaderUsername(uid) {
+    try {
+        const usernameRef = ref(db, `users/${uid}/username`);
+        const snapshot = await get(usernameRef);
+        if (snapshot.exists()) {
+            return snapshot.val(); // Assuming it's a string, not an array
+        } else {
+            return DEFAULT_USERNAME;
+        }
+    } catch (error) {
+        console.error("Error fetching username:", error);
+        return DEFAULT_USERNAME;
+    }
+}
+
+// Get uploader profile picture
+async function getUploaderProfilePicture(uid) {
+    try {
+        const pictureRef = ref(db, `users/${uid}/profile_picture`);
+        const snapshot = await get(pictureRef);
+        if (snapshot.exists()) {
+            return snapshot.val();
+        } else {
+            return DEFAULT_PROFILE_PICTURE;
+        }
+    } catch (error) {
+        console.error("Error fetching profile picture:", error);
+        return DEFAULT_PROFILE_PICTURE;
+    }
+}
 
 async function saveToDatabase(uid, articleId) {
     // Use push to add data to a new entry under 'shares' for that article
@@ -92,25 +126,25 @@ function timeAgo(isoString) {
 }
 
 // Function to generate article posters
-function generatePosters(poster, data_key){
+async function generatePosters(poster, data_key){
         // Add validation at the start of the function
         if (!poster || typeof poster !== 'object') {
             alert("Article id you have provided is not valid or the article was removed..!!");
             window.location.replace("/hub");
             return;
         }
-    
+
         let poster_HTML = `
                 <div class="poster-bg" id="poster-${data_key}">
                     <div class="header">
                     <div class="uploader">
                             <div class="container-left">
                                 <div class="logo">
-                                    <img src="${poster.uploader.profile_picture}" alt="Uploader Profile Picture">
+                                    <img src="${await getUploaderProfilePicture(poster.uploader.uid)}" alt="Uploader Profile Picture">
                                 </div>
                                 <div class="details">
                                     <div class="name-container">
-                                        <span data-user-id="${poster.uploader.uid}" class="name uploader-name">${poster.uploader.username}</span>
+                                        <span data-user-id="${poster.uploader.uid}" class="name uploader-name">${await getUploaderUsername(poster.uploader.uid)}</span>
                                         ${checkUploaderBadge()}
                                     </div>
                                     
@@ -389,6 +423,7 @@ function generatePosters(poster, data_key){
         openAndFetchComments(initialArticleId);
     }
 
+
     /**
      * Fetches and displays comments for a specific article
      * @param {string} article_id - The ID of the article to fetch comments for
@@ -538,8 +573,8 @@ function generatePosters(poster, data_key){
     // Hide the comment section UI
     document.getElementById('close-comment-view').addEventListener('click', () => {
         document.getElementById('comment-view-bg').style.display = 'none';  
-        document.querySelector('.main-body').classList.remove('comment-ui-active');
-        window.history.pushState({}, '', window.location.pathname);
+        document.querySelector('.main-body').classList.remove('comment-ui-active');  
+        history.pushState({}, '', window.location.pathname); // Removes ?comments= from URL
     });
 
     // Post a new comment
@@ -600,7 +635,7 @@ function generatePosters(poster, data_key){
                     </div>
                     <div class="comment-content">
                         <div class="comment-by">
-                            <a href="view-profilel?user_id=${userId}" class="comment-username">
+                            <a href="view-profile?user_id=${userId}" class="comment-username">
                                 @${userData.username || 'Unknown User'}
                             </a>
                             <span class="comment-time-ago">Just now</span>
@@ -767,7 +802,7 @@ async function fetchPosters(limit) {
             generatePosters(article_data[poster_id_on_url], poster_id_on_url);
 
             // Prevent further posters from being loaded if article_id exists in the URL
-            document.getElementById("end-of-article").innerHTML = `<a href="/hub">View More Articles</a>`; // Hide the end view
+            document.getElementById("end-of-article").innerHTML = `<a href="/hub" style="z-index: 1;">View More Articles</a>`; // Hide the end view
         } else {
             // Fetch and display the limited number of posters
             for (const data_key in article_data) {
