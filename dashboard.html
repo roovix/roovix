@@ -138,32 +138,44 @@
             <button onclick="closeProfileEditUi()" id="close-profile-edit-ui"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button>
             <span class="edit-title">Customize Profile</span>
             <div id="p-edit-form">
-                
+    
                 <div class="edit-field">                    
                     <label for="uname">Username</label>
-                    <input type="text" id="uname" placeholder="Edit username..">
+                    <input maxlength="18" type="text" id="uname" placeholder="Edit username..">
+                    <span class="edit-hint">Username must be unique and no more than 18 characters.</span>
+                    <span id="edit-uname-err" class="edit-err"></span>
                 </div>
-
+            
                 <div class="edit-field">                    
                     <label for="intro">Intro</label>
-                    <input type="text" id="intro" placeholder="Edit your intro title..">
+                    <input maxlength="250" type="text" id="intro" placeholder="Edit your intro title..">
+                    <span class="edit-hint">Keep your intro within 250 characters to make it concise and clear.</span>
+                    <span id="edit-intro-err" class="edit-err"></span>
                 </div>
-
+            
                 <div class="edit-field">                    
                     <label for="interests">Add Interests</label>
-                    <input type="text" placeholder="Example (Gaming, Robotics, etc.)" id="interests">
+                    <input maxlength="100" type="text" placeholder="Example (Gaming, Robotics, etc.)" id="interests">
+                    <span class="edit-hint">Use commas to separate interests (e.g., Gaming, Robotics). Maximum 100 characters total.</span>
+                    <span id="edit-interests-err" class="edit-err"></span>
                 </div>
-
+            
                 <div class="edit-field">                    
                     <label for="skills">Add Skills</label>
-                    <input type="text" placeholder="Example (Computer, Sports, etc.)" id="skills">
+                    <input maxlength="100" type="text" placeholder="Example (Computer, Sports, etc.)" id="skills">
+                    <span class="edit-hint">List your skills using commas (e.g., Computer, Sports). Maximum 100 characters total.</span>
+                    <span id="edit-skills-err" class="edit-err"></span>
                 </div>
 
+                <div class="edit-field">
+                    <button id="open-add-project">Add project</button>
+                </div>
+            
                 <div class="edit-actions">
                     <button onclick="closeProfileEditUi()" id="profile-edit-cancel">Cancel</button>
                     <button id="profile-edit-update">Update</button>
                 </div>
-
+            
             </div>
         </div>
     </div>
