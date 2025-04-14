@@ -116,12 +116,9 @@ document.getElementById("post-btn").addEventListener("click", async () => {
                             }
                         },
                         uploader: {
-                            username: userData.username,
                             upload_date: new Date().toISOString(),
                             sponsored: false,
                             uid: user.uid,
-                            verified: false,
-                            profile_picture: userData.profile_picture
                         }
                     });
                     
