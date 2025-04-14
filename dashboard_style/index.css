@@ -1222,7 +1222,7 @@ body {
   background-color: var(--bg-color);
   border: none;
   padding: 8px 10px;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   border-radius: 5px;
   border: 1px solid transparent;
 }
