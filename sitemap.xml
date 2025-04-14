@@ -65,6 +65,13 @@
     <priority>0.4</priority>
   </url>
 
+  <url>
+    <loc>https://www.roovix.com/terms_privacy/faq</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
   <!-- Example of Dynamic Profile Page -->
   <url>
     <loc>https://www.roovix.com/view-profile/hridoyhossen936</loc>
