@@ -461,6 +461,11 @@ body {
   border: none;
   margin-left: 10px;
 }
+#profile-edit-ui-open svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-primary);
+}
 
 .profile-header {
   display: flex;
