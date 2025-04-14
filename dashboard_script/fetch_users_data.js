@@ -33,6 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
             // Fetch user role
             document.getElementById("profile-role").textContent = userInfo.role.value; 
 
+            // Update user data for edit profile
+            document.getElementById("uname").value = userInfo.username;
+            document.getElementById("intro").value = userInfo.bio;
+            document.getElementById("interests").value = userInfo.interests;
+            document.getElementById("skills").value = userInfo.skills;
+            
             // fetch for user post 
             let postsHTML = ``;
             const userPosts = userInfo.posts;
