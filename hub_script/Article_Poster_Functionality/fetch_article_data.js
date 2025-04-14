@@ -145,7 +145,7 @@ async function generatePosters(poster, data_key){
                                 <div class="details">
                                     <div class="name-container">
                                         <span data-user-id="${poster.uploader.uid}" class="name uploader-name">${await getUploaderUsername(poster.uploader.uid)}</span>
-                                        ${checkUploaderBadge()}
+                                        ${await checkUploaderBadge(poster.uploader.uid)}
                                     </div>
                                     
                                     ${checkSponsoredWithUploadDate()}
@@ -266,13 +266,23 @@ async function generatePosters(poster, data_key){
 
 
     // Check for uploader badge start
-    function checkUploaderBadge() {
-        let badge_HTML = ``;
-        if(poster.uploader.verified){
-            badge_HTML = `<span class="badge"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m344-60-76-128-144-32 14-148-98-112 98-112-14-148 144-32 76-128 136 58 136-58 76 128 144 32-14 148 98 112-98 112 14 148-144 32-76 128-136-58-136 58Zm94-278 226-226-56-58-170 170-86-84-56 56 142 142Z"/></svg></span>`;
+    async function checkUploaderBadge(uid) {
+        try {
+            const verifiedRef = ref(db, `users/${uid}/verified`);
+            const snapshot = await get(verifiedRef);
+    
+            const isVerified = snapshot.exists() ? snapshot.val() : false;
+    
+            if (isVerified === true) {
+                return `
+                    <span class="badge"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m344-60-76-128-144-32 14-148-98-112 98-112-14-148 144-32 76-128 136 58 136-58 76 128 144 32-14 148 98 112-98 112 14 148-144 32-76 128-136-58-136 58Zm94-278 226-226-56-58-170 170-86-84-56 56 142 142Z"/></svg></span>
+                    `;
+            }
+    
+            return '';
+        } catch {
+            return ''; // 👈 No error, just empty string
         }
-
-        return badge_HTML;
     }
     // Check for uploader badge end
 
