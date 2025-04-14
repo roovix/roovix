@@ -455,6 +455,12 @@ body {
   overflow: hidden;
   padding: 24px;
 }
+#profile-edit-ui-open {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+}
 
 .profile-header {
   display: flex;
@@ -1145,6 +1151,107 @@ body {
   font-size: 1.1rem;
 }
 
+/* Profile edit ui */
+#profile_edit_ui {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  background-color: #0000004f;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.edit-container {
+  position: relative;
+  background-color: var(--card-bg);
+  width: 95%;
+  max-width: 1200px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+#close-profile-edit-ui {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color .3s ease;
+}
+#close-profile-edit-ui:hover {
+  cursor: pointer;
+  background-color: var(--card-hover);
+}
+.edit-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+}
+.edit-container #p-edit-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.edit-container #p-edit-form .edit-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.edit-container #p-edit-form .edit-field label {
+  margin-left: 3px;
+  color: var(--text-primary);
+}
+.edit-container #p-edit-form .edit-field input {
+  background-color: var(--bg-color);
+  border: none;
+  padding: 8px 10px;
+  color: var(--text-primary);
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+.edit-container #p-edit-form .edit-field input:focus {
+  outline: none;
+  border: 1px solid var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--accent-blue-glow);
+}
+.edit-container .edit-actions {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.edit-container .edit-actions button {
+  cursor: pointer;
+}
+#profile-edit-cancel {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: var(--chart-grid);
+  color: var(--text-secondary);
+}
+#profile-edit-update {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--accent-green);
+  background-color: var(--accent-green);
+  color: #fff;
+}
+
+/* Responsive */
 @media (max-width: 1440px) {
   .post-container {
     width: 80vw;
