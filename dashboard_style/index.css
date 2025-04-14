@@ -1265,6 +1265,12 @@ body {
   font-size: .75rem;
   color: var(--accent-red);
   display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.edit-err.show {
+  opacity: 1;
+  display: block;
 }
 #open-add-project {
   border: 1px solid var(--border-color);
