@@ -1,7 +1,7 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, set, push, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-import { deletePopup, confirmPopup, noticePopup, addPopupStyles } from "https://element.roovix.com/functions/popups.js";
+import { deletePopup, confirmPopup, noticePopup } from "https://element.roovix.com/functions/popups.js";
 
 
 function getYouTubeVideoId(url) {
@@ -194,8 +194,3 @@ document.getElementById("post-btn").addEventListener("click", async () => {
     });
 });
 
-
-document.addEventListener("DOMContentLoaded", ()=>{
-    // Add styles to popups
-    addPopupStyles();
-});
