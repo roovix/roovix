@@ -4,6 +4,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, set, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { deletePopup, confirmPopup, noticePopup, addPopupStyles } from "https://element.roovix.com/functions/popups.js";
+
 
 // DOM Elements
 const elements = {
@@ -57,7 +59,21 @@ async function isUsernameTaken(username) {
         const snapshot = await get(dbRef);
         return snapshot.exists();
     } catch (error) {
-        console.error('Error checking username:', error);
+        let notice  = noticePopup(
+            "Error checking username?",
+            `${error.message}`,
+
+            ()=>{
+                document.getElementById("popup_container").style.display = "none";
+            },
+            ()=>{
+                document.getElementById("popup_container").style.display = "none";
+            },
+            document.getElementById("popup_container")
+        )
+
+        document.getElementById("popup_container").style.display = "flex";
+        document.getElementById("popup_container").appendChild(notice);
         return true; // Assume username is taken to prevent duplicates on error
     }
 }
@@ -179,6 +195,26 @@ elements.profilePic.addEventListener('change', () => {
     }
 });
 
+// Function to upload and get image url
+async function uploadImageToCloudinary(file=null, api='391989329564552', image_preset='image_preset', folder='profile') {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', image_preset);
+    formData.append('folder', folder);
+    formData.append('api_key', api);
+
+    try {
+        const response = await fetch('https://api.cloudinary.com/v1_1/dtmbjcbvi/image/upload', {
+            method: 'POST',
+            body: formData
+        });
+        const data = await response.json();
+        return data.secure_url;
+    } catch (error) {
+        throw error;
+    }
+}
+
 
 // Form validation and submission
 elements.form.addEventListener('submit', async (e) => {
@@ -262,7 +298,7 @@ elements.form.addEventListener('submit', async (e) => {
         }
 
         // Upload profile picture
-        const imageUrl = await uploadImage(elements.profilePic.files[0]);
+        const imageUrl = await uploadImageToCloudinary(elements.profilePic.files[0]);
 
         // Create user account
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -278,8 +314,6 @@ elements.form.addEventListener('submit', async (e) => {
         window.location.replace('/dashboard');
 
     } catch (error) {
-        console.error('Signup error:', error);
-        
         switch (error.code) {
             case 'auth/email-already-in-use':
                 showError(elements.emailGroup, 'Email is already registered. Please use a different email.');
@@ -292,7 +326,21 @@ elements.form.addEventListener('submit', async (e) => {
                 showError(elements.passwordGroup, 'Password is too weak. Please choose a stronger password.');
                 break;
             default:
-                alert('An unexpected error occurred. Please try again later.');
+                let notice  = noticePopup(
+                    "An unexpected error occurred.",
+                    `${error.message}, Please try again later.`,
+    
+                    ()=>{
+                        document.getElementById("popup_container").style.display = "none";
+                    },
+                    ()=>{
+                        document.getElementById("popup_container").style.display = "none";
+                    },
+                    document.getElementById("popup_container")
+                )
+    
+                document.getElementById("popup_container").style.display = "flex";
+                document.getElementById("popup_container").appendChild(notice);
         }
     }
 
