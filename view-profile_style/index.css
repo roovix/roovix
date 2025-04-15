@@ -622,6 +622,62 @@ main {
   width: 100%;
 }
 
+/* Share profile qrcode */
+.share-qrcode {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.share-qrcode #generate-qr-btn {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: #005ec9;
+  color: #fff;
+  display: none;
+  margin-bottom: 20px;
+  transition: background-color .3s ease;
+}
+.share-qrcode #generate-qr-btn:hover {
+  cursor: pointer;
+  background-color: var(--accent-blue);
+}
+#qr-bg {
+  width: 60%;
+  padding: 20px 5px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding-bottom: 5px;
+}
+#qr-bg img {
+  width: 90%;
+}
+#qr-bg a {
+  width: 100%;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+#qr-bg a:hover {
+  cursor: pointer;
+}
+
 /* item tabs section */
 .item-tabs-container {
   width: 100%;
