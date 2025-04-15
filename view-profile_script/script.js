@@ -3,6 +3,28 @@ import { ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-dat
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { getDomain, formatISODate, ISoToTimeAgo, isValidUID, isValidUsername } from "https://element.roovix.com/functions/app.js";
 
+
+
+// perform profile qr code fetching operation
+// try to find qr code on database
+async function FetchQrCode(userId){
+  const qrRef = ref(db, `users/${userId}/profile_qr`);
+  const qrSnapshot = await get(qrRef);
+
+  if(qrSnapshot.exists()) {   
+      const qrValue = qrSnapshot.val();
+      document.getElementById("qr-bg").style.display = "flex";
+      document.getElementById("qr-img").src = qrValue;
+      document.getElementById("qr-dowanload-ancor").addEventListener('click', ()=>{
+          forceDownloadImage(qrValue, `${user.displayName}-Roovix-account-qrCode.png`)
+      });
+  }else {
+      document.getElementById("qr-bg").style.display = "none";
+  }
+}
+
+
+
 // Profile tab navigation
 const tabBtns = document.querySelectorAll(".tab-btn");
 tabBtns.forEach((btn) => {
@@ -63,6 +85,7 @@ if(!isValidUID(userId) && isValidUsername(userId)) {
   const usernameDataSnapshot = await get(userRefForUId);
   if(usernameDataSnapshot.exists()) {
     userId = usernameDataSnapshot.val().uid;
+    FetchQrCode(usernameDataSnapshot.val().uid);
   }else {
     alert("Invalid username or user id..!!");
     window.location.replace('/dashboard');
