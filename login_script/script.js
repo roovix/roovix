@@ -1,6 +1,8 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { ref, set, get, update } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { deletePopup, confirmPopup, noticePopup } from "https://element.roovix.com/functions/popups.js";
+
 
 // Form validation
 const form = document.getElementById('loginForm');
@@ -70,6 +72,21 @@ form.addEventListener('submit', async (e) => {
                 credentialErrorMessage.textContent = "Invalid email or username";
             } else {
                 credentialErrorMessage.textContent = "Login failed. Try again.";
+                let notice  = noticePopup(
+                    "Login failed. Try again?",
+                    error.message,
+    
+                    ()=>{
+                        document.getElementById("popup_container").style.display = "none";
+                    },
+                    ()=>{
+                        document.getElementById("popup_container").style.display = "none";
+                    },
+                    document.getElementById("popup_container")
+                )
+    
+                document.getElementById("popup_container").style.display = "flex";
+                document.getElementById("popup_container").appendChild(notice);
             }
 
             setTimeout(() => {
