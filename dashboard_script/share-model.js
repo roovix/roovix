@@ -1,6 +1,8 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js"; 
 import { ref, get, update, set, remove } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { deletePopup, confirmPopup, noticePopup, addPopupStyles } from "https://element.roovix.com/functions/popups.js";
+
 
 
 // Open model
@@ -35,7 +37,21 @@ document.getElementById('share-copy').addEventListener('click', function() {
             }, 2000);
         })
         .catch(err => {
-            console.error('Failed to copy: ', err);
+            let notice  = noticePopup(
+                "Failed to copy",
+                `${err.message}`,
+
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                document.getElementById("popup_container")
+            )
+
+            document.getElementById("popup_container").style.display = "flex";
+            document.getElementById("popup_container").appendChild(notice);
         });
 });
 
@@ -81,7 +97,21 @@ async function uploadQrImageFromSrc(input) {
 
         return uploadedUrl;
     } catch (error) {
-        console.error("Error uploading QR image:", error);
+        let notice  = noticePopup(
+            "Error uploading qr code on database",
+            `${error.message}`,
+
+            ()=>{
+                document.getElementById("popup_container").style.display = "none";
+            },
+            ()=>{
+                document.getElementById("popup_container").style.display = "none";
+            },
+            document.getElementById("popup_container")
+        )
+
+        document.getElementById("popup_container").style.display = "flex";
+        document.getElementById("popup_container").appendChild(notice);
         return;
     }
 }
@@ -101,7 +131,21 @@ async function forceDownloadImage(url, filename = 'Roovix-download.png') {
 
         URL.revokeObjectURL(blobUrl); // clean up
     } catch (error) {
-        console.error('Failed to download image:', error);
+        let notice  = noticePopup(
+            "Failed to download image",
+            `${error.message}`,
+
+            ()=>{
+                document.getElementById("popup_container").style.display = "none";
+            },
+            ()=>{
+                document.getElementById("popup_container").style.display = "none";
+            },
+            document.getElementById("popup_container")
+        )
+
+        document.getElementById("popup_container").style.display = "flex";
+        document.getElementById("popup_container").appendChild(notice);
     }
 }
 
@@ -146,7 +190,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
                         }, 2000);
                     });
                 }else {
-                    alert("Image generate or upload error..!");
+                    let notice  = noticePopup(
+                        "Error generating",
+                        `Qr code Image generate or upload error, Try again later.`,
+        
+                        ()=>{
+                            document.getElementById("popup_container").style.display = "none";
+                        },
+                        ()=>{
+                            document.getElementById("popup_container").style.display = "none";
+                        },
+                        document.getElementById("popup_container")
+                    )
+        
+                    document.getElementById("popup_container").style.display = "flex";
+                    document.getElementById("popup_container").appendChild(notice);
                 }
             })
         }
