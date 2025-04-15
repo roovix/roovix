@@ -91,13 +91,16 @@ document.getElementById("post-btn").addEventListener("click", async () => {
 
     onAuthStateChanged(auth, async (user) => {
         if (user) {
+            // Get ID token with claims
+            const tokenResult = await user.getIdTokenResult();
+
             const userRef = ref(db, `users/${user.uid}`);
             const userSnapshot = await get(userRef);
             const userPostRef = push(ref(db, `users/${user.uid}/posts`));
 
             if (userSnapshot.exists()) {
                 const userData = userSnapshot.val();
-                if (userData.role === "admin" || userData.verified) {
+                if (tokenResult.claims.admin === true || tokenResult.claims.verified === true) {
                     const postRef = push(ref(db, "posters"));
                     const postPushKey = postRef.key;
                     const tagsArray = tags.split(",").map(tag => tag.trim()).filter(tag => tag);
