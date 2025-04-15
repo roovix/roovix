@@ -2,6 +2,8 @@ import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, set, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { getDomain, formatISODate, ISoToTimeAgo } from "https://element.roovix.com/functions/app.js";
+import { deletePopup, confirmPopup, noticePopup, addPopupStyles } from "https://element.roovix.com/functions/popups.js";
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,14 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Change the page title with user name
             document.title = `Roovix - ${userInfo.username}`;
-            
+
             // Update user information in the DOM
             document.getElementById("user-name").textContent = userInfo.username;
             document.getElementById("user-email").textContent = userInfo.email;
             document.getElementById("user-photo").src = userInfo.profile_picture;
             document.getElementById("joined-date").textContent = `Joined - ${formatISODate(userInfo.createdAt)}`;
             document.getElementById('post-user-image').src = userInfo.profile_picture;
-            
+
             // Fetch user role
             document.getElementById("profile-role").textContent = userInfo.role.value; 
 
@@ -38,10 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("intro").value = userInfo.bio;
             document.getElementById("interests").value = userInfo.interests;
             document.getElementById("skills").value = userInfo.skills;
-            
+
             // fetch for user post 
             let postsHTML = ``;
             const userPosts = userInfo.posts;
+
             // Ensure userPosts is an array
             if (Array.isArray(userPosts)) {
                 userPosts.forEach((post) => {
@@ -78,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span>No post available</span>
                  </div>
                 `;
-            }
+            }            
             document.getElementById("posts-list").innerHTML = postsHTML;
 
             // Fetch user bio
@@ -190,7 +193,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
         } catch (error) {
-            console.error("Error fetching user data:", error);
+            let notice  = noticePopup(
+                "Error getting user",
+                `${error.message} or Please signed in?`,
+
+                ()=>{
+                    window.location.href = "/login"
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                document.getElementById("popup_container")
+            )
+
+            document.getElementById("popup_container").style.display = "flex";
+            document.getElementById("popup_container").appendChild(notice);
         }
     });
 });
