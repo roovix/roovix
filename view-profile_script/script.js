@@ -87,24 +87,6 @@ if(!isValidUID(userId) && isValidUsername(userId)) {
   if(usernameDataSnapshot.exists()) {
     userId = usernameDataSnapshot.val().uid;
     FetchQrCode(usernameDataSnapshot.val().uid);
-  }else {
-    let notice  = noticePopup(
-      "Error",
-      "Invalid username or user id..!!",
-
-      ()=>{
-        document.getElementById("popup_container").style.display = "none";
-        window.location.replace('/');  
-      },
-      ()=>{
-        document.getElementById("popup_container").style.display = "none";
-        window.location.replace('/');    
-      },
-      document.getElementById("popup_container")
-    )
-
-    document.getElementById("popup_container").style.display = "flex";
-    document.getElementById("popup_container").appendChild(notice);
   }
 }
 
