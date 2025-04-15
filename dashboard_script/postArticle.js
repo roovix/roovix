@@ -1,6 +1,8 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, set, push, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { deletePopup, confirmPopup, noticePopup, addPopupStyles } from "https://element.roovix.com/functions/popups.js";
+
 
 function getYouTubeVideoId(url) {
     const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
@@ -60,6 +62,8 @@ document.getElementById('post-cancel-btn').addEventListener('click', function() 
 
 
 document.getElementById("post-btn").addEventListener("click", async () => {
+    document.getElementById("post-btn").textContent = "Posting";
+
     const title = document.getElementById("post-title").value.trim();
     const tags = document.getElementById("post-tags").value.trim();
     const videoUrl = document.getElementById("post-video").value.trim();
@@ -128,15 +132,70 @@ document.getElementById("post-btn").addEventListener("click", async () => {
                         title: title,
                         date: new Date().toISOString()
                     });
-                    alert("Uploaded new post");
+                    
+                    // confirm popup on successful upload
+                    let successPopup  = confirmPopup(
+                        "Uploaded",
+                        "You just uploaded a new article post by your account.",
 
-                    removePostParamAndReload();
+                        ()=>{
+                            document.getElementById("popup_container").style.display = "none";
+                            removePostParamAndReload();
+                        },
+                        ()=>{
+                            document.getElementById("popup_container").style.display = "none";
+                            removePostParamAndReload();
+                        },
+                        document.getElementById("popup_container")
+                    )
+
+                    document.getElementById("post-btn").textContent = "Post";
+                    document.getElementById("popup_container").style.display = "flex";
+                    document.getElementById("popup_container").appendChild(successPopup);
+
                 } else {
-                    alert("You do not have permission to post.");
+                    let notice  = noticePopup(
+                        "Error",
+                        "You do not have permission to upload articles.",
+
+                        ()=>{
+                            document.getElementById("popup_container").style.display = "none";
+                            removePostParamAndReload();
+                        },
+                        ()=>{
+                            document.getElementById("popup_container").style.display = "none";
+                            removePostParamAndReload();
+                        },
+                        document.getElementById("popup_container")
+                    )
+
+                    document.getElementById("popup_container").style.display = "flex";
+                    document.getElementById("popup_container").appendChild(notice);
                 }
             }
         } else {
-            alert("You must be signed in to post.");
+            let notice  = noticePopup(
+                "Error",
+                "You must be signed in to post articles.",
+
+                ()=>{
+                    window.location.href = "/login";
+                },
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                    removePostParamAndReload();
+                },
+                document.getElementById("popup_container")
+            )
+
+            document.getElementById("popup_container").style.display = "flex";
+            document.getElementById("popup_container").appendChild(notice);
         }
     });
+});
+
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    // Add styles to popups
+    addPopupStyles();
 });
