@@ -1,4 +1,5 @@
 User-agent: *
 Disallow:
+allow: /login
 
 Sitemap: https://www.roovix.com/sitemap.xml
