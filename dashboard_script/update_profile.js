@@ -1,6 +1,10 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js"; 
 import { ref, get, update, set, remove } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { deletePopup, confirmPopup, noticePopup, addPopupStyles } from "https://element.roovix.com/functions/popups.js";
+
+
+
 
 function showInputError(element, message) {
     if (!element) return;
@@ -63,7 +67,21 @@ function updateProfileInfo() {
 
     onAuthStateChanged(auth, async (user) => {
         if (!user) {
-            alert("User not authenticated.");
+            let notice  = noticePopup(
+                "Error",
+                `You are not authenticated to update profile, Please try after singed in your account.`,
+
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                document.getElementById("popup_container")
+            )
+
+            document.getElementById("popup_container").style.display = "flex";
+            document.getElementById("popup_container").appendChild(notice);
             updateBtn.disabled = false;
             updateBtn.textContent = originalBtnText;
             return;
@@ -87,7 +105,7 @@ function updateProfileInfo() {
             // Prepare update object
             const updates = {};
             updates[`users/${uid}/username`] = newUsername;
-            updates[`users/${uid}/intro`] = intro;
+            updates[`users/${uid}/bio`] = intro;
             updates[`users/${uid}/interests`] = interests;
             updates[`users/${uid}/skills`] = skills;
 
@@ -105,10 +123,37 @@ function updateProfileInfo() {
 
             await update(ref(db), updates);
 
-            alert("Profile updated successfully!");
+            let success  = confirmPopup(
+                "Successful",
+                "You just updated your profile.",
+
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                document.getElementById("popup_container")
+            )
+
+            document.getElementById("popup_container").style.display = "flex";
+            document.getElementById("popup_container").appendChild(success);
         } catch (error) {
-            console.error(error);
-            alert("Failed to update profile: " + error.message);
+            let notice  = noticePopup(
+                "Error updating profile",
+                `${error.message}`,
+
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                document.getElementById("popup_container")
+            )
+
+            document.getElementById("popup_container").style.display = "flex";
+            document.getElementById("popup_container").appendChild(notice);
         } finally {
             updateBtn.disabled = false;
             updateBtn.textContent = originalBtnText;
@@ -118,5 +163,20 @@ function updateProfileInfo() {
 
 
 document.getElementById("profile-edit-update").addEventListener('click', ()=>{
-    updateProfileInfo();
+    let notice  = noticePopup(
+        "Notice",
+        "Are sure to update?",
+
+        ()=>{
+            updateProfileInfo();
+            document.getElementById("popup_container").style.display = "none";
+        },
+        ()=>{
+            document.getElementById("popup_container").style.display = "none";
+        },
+        document.getElementById("popup_container")
+    )
+
+    document.getElementById("popup_container").style.display = "flex";
+    document.getElementById("popup_container").appendChild(notice);
 });
