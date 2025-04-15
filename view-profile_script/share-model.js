@@ -1,3 +1,6 @@
+import { deletePopup, confirmPopup, noticePopup } from "https://element.roovix.com/functions/popups.js";
+
+
 // Open model
 document.getElementById("openProfileShareModel").addEventListener("click", function(){
     // Show the share UI (you'll need to implement this based on your UI structure)
@@ -30,6 +33,20 @@ document.getElementById('share-copy').addEventListener('click', function() {
             }, 2000);
         })
         .catch(err => {
-            console.error('Failed to copy: ', err);
+            let notice  = noticePopup(
+                "Failed to copy profile link",
+                err.message,
+        
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                ()=>{
+                    document.getElementById("popup_container").style.display = "none";
+                },
+                document.getElementById("popup_container")
+            )
+        
+            document.getElementById("popup_container").style.display = "flex";
+            document.getElementById("popup_container").appendChild(notice);
         });
 });

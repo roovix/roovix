@@ -1,5 +1,8 @@
 import { auth } from "https://www.roovix.com/config/firebase_config.js";
 import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { deletePopup, confirmPopup, noticePopup } from "https://element.roovix.com/functions/popups.js";
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const resetForm = document.getElementById('resetForm');
@@ -36,10 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 resetSuccessMessage.style.display = 'block';
                 resetForm.reset();
             })
-            .catch((error) => {
-                // Handle errors
-                console.error('Error sending reset email:', error);
-                
+            .catch((error) => {  
                 // Show appropriate error message
                 let errorMessage = 'Error sending reset email. Please try again.';
                 

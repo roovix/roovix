@@ -2,6 +2,7 @@ import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { getDomain, formatISODate, ISoToTimeAgo, isValidUID, isValidUsername } from "https://element.roovix.com/functions/app.js";
+import { deletePopup, confirmPopup, noticePopup } from "https://element.roovix.com/functions/popups.js";
 
 
 
@@ -87,8 +88,23 @@ if(!isValidUID(userId) && isValidUsername(userId)) {
     userId = usernameDataSnapshot.val().uid;
     FetchQrCode(usernameDataSnapshot.val().uid);
   }else {
-    alert("Invalid username or user id..!!");
-    window.location.replace('/dashboard');
+    let notice  = noticePopup(
+      "Error",
+      "Invalid username or user id..!!",
+
+      ()=>{
+        document.getElementById("popup_container").style.display = "none";
+        window.location.replace('/');  
+      },
+      ()=>{
+        document.getElementById("popup_container").style.display = "none";
+        window.location.replace('/');    
+      },
+      document.getElementById("popup_container")
+    )
+
+    document.getElementById("popup_container").style.display = "flex";
+    document.getElementById("popup_container").appendChild(notice);
   }
 }
 
@@ -271,10 +287,38 @@ if(userId) {
     }
     
   }else {
-    alert("User data not found");
+    let notice  = noticePopup(
+      "Error",
+      "No user singed in with provided user or user id.",
+
+      ()=>{
+          document.getElementById("popup_container").style.display = "none";
+      },
+      ()=>{
+          document.getElementById("popup_container").style.display = "none";
+      },
+      document.getElementById("popup_container")
+    )
+
+    document.getElementById("popup_container").style.display = "flex";
+    document.getElementById("popup_container").appendChild(notice);
   }
 }else{
-  alert("User ID not provided, Invalid url..!");
+  let notice  = noticePopup(
+    "Error",
+    "No username or user id provided.",
+
+    ()=>{
+        document.getElementById("popup_container").style.display = "none";
+    },
+    ()=>{
+        document.getElementById("popup_container").style.display = "none";
+    },
+    document.getElementById("popup_container")
+  )
+
+  document.getElementById("popup_container").style.display = "flex";
+  document.getElementById("popup_container").appendChild(notice);
 }
 
 
