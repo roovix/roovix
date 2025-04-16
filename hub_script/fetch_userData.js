@@ -9,6 +9,9 @@ let uid = "";
 function fetchUserData() {
     onAuthStateChanged(auth, (user) => {
         if (user) {
+            // Remove the login button from the hub navbar item
+            document.getElementById("nav-login-item").style.display = "none";
+
             uid = user.uid;
             const userRef = ref(db, `users/${uid}`);
             get(userRef).then((snapshot) => {
