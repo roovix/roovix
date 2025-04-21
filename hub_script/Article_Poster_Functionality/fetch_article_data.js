@@ -755,111 +755,101 @@ async function generatePosters(poster, data_key){
     poster_container.innerHTML += poster_HTML;
 }
 
-// On load fetch posters
-let lastFetchedKey = null; // Store the last fetched poster key to fetch the next 10 posters
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const articlesRef = ref(db, 'posters');
+// ====== CONFIG ======
+const POSTS_PER_PAGE = 5;  // Number of posters per load
+let lastFetchedKey = null;  // Last fetched poster key
+let isFetching = false;     // Prevent duplicate requests
+let hasMorePosters = true;  // Track if more posters exist
 
-        // Initially hide the end of article view
-        document.getElementById("end-of-article").style.display = "none";
-        
-        // Set a limit for the number of posters to load (for example, 10)
-        const limit = 10;
-
-        // Fetch the first 10 posters
-        await fetchPosters(limit);
-
-    } catch (error) {
-        console.error('Error fetching posters:', error);
-    } finally {
-        // Hide the searching animation and show the end of article view
-        document.getElementById("searching_anim").style.display = "none";
-        document.getElementById("end-of-article").style.display = "flex";
-    }
+// ====== INITIAL LOAD ======
+document.addEventListener('DOMContentLoaded', () => {
+    // Hide end marker initially (your #end-of-article)
+    document.getElementById("end-of-article").style.display = "none";
+    // Fetch first batch
+    fetchPosters();
 });
 
-// Function to fetch posters
-async function fetchPosters(limit) {
-    try {
-        const articlesRef = ref(db, 'posters');
-        
-        // If we have previously fetched a key, start from there to fetch the next 10 posts
-        let limitedArticlesRef = articlesRef;
-        if (lastFetchedKey) {
-            limitedArticlesRef = query(articlesRef, orderByKey(), startAfter(lastFetchedKey), limitToFirst(limit));
-        } else {
-            limitedArticlesRef = query(articlesRef, limitToFirst(limit));
-        }
+// ====== FETCH POSTERS ======
+async function fetchPosters() {
+    // Exit if already fetching or no more posters
+    if (isFetching || !hasMorePosters) return;
+    
+    isFetching = true;
+    showLoading(true); // Show loading spinner in #end-of-article
 
-        // Fetch the data
-        const snapshot = await get(limitedArticlesRef);
+    try {
+        // Build Firebase query
+        const postersRef = ref(db, 'posters');
+        const queryRef = lastFetchedKey 
+            ? query(postersRef, orderByKey(), startAfter(lastFetchedKey), limitToFirst(POSTS_PER_PAGE))
+            : query(postersRef, orderByKey(), limitToFirst(POSTS_PER_PAGE));
+
+        const snapshot = await get(queryRef);
+        
+        // No more posters exist
         if (!snapshot.exists()) {
-            console.log("No more articles available!");
-            document.getElementById("end-of-article").style.display = "none";
+            hasMorePosters = false;
+            showEndMessage();
             return;
         }
 
-        const article_data = snapshot.val();
-        const total_posts = Object.keys(article_data).length;
-        
-        let posters_loaded = 0;
+        // Process posters
+        const posters = snapshot.val();
+        const posterKeys = Object.keys(posters);
+        lastFetchedKey = posterKeys[posterKeys.length - 1]; // Update last key
 
-        // Check for an article id in URL params
-        const poster_id_on_url = new URLSearchParams(window.location.search).get('article_id');
-        if (poster_id_on_url) {
-            // Fetch and display the specific poster
-            generatePosters(article_data[poster_id_on_url], poster_id_on_url);
-
-            // Prevent further posters from being loaded if article_id exists in the URL
-            document.getElementById("end-of-article").innerHTML = `<a href="/hub" style="z-index: 1;">View More Articles</a>`; // Hide the end view
-        } else {
-            // Fetch and display the limited number of posters
-            for (const data_key in article_data) {
-                if (article_data.hasOwnProperty(data_key)) {
-                    const poster = article_data[data_key];
-                    generatePosters(poster, data_key);
-                    posters_loaded += 1;
-                }
-            }
-
-            // Update the last fetched key for pagination
-            lastFetchedKey = Object.keys(article_data)[posters_loaded - 1];
+        // If we got fewer posters than requested, we've reached the end
+        if (posterKeys.length < POSTS_PER_PAGE) {
+            hasMorePosters = false;
+            showEndMessage();
         }
+
+        // Render posters (use your existing rendering function)
+        posterKeys.forEach(key => {
+            generatePosters(posters[key], key);
+        });
 
     } catch (error) {
-        console.error('Error fetching posters:', error);
+        console.error("Fetch error:", error);
+    } finally {
+        isFetching = false;
+        showLoading(false); // Hide loading spinner
     }
 }
 
-// Function to check if the end of the article is in view
-function checkEndIfInView() {
-    const endOfArticleViewTarget = document.getElementById('end-of-article');
-    const rect = endOfArticleViewTarget.getBoundingClientRect();
-    
-    // Check if the element is fully in the viewport
-    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-        return true;
-    }
-    return false;
-}
-
-let isFetching = false;
-
+// ====== SCROLL DETECTION (FIXED) ======
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !isFetching) {
-            // If article_id exists, prevent further fetching
-            const poster_id_on_url = new URLSearchParams(window.location.search).get('article_id');
-            if (!poster_id_on_url) {
-                isFetching = true; // Prevent multiple requests at the same time
-                fetchPosters(10); // Fetch next 10 posters
-                setTimeout(() => { isFetching = false; }, 2000); // Allow new fetch after 2 seconds
-            }
-        }
-    });
-}, { threshold: 1.0 });
+    // Only trigger if:
+    // 1. The element is intersecting (visible)
+    // 2. We're not already fetching
+    // 3. More posters exist
+    if (entries[0].isIntersecting && !isFetching && hasMorePosters) {
+        fetchPosters();
+    }
+}, {
+    threshold: 0.1,   // Trigger when 10% visible (more sensitive)
+    rootMargin: "100px" // Load 100px before reaching bottom
+});
 
-// Start observing the end of article element
-const endOfArticleViewTarget = document.getElementById('end-of-article');
-observer.observe(endOfArticleViewTarget);
+// Start observing your #end-of-article element
+const endMarker = document.getElementById('end-of-posters');
+if (endMarker) observer.observe(endMarker);
+
+// ====== UI CONTROL FUNCTIONS ======
+function showLoading(show) {
+    const endOfArticle = document.getElementById('end-of-article');
+    if (show) {
+        endOfArticle.style.display = "flex";
+    } else {
+        // Only hide if we still have more posters
+        if (hasMorePosters) {
+            endOfArticle.style.display = "none";
+        }
+    }
+}
+
+function showEndMessage() {
+    const endOfArticle = document.getElementById('end-of-article');
+    endOfArticle.style.display = "flex";
+    endOfArticle.innerHTML = '<p>No more posters to show.</p>';
+}
