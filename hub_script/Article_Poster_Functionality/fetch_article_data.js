@@ -13,7 +13,7 @@ function getCurrentUser() {
 }
 
 // Click listener for share button
-document.addEventListener("click", function (event) {
+document.addEventListener("click", async function (event) {
     const button = event.target.closest(".share-container"); // Target specific share button
     if (button) {
         const articleElement = button.closest(".action-1").querySelector(".comment-container");
@@ -29,10 +29,11 @@ document.addEventListener("click", function (event) {
     if (uploaderName) {
         const uploader_name = uploaderName.querySelector(".uploader-name");
         let user_uid = uploader_name.getAttribute("data-user-id");
+        const username_for_view_profile = await getUploaderUsername(user_uid)
         if(getCurrentUser().uid === user_uid){
-            window.location.href = `/dashboard?user_id=${user_uid}`;
+            window.location.href = `/dashboard`;
         }else{
-            window.location.href = `/view-profile?user_id=${user_uid}`;
+            window.location.href = `/view-profile?user_id=${username_for_view_profile}`;
         }
     }
 });
