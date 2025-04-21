@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #locationInfo {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        #copyBtn {
+            background-color: #2196F3;
+        }
+        .accuracy {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Get Current Location</h1>
+    <button id="getLocationBtn">Get My Location</button>
+    <div id="locationInfo" style="display: none;">
+        <h3>Your Location Coordinates</h3>
+        <p id="coordinates"></p>
+        <p class="accuracy" id="accuracy"></p>
+        <button id="copyBtn">Copy to Clipboard</button>
+        <p id="copyStatus"></p>
+    </div>
+
+    <script>
+        const getLocationBtn = document.getElementById('getLocationBtn');
+        const locationInfo = document.getElementById('locationInfo');
+        const coordinatesDisplay = document.getElementById('coordinates');
+        const accuracyDisplay = document.getElementById('accuracy');
+        const copyBtn = document.getElementById('copyBtn');
+        const copyStatus = document.getElementById('copyStatus');
+
+        getLocationBtn.addEventListener('click', () => {
+            getLocationBtn.disabled = true;
+            getLocationBtn.textContent = 'Getting Location...';
+            copyStatus.textContent = '';
+            
+            if (navigator.geolocation) {
+                // Request high accuracy for real GPS if available
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        const accuracy = position.coords.accuracy;
+                        
+                        const locationText = `Latitude: ${lat}\nLongitude: ${lng}`;
+                        const locationUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+                        
+                        coordinatesDisplay.textContent = locationText;
+                        accuracyDisplay.textContent = `Accuracy: ${Math.round(accuracy)} meters`;
+                        
+                        // Show the location info
+                        locationInfo.style.display = 'block';
+                        
+                        // Try to automatically copy to clipboard
+                        autoCopyToClipboard(locationText);
+                        
+                        getLocationBtn.textContent = 'Location Obtained';
+                    },
+                    (error) => {
+                        let errorMessage;
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                errorMessage = "Location access was denied. Please enable permissions.";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                errorMessage = "Location information is unavailable.";
+                                break;
+                            case error.TIMEOUT:
+                                errorMessage = "The request to get location timed out.";
+                                break;
+                            case error.UNKNOWN_ERROR:
+                                errorMessage = "An unknown error occurred.";
+                                break;
+                        }
+                        coordinatesDisplay.textContent = errorMessage;
+                        locationInfo.style.display = 'block';
+                        getLocationBtn.textContent = 'Try Again';
+                        getLocationBtn.disabled = false;
+                    },
+                    {
+                        enableHighAccuracy: true,  // Request GPS if available
+                        timeout: 10000,           // 10 seconds timeout
+                        maximumAge: 0             // Don't use cached position
+                    }
+                );
+            } else {
+                coordinatesDisplay.textContent = "Geolocation is not supported by this browser.";
+                locationInfo.style.display = 'block';
+                getLocationBtn.textContent = 'Try Again';
+                getLocationBtn.disabled = false;
+            }
+        });
+
+        // Manual copy button
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = coordinatesDisplay.textContent;
+            copyToClipboard(textToCopy);
+            copyStatus.textContent = 'Copied to clipboard!';
+            setTimeout(() => {
+                copyStatus.textContent = '';
+            }, 2000);
+        });
+
+        // Function to automatically copy to clipboard
+        function autoCopyToClipboard(text) {
+            // Try the modern clipboard API first
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        copyStatus.textContent = 'Automatically copied to clipboard!';
+                        setTimeout(() => {
+                            copyStatus.textContent = '';
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to auto-copy: ', err);
+                        // Fallback to manual copy
+                    });
+            } else {
+                // Fallback for older browsers
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    textarea.style.position = 'fixed';  // Prevent scrolling to bottom
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    
+                    let successful = false;
+                    try {
+                        successful = document.execCommand('copy');
+                    } catch (err) {
+                        console.error('Fallback copy failed:', err);
+                    }
+                    
+                    document.body.removeChild(textarea);
+                    
+                    if (successful) {
+                        copyStatus.textContent = 'Automatically copied to clipboard!';
+                        setTimeout(() => {
+                            copyStatus.textContent = '';
+                        }, 2000);
+                    }
+                } catch (err) {
+                    console.error('Fallback copy failed:', err);
+                }
+            }
+        }
+
+        // General copy function for manual button
+        function copyToClipboard(text) {
+            // Try the modern clipboard API first
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .catch(err => {
+                        console.error('Could not copy text: ', err);
+                        fallbackCopy(text);
+                    });
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        // Fallback copy method for older browsers
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';  // Prevent scrolling to bottom
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (!successful) {
+                    console.error('Fallback copy failed');
+                    alert('Copy failed. Please manually select and copy the text.');
+                }
+            } catch (err) {
+                console.error('Fallback copy failed:', err);
+                alert('Copy failed. Please manually select and copy the text.');
+            }
+            
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
