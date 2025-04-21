@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("st-username").textContent = userInfo.username;
 
             // Update user data for edit profile
-            document.getElementById("uname").value = userInfo.username;
-            document.getElementById("intro").value = userInfo.bio;
-            document.getElementById("interests").value = userInfo.interests;
-            document.getElementById("skills").value = userInfo.skills;
+            document.getElementById("uname").value = userInfo?.username || "";
+            document.getElementById("intro").value = userInfo?.bio || "";
+            document.getElementById("interests").value = userInfo?.interests || "";
+            document.getElementById("skills").value = userInfo?.skills || ""; 
 
             // fetch for user post 
             let postsHTML = ``;
