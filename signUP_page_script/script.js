@@ -5,6 +5,7 @@ import {
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
 import { ref, set, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { deletePopup, confirmPopup, noticePopup } from "https://element.roovix.com/functions/popups.js";
+import { getCurrentLocation } from "https://element.roovix.com/functions/app.js";
 
 
 // DOM Elements
@@ -216,6 +217,47 @@ async function uploadImageToCloudinary(file=null, api='391989329564552', image_p
 }
 
 
+// Function to update user's location in Firebase
+async function updateUserLocation() {
+    if (!auth.currentUser) {
+      noticePopup("Please sign in to update your location");
+      return;
+    }
+  
+    try {
+      // Get current location
+      const { lat, lng } = await getCurrentLocation();
+      
+      // Update location in Firebase
+      await set(ref(db, `users/${auth.currentUser.uid}/location`), {
+        lat,
+        lng,
+        timestamp: Date.now()
+      });
+    } catch (error) {
+        let notice  = noticePopup(
+            "Account created successfully.",
+            `Your location not updated: ${error.message}`,
+
+            ()=>{
+                document.getElementById("popup_container").style.display = "none";
+                window.location.replace('/dashboard.html');
+            },
+            ()=>{
+                document.getElementById("popup_container").style.display = "none";
+                window.location.replace('/dashboard.html');
+            },
+            document.getElementById("popup_container")
+        )
+
+        document.getElementById("popup_container").style.display = "flex";
+        document.getElementById("popup_container").appendChild(notice);
+
+        return;
+    }
+}
+
+
 // Form validation and submission
 elements.form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -309,6 +351,9 @@ elements.form.addEventListener('submit', async (e) => {
         
         // Save user data to database
         await saveUserData(user, username, imageUrl);
+
+        // Update user location
+        await updateUserLocation();
 
         // Success - redirect to dashboard
         window.location.replace('/dashboard');
