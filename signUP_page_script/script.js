@@ -150,7 +150,7 @@ async function saveUserData(user, username, imageUrl) {
         createdAt: new Date().toISOString(),
         lastLogin: new Date().toISOString(),
         role: {
-            value: "Member"
+            value: "member"
         }
     };
 
