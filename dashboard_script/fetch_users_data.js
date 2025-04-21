@@ -33,7 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('post-user-image').src = userInfo.profile_picture;
 
             // Fetch user role
-            document.getElementById("profile-role").textContent = userInfo.role.value; 
+            document.getElementById("profile-role").textContent = userInfo.role.value;
+
+            // Set user info for setting
+            document.getElementById("st-profile-pic").src = userInfo.profile_picture;
+            document.getElementById("st-username").textContent = userInfo.username;
 
             // Update user data for edit profile
             document.getElementById("uname").value = userInfo.username;
