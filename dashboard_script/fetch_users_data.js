@@ -19,6 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Fetch user data from Firebase Realtime Database
         const userRef = ref(db, `users/${user.uid}`);
         try {
+            // Force refresh the ID token to get latest custom claims
+            const idTokenResult = await user.getIdTokenResult(true);
+
+            // Access custom claims
+            const claims = idTokenResult.claims;
+
             const userData = await get(userRef);
             const userInfo = userData.val();
 
@@ -96,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // Check for suer verified
-            if(userInfo.verified) {
+            if(claims.admin == true || claims.verified == true || claims.role == 'owner') {
                 document.querySelector(".verified-badge").classList.remove('unverified');
                 document.querySelector(".avatar-img").classList.remove('unverified');
             }else{
