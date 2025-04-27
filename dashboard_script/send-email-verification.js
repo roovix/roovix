@@ -1,5 +1,5 @@
 import { auth, db } from "https://www.roovix.com/config/firebase_config.js";
-import { ref, set, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { ref, set, get, push } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 import { onAuthStateChanged, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { deletePopup, confirmPopup, noticePopup } from "https://element.roovix.com/functions/popups.js";
 
@@ -9,7 +9,14 @@ document.getElementById("send-email-verification").addEventListener("click", asy
     const user = auth.currentUser;
     if(user) {
         sendEmailVerification(user)
-        .then(()=>{
+        .then( async ()=>{
+            // Save the verification link sent metadata to database
+            const metaRef = push(ref(db, `users/${user.uid}/verification_metadata`));
+            await set(metaRef, {             
+                sent_at: new Date().toISOString(),  
+                email: user.email
+            });
+
             let notice  = confirmPopup(
                 "Sent successful",
                 `Check your (${user.email}) email address we have sent verification link.`,
@@ -44,6 +51,6 @@ document.getElementById("send-email-verification").addEventListener("click", asy
             document.getElementById("popup_container").appendChild(notice);
         })
     }else {
-        window.location.href = '/login.html';
+        window.location.href = '/login';
     }
 });
