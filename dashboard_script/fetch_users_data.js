@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // Check for suer verified
-            if(claims.admin == true || claims.verified == true || claims.role == 'owner') {
+            if(claims.admin == true || claims.verified == true || claims.role == 'owner' || claims.role == 'admin') {
                 document.querySelector(".verified-badge").classList.remove('unverified');
                 document.querySelector(".avatar-img").classList.remove('unverified');
             }else{
