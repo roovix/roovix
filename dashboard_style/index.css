@@ -1116,6 +1116,8 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 10px;
   margin-top: 150px;
+  overflow: hidden;
+  overflow-y: auto;
 }
 .post-container #post-popup-close-btn {
   position: absolute;
@@ -1172,8 +1174,6 @@ body {
 #posts-list {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
   padding: 2px 50px;
   display: flex;
   flex-direction: column;
