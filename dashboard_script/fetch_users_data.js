@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
+        // Check for email verification
+        if(!user.emailVerified) {
+            document.getElementById("email-verification-warning").style.display = "flex";
+        }
+
+
         // Fetch user data from Firebase Realtime Database
         const userRef = ref(db, `users/${user.uid}`);
         try {

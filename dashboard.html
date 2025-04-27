@@ -40,6 +40,7 @@
         <link rel="stylesheet" href="dashboard_style/index.css">
         <link rel="stylesheet" href="dashboard_style/poat-article.css">
         <link rel="stylesheet" href="dashboard_style/settings_style.css">
+        <link rel="stylesheet" href="dashboard_style/account-warning.css">
 
         <!-- Additional Meta Tags -->
         <meta name="robots" content="index, follow">
@@ -362,6 +363,14 @@
                     </button>
                 </div>
             </div>
+
+            <!-- Account warning section -->
+            <div class="account-warning-section">
+                <div id="email-verification-warning" class="warning">
+                    <span>Verify your email address</span>
+                    <button id="send-email-verification">Send verification link</button>    
+                </div>
+            </div>
             
             <!-- Profile Card -->
             <div class="card profile-card">
@@ -612,6 +621,7 @@
 
     <!-- All element of layout end here -->
 
+    <script type="module" src="dashboard_script/send-email-verification.js"></script>
     <script type="module" src="dashboard_script/settings.js"></script>
     <script type="module" src="dashboard_script/update_profile.js"></script>
     <script src="dashboard_script/funtions.js"></script>

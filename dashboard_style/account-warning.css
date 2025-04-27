@@ -1,0 +1,34 @@
+.account-warning-section {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.account-warning-section .warning {
+    overflow: hidden;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #ffc65539;
+    color: #ffbf00bc;
+    border-radius: 10px;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.account-warning-section .warning button {
+    background-color: #f6aa58e9;
+    color: #fff;
+    padding: 5px 15px;
+    border: 1px solid #f67b58;
+    border-radius: 50px;
+    transition: background-color .3s ease;
+    min-width: 180px;
+}
+.account-warning-section .warning button:hover {
+    cursor: pointer;
+    background-color: #f67b58;
+}
