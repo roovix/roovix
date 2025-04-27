@@ -3,6 +3,19 @@ import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
 import { deletePopup, confirmPopup, noticePopup } from "https://element.roovix.com/functions/popups.js";
 
 
+// Turn on multi factor authentication
+const multiFactorToggle = document.getElementById('multiFactorToggleSwitch');
+multiFactorToggle.addEventListener('click', function(e) {
+    e.preventDefault(); // Stops the checkbox from changing
+
+    // Verification code here to turn on multi factor auth
+});
+// FUNCTION TO PROGRAMMATICALLY CHANGE
+function verifyAndToggle() {
+    multiFactorToggle.checked = true; // Your code controls it
+}
+verifyAndToggle()
+
 // Logout current user
 document.getElementById("logout").addEventListener("click", async () => {
     try {

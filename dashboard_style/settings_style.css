@@ -15,12 +15,18 @@
     --chart-grid: #30363d;
 }
 
+.locked {
+    pointer-events: none;
+    opacity: 0.6; /* optional: make it look "locked" */
+  }  
+
 .setting-profile {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 35px;
     gap: 5px;
+    margin-bottom: 20px;
 }
 .setting-profile img {
     width: 50px;
@@ -47,4 +53,185 @@
 .setting-profile button:hover {
     cursor: pointer;
     background-color: #ff3b30;
+}
+
+/* Verified and unverified tag style */
+.st-verified {
+    font-size: .8rem;
+    color: #3fb94fb0;
+    background-color: #3fb94f5a;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+.st-unverified {
+    font-size: .8rem;
+    color: #b94d3fb0;
+    background-color: #b9493f5a;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+.st-unverified:hover {
+    cursor: pointer;
+}
+
+/* Switch style */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+  /* Hide the default checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--chart-grid);
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  /* Circle inside the slider */
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3.52px;
+    background-color: #929292;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  /* When checkbox is checked */
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  /* Move the circle when checked */
+  input:checked + .slider:before {
+    background-color: #eaeaea;
+    transform: translateX(23px);
+  }
+  
+
+/* Style logout and switch account button */
+#logout, #switch-account {
+    width: 100%;
+    cursor: pointer;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+#switch-account {
+    min-width: 170px;
+    color: var(--text-primary);
+    background-color: #ffffff2c;
+}
+#switch-account svg {
+    fill: var(--text-primary);
+    width: 20px;
+    height: 20px;
+}
+#logout {
+    color: var(--text-primary);
+    background-color: var(--accent-red);
+}
+#logout svg {
+    fill: var(--text-primary);
+    width: 20px;
+    height: 20px;
+}
+@media screen and (max-width: 572px) {
+    .account-list .st-sub-item {
+        flex-direction: column;
+    }
+    .settings-list {
+        flex-direction: column;
+    }
+}
+
+
+/* Style all list item */
+.settings-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+.st-item {
+    width: 100%;
+    max-width: 650px;
+}
+@media screen and (max-width: 1643px) {
+    .st-item {
+        max-width: 600px;
+    }
+}
+@media screen and (max-width: 1543px) {
+    .st-item {
+        max-width: 550px;
+    }
+}
+@media screen and (max-width: 1443px) {
+    .st-item {
+        max-width: 500px;
+    }
+}
+@media screen and (max-width: 1343px) {
+    .st-item {
+        max-width: 100%;
+    }
+}
+.st-item .st-item-title{
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Style all sub list */
+.st-sub-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+}
+.st-sub-item {
+    color: var(--text-primary);
+    background-color: var(--chart-grid);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    gap: 10px;
+}
+.item-clickable {
+    cursor: pointer;
+}
+
+/* Style security list */
+.security-list .st-sub-item {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    justify-content: space-between;
 }

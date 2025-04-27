@@ -19,8 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
         // Check for email verification
         if(!user.emailVerified) {
             document.getElementById("email-verification-warning").style.display = "flex";
+            
+            // Update email unverified ui for settings
+            document.getElementById("st-verification-tag").textContent = "Unverified - Click to send verification link"
+            document.getElementById("st-verification-tag").classList.add("st-unverified");
+        }else {
+            // Update email unverified ui for settings
+            document.getElementById("st-verification-tag").textContent = "Verified"
+            document.getElementById("st-verification-tag").classList.add("st-verified");
         }
-
 
         // Fetch user data from Firebase Realtime Database
         const userRef = ref(db, `users/${user.uid}`);
@@ -50,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Set user info for setting
             document.getElementById("st-profile-pic").src = userInfo.profile_picture;
             document.getElementById("st-username").textContent = userInfo.username;
+            document.getElementById("st-email").textContent = userInfo.email;
 
             // Update user data for edit profile
             document.getElementById("uname").value = userInfo?.username || "";
