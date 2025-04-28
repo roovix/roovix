@@ -65,7 +65,7 @@
 }
 .st-unverified {
     font-size: .8rem;
-    color: #b94d3fb0;
+    color: #c04c3dd0;
     background-color: #b9493f5a;
     padding: 5px 10px;
     border-radius: 50px;
@@ -223,6 +223,9 @@
     padding: 10px 15px;
     border-radius: 5px;
     gap: 10px;
+}
+.st-sub-action {
+    background-color: transparent;
 }
 .item-clickable {
     cursor: pointer;

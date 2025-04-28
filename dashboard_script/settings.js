@@ -14,7 +14,6 @@ multiFactorToggle.addEventListener('click', function(e) {
 function verifyAndToggle() {
     multiFactorToggle.checked = true; // Your code controls it
 }
-verifyAndToggle()
 
 // Logout current user
 document.getElementById("logout").addEventListener("click", async () => {
