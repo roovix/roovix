@@ -771,3 +771,64 @@ nav ul li a.active::after {
     opacity: 1;
     visibility: visible;
 }
+
+
+/* Cursor-following glow effect styles */
+.glow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px; /* Match your card's border radius */
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow-effect {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: screen;
+}
+
+/* Different glow colors for each card type */
+.pricing-card.free .glow-effect {
+    background: radial-gradient(
+        circle,
+        rgba(59, 130, 246, 0.4) 0%,
+        rgba(59, 130, 246, 0.1) 40%,
+        transparent 70%
+    );
+}
+
+.pricing-card.pro .glow-effect {
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.1) 40%,
+        transparent 70%
+    );
+}
+
+.pricing-card.advance .glow-effect {
+    background: radial-gradient(
+        circle,
+        rgba(34, 197, 94, 0.4) 0%,
+        rgba(34, 197, 94, 0.1) 40%,
+        transparent 70%
+    );
+}
+
+/* Make sure card content is above the glow */
+.pricing-card > *:not(.glow-container) {
+    position: relative;
+    z-index: 2;
+}
