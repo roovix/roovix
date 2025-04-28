@@ -79,6 +79,13 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+    <loc>https://www.roovix.com/tools/qrcode-generator</loc>
+    <lastmod>2025-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
   <!-- Example of Dynamic Profile Page -->
   <url>
     <loc>https://www.roovix.com/view-profile?user_id=hridoyhossen936</loc>
