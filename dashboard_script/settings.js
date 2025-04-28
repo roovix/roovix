@@ -42,3 +42,15 @@ document.getElementById("logout").addEventListener("click", async () => {
         document.getElementById("popup_container").appendChild(notice);
     }
 });
+
+
+// Open security action pages
+document.getElementById("change-password").addEventListener("click", ()=>{
+    window.location.href = "/change-password.html"
+});
+document.getElementById("change-email-address").addEventListener("click", ()=>{
+    window.location.href = "/change-email.html"
+});
+document.getElementById("reset-password").addEventListener("click", ()=>{
+    window.location.href = "/reset-password.html"
+});
