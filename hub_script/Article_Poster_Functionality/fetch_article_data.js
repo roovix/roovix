@@ -224,7 +224,7 @@ async function generatePosters(poster, data_key){
                                 <button class="copy-btn">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
                                         <path d="M379.78-233.78q-44.3 0-75.15-30.85-30.85-30.85-30.85-75.15v-466.44q0-44.3 30.85-75.15 30.85-30.85 75.15-30.85h346.44q44.3 0 75.15 30.85 30.85 30.85 30.85 75.15v466.44q0 44.3-30.85 75.15-30.85 30.85-75.15 30.85H379.78Zm0-106h346.44v-466.44H379.78v466.44Zm-186 292q-44.3 0-75.15-30.85-30.85-30.85-30.85-75.15v-572.44h106v572.44h452.44v106H193.78Zm186-292v-466.44 466.44Z"/>
-                                    </svg> <span class="copy-btn-text">Copy code</span>
+                                    </svg> <span class="copy-btn-text"></span>
                                 </button>
                             </div>
                             <div class="line-numbers"><div class="language-${firstWord} code">${codeWithoutLanguage}</div></div>
@@ -244,7 +244,7 @@ async function generatePosters(poster, data_key){
         navigator.clipboard.writeText(textToCopy).then(() => {
             copyBtnText.textContent = "Copied";
             setTimeout(() => {
-                copyBtnText.textContent = "Copy code";
+                copyBtnText.textContent = "";
             }, 1000);
         }).catch(err => {
             console.log("Failed to copy!");
