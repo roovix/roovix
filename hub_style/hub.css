@@ -229,7 +229,7 @@ body.comment-ui-active {
     position: absolute;
     top: 40px;
     left: 0;
-    background: var(--card-bg);
+    background: #222222;
     list-style: none;
     border-radius: 10px;
     border: 1px solid var(--border-color);
@@ -267,7 +267,7 @@ body.comment-ui-active {
 /* Hover effect for sub-items */
 .sub-item:hover {
     text-decoration: none;
-    background: var(--card-hover);
+    background: #33333346;
 }
 
 /* Show dropdown on hover */
