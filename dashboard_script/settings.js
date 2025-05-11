@@ -46,11 +46,11 @@ document.getElementById("logout").addEventListener("click", async () => {
 
 // Open security action pages
 document.getElementById("change-password").addEventListener("click", ()=>{
-    window.location.href = "/change-password.html"
+    window.location.href = "/change-password"
 });
 document.getElementById("change-email-address").addEventListener("click", ()=>{
-    window.location.href = "/change-email.html"
+    window.location.href = "/change-email"
 });
 document.getElementById("reset-password").addEventListener("click", ()=>{
-    window.location.href = "/reset-password.html"
+    window.location.href = "/forgotten-password"
 });
