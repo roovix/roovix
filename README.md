@@ -64,13 +64,14 @@ Real-time   Deep ML    Behavioral   Automated  Instant
 Monitoring  Learning   Modeling     Actions    Mitigation
 ```
 
-
 ## Documentation
 
-[Installation Guide](./docs/installation.md) • [API Reference](./docs/api.md) • [Security](./docs/security.md) • [Troubleshooting](./docs/troubleshooting.md)
+[Installation Guide](https://www.roovix.com) -
+[API Reference](https://www.roovix.com) -
+[Security](https://www.roovix.com) -
+[Troubleshooting](https://www.roovix.com)
 
-
-<img align="right" alt="Coding" width="400" src="https://media.tenor.com/rePDfDWO3XoAAAAd/hacking.gif](https://payload.cargocollective.com/1/17/574381/9095860/Future-Cockpit-Altimeter.gif">
+<br/>
 
 ## Support
 
