@@ -1,6 +1,6 @@
 <div align="center">
   
-[![MasterHead](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA5W1AluttX_HbBnJT4YRhirGWtJyghUU1Vg&usqp=CAU)](https://youtube.com/@mlarmy2.0)
+[![MasterHead](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA5W1AluttX_HbBnJT4YRhirGWtJyghUU1Vg&usqp=CAU)](https://youtube.com/@roovix)
 <h1 align="center">Hi There👋, We are Roovix</h1>
 <!-- Tagline with animation -->
 <p align="center" style="font-size: 1.1em; color: #00ff88; font-weight: bold; margin: 20px 0;">
