@@ -70,7 +70,7 @@ Monitoring  Learning   Modeling     Actions    Mitigation
 [Installation Guide](./docs/installation.md) • [API Reference](./docs/api.md) • [Security](./docs/security.md) • [Troubleshooting](./docs/troubleshooting.md)
 
 
-<img align="right" alt="Coding" width="400" src="https://media.tenor.com/rePDfDWO3XoAAAAd/hacking.gif">
+<img align="right" alt="Coding" width="400" src="https://media.tenor.com/rePDfDWO3XoAAAAd/hacking.gif](https://payload.cargocollective.com/1/17/574381/9095860/Future-Cockpit-Altimeter.gif">
 
 ## Support
 
@@ -78,6 +78,9 @@ Monitoring  Learning   Modeling     Actions    Mitigation
 - 📫 Reach Roovix [support@roovix.com](support@roovix.com)
 - 📄 Know more about Roovix [Explore Website](www.roovix.com)
 
+---
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=roovix&" alt="mlarmy" /></p>
 
 
 <div align="center">
