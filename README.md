@@ -75,11 +75,9 @@ Monitoring    Learning     Modeling       Actions        Mitigation
 
 ## Support
 
-- 💬 Ask about Roovix [Facebook](facebook.com/roovixx)
-- 📫 Reach Roovix [support@roovix.com](support@roovix.com)
-- 📄 Know more about Roovix [Explore Website](www.roovix.com)
-
----
+- 💬 Ask about Roovix [Facebook](https://facebook.com/roovixx)
+- 📫 Reach Roovix [support@roovix.com](mailto:support@roovix.com)
+- 📄 Know more about Roovix [Explore Website](https://www.roovix.com)
 
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=mlarmy&label=Profile%20views&color=0e75b6&style=flat" alt="mlarmy" /> </p>
