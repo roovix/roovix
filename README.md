@@ -58,10 +58,10 @@ Complete audit trails and compliance reporting for regulatory requirements (GDPR
 ## Our Approach
 
 ```
-Detection → Analysis → Prediction → Prevention → Response
-   ↓          ↓           ↓           ↓         ↓
-Real-time   Deep ML    Behavioral   Automated  Instant
-Monitoring  Learning   Modeling     Actions    Mitigation
+Detection  →  Analysis  →  Prediction  →  Prevention  →  Response
+   ↓             ↓             ↓              ↓             ↓
+Real-time     Deep ML      Behavioral     Automated      Instant
+Monitoring    Learning     Modeling       Actions        Mitigation
 ```
 
 ## Documentation
