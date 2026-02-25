@@ -16,6 +16,13 @@
 
 </div>
 
+<div align="center">
+
+[![Roovix YouTube Channel](https://img.shields.io/badge/YouTube-Roovix-red?logo=youtube&logoColor=white)](https://www.youtube.com/@roovix) [![Roovix Facebook](https://img.shields.io/badge/Facebook-Roovix-blue?logo=facebook&logoColor=white)](https://www.facebook.com/roovixx)
+
+[![](https://visitcount.itsvg.in/api?id=roovix&icon=1&color=4)](https://visitcount.itsvg.in)
+  
+</div>
 
 ## Who We Are
 
