@@ -37,8 +37,8 @@
 <br/><br/>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=roovix&theme=tokyo-night" width="54%" height="200" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=roovix&theme=tokyonight" width="45%" height="193" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=roovix&theme=tokyo-night" width="64%" height="200" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=roovix&theme=tokyonight" width="35%" height="193" />
 </p>
 
 ## Documentation
