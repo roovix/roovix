@@ -1,28 +1,23 @@
 <div align="center">
   
 [![MasterHead](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA5W1AluttX_HbBnJT4YRhirGWtJyghUU1Vg&usqp=CAU)](https://youtube.com/@roovix)
-<h1 align="center">Hi There👋, We are Roovix</h1>
-<!-- Tagline with animation -->
-<p align="center" style="font-size: 1.1em; color: #00ff88; font-weight: bold; margin: 20px 0;">
-  Designing intelligent security solutions to eliminate illegal activity before it begins.
-</p>
 
-<!-- Animated separator -->
-<div style="font-size: 1.5em; color: #0066ff; letter-spacing: 20px; animation: pulse 2s ease-in-out infinite;">
-  ⫷ ⫸
 </div>
+
+<h1>Hi There👋, We are Roovix</h1>
+  <!-- Tagline with animation -->
+<h6 style="font-size: 10px; color: #00ff88; font-weight: normal; margin: 20px 0;">
+  Designing intelligent security solutions to eliminate illegal activity before it begins.
+</h6>
 
 <br/><br/>
 
-</div>
-
-<div align="center">
-
 [![Roovix YouTube Channel](https://img.shields.io/badge/YouTube-Roovix-red?logo=youtube&logoColor=white)](https://www.youtube.com/@roovix) [![Roovix Facebook](https://img.shields.io/badge/Facebook-Roovix-blue?logo=facebook&logoColor=white)](https://www.facebook.com/roovixx)
-
-[![](https://visitcount.itsvg.in/api?id=roovix&icon=1&color=4)](https://visitcount.itsvg.in)
-  
-</div>
+<a href="https://github.com/roovix/roovix/stargazers"><img src="https://img.shields.io/github/stars/roovix/roovix" alt="Stars Badge"/></a>
+<a href="https://github.com/roovix/roovix/network/members"><img src="https://img.shields.io/github/forks/roovix/roovix" alt="Forks Badge"/></a>
+<a href="https://github.com/roovix/roovix/pulls"><img src="https://img.shields.io/github/issues-pr/roovix/roovix" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/roovix/roovix/issues"><img src="https://img.shields.io/github/issues/roovix/roovix" alt="Issues Badge"/></a>
+<a href="https://github.com/roovix/roovix/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/roovix/roovix?color=2b9348"></a>
 
 ## Who We Are
 
@@ -88,9 +83,9 @@ Monitoring    Learning     Modeling       Actions        Mitigation
 
 <br/>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=mlarmy&label=Profile%20views&color=0e75b6&style=flat" alt="mlarmy" /> </p>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=roovix&label=Profile%20views&color=0e75b6&style=flat" alt="roovix" /> </p>
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=roovix&" alt="mlarmy" /></p>
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=roovix&" alt="roovix" /></p>
 
 
 <div align="center">
