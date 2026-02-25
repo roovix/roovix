@@ -4,7 +4,7 @@
 
 </div>
 
-<h1>Hi There👋, We are Roovix</h1>
+## Hi there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px"></img>, [Roovix](https://www.roovix.com) here!
   <!-- Tagline with animation -->
 <h6 style="font-size: 10px; color: #00ff88; font-weight: normal; margin: 20px 0;">
   Designing intelligent security solutions to eliminate illegal activity before it begins.
@@ -36,15 +36,10 @@
 
 <br/><br/>
 
-
-## Our Approach
-
-```
-Detection  →  Analysis  →  Prediction  →  Prevention  →  Response
-   ↓             ↓             ↓              ↓             ↓
-Real-time     Deep ML      Behavioral     Automated      Instant
-Monitoring    Learning     Modeling       Actions        Mitigation
-```
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=roovix&theme=tokyo-night" width="54%" height="200" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=roovix&theme=tokyonight" width="45%" height="193" />
+</p>
 
 ## Documentation
 
