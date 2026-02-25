@@ -15,12 +15,11 @@
 [![Roovix YouTube Channel](https://img.shields.io/badge/YouTube-Roovix-red?logo=youtube&logoColor=white)](https://www.youtube.com/@roovix) 
 [![Roovix Facebook](https://img.shields.io/badge/Facebook-Roovix-blue?logo=facebook&logoColor=white)](https://www.facebook.com/roovixx)
 <a href="https://github.com/roovix/roovix/stargazers"><img src="https://img.shields.io/github/stars/roovix/roovix" alt="Stars Badge"/></a>
-<a href="https://github.com/roovix/roovix/network/members"><img src="https://img.shields.io/github/forks/roovix/roovix" alt="Forks Badge"/></a>
 ![Defense in Depth](https://img.shields.io/badge/Security-DefenseInDepth-informational?style=flat&logoColor=white&color=0D47A1)
 ![JavaScript](https://img.shields.io/badge/Code-JavaScript-informational?style=flat&logo=javascript&color=F7DF1E)
 ![Python](https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=3776AB)
-<a href="https://github.com/roovix/roovix/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/roovix/roovix?color=2b9348"></a>
 <img src="https://komarev.com/ghpvc/?username=roovix&label=Profile%20views&color=2b9348" alt="roovix" />
+![Linux](https://img.shields.io/badge/System-Linux-informational?style=flat&logo=linux&color=FCC624)
 
 ## Who We Are
 
