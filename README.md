@@ -1,6 +1,6 @@
 <div align="center">
   
-[![MasterHead](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA5W1AluttX_HbBnJT4YRhirGWtJyghUU1Vg&usqp=CAU)](https://youtube.com/@roovix)
+[![MasterHead](https://i.postimg.cc/BbH5Xq8C/Social-share-thambnail-(resized).png)](https://youtube.com/@roovix)
 
 </div>
 
