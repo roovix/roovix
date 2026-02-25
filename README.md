@@ -32,7 +32,7 @@
 * Real-time detection and analysis of cyber threats using advanced ML algorithms and behavioral analytics.
 * Eliminate threats before they begin through AI-powered prediction models trained on global threat intelligence data.
 * Instant automated reactions to detected threats with zero human intervention required.
-* Complete audit trails and compliance reporting for regulatory requirements (GDPR, HIPAA, SOC 2).
+* Collaborative Intelligence Network: Harness collective expertise from scientists, researchers, and security specialists to design next-generation defense strategies and innovative cyber resilience solutions.
 
 <br/><br/>
 
