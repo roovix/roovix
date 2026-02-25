@@ -12,12 +12,15 @@
 
 <br/><br/>
 
-[![Roovix YouTube Channel](https://img.shields.io/badge/YouTube-Roovix-red?logo=youtube&logoColor=white)](https://www.youtube.com/@roovix) [![Roovix Facebook](https://img.shields.io/badge/Facebook-Roovix-blue?logo=facebook&logoColor=white)](https://www.facebook.com/roovixx)
+[![Roovix YouTube Channel](https://img.shields.io/badge/YouTube-Roovix-red?logo=youtube&logoColor=white)](https://www.youtube.com/@roovix) 
+[![Roovix Facebook](https://img.shields.io/badge/Facebook-Roovix-blue?logo=facebook&logoColor=white)](https://www.facebook.com/roovixx)
 <a href="https://github.com/roovix/roovix/stargazers"><img src="https://img.shields.io/github/stars/roovix/roovix" alt="Stars Badge"/></a>
 <a href="https://github.com/roovix/roovix/network/members"><img src="https://img.shields.io/github/forks/roovix/roovix" alt="Forks Badge"/></a>
-<a href="https://github.com/roovix/roovix/pulls"><img src="https://img.shields.io/github/issues-pr/roovix/roovix" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/roovix/roovix/issues"><img src="https://img.shields.io/github/issues/roovix/roovix" alt="Issues Badge"/></a>
+![Defense in Depth](https://img.shields.io/badge/Security-DefenseInDepth-informational?style=flat&logoColor=white&color=0D47A1)
+![JavaScript](https://img.shields.io/badge/Code-JavaScript-informational?style=flat&logo=javascript&color=F7DF1E)
+![Python](https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&color=3776AB)
 <a href="https://github.com/roovix/roovix/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/roovix/roovix?color=2b9348"></a>
+<img src="https://komarev.com/ghpvc/?username=roovix&label=Profile%20views&color=2b9348" alt="roovix" />
 
 ## Who We Are
 
@@ -82,8 +85,6 @@ Monitoring    Learning     Modeling       Actions        Mitigation
 - 📄 Know more about Roovix [Explore Website](https://www.roovix.com)
 
 <br/>
-
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=roovix&label=Profile%20views&color=0e75b6&style=flat" alt="roovix" /> </p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=roovix&" alt="roovix" /></p>
 
