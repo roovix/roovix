@@ -21,40 +21,19 @@
 <img src="https://komarev.com/ghpvc/?username=roovix&label=Profile%20views&color=2b9348" alt="roovix" />
 ![Linux](https://img.shields.io/badge/System-Linux-informational?style=flat&logo=linux&color=FCC624)
 
-## Who We Are
+## Who We Are ?
 
 **Roovix** is a cutting-edge cybersecurity and AI intelligence platform designed to combat illegal digital activity. We leverage advanced machine learning, behavioral analysis, and predictive intelligence to protect organizations before threats materialize.
 > **Threat Prevention Through Predictive Intelligence**
 
+<br/>
 
+## ⚡ What We Do:
 
-## What We Do
-
-<div align="center">
-
-| **Threat Detection** | **AI Analysis** | **Prevention** |
-|---|---|---|
-| Real-time threat monitoring | ML-powered pattern recognition | Proactive security measures |
-| Behavioral anomaly detection | Predictive threat modeling | Automated response systems |
-| Intelligence gathering | Deep learning algorithms | Zero-day vulnerability prevention |
-
-</div>
-
-<br/><br/>
-
-## Key Features
-
-### Threat Intelligence System
-Real-time detection and analysis of cyber threats using advanced ML algorithms and behavioral analytics.
-
-### Predictive Security
-Eliminate threats before they begin through AI-powered prediction models trained on global threat intelligence data.
-
-### Automated Response
-Instant automated reactions to detected threats with zero human intervention required.
-
-### Compliance & Audit
-Complete audit trails and compliance reporting for regulatory requirements (GDPR, HIPAA, SOC 2).
+* Real-time detection and analysis of cyber threats using advanced ML algorithms and behavioral analytics.
+* Eliminate threats before they begin through AI-powered prediction models trained on global threat intelligence data.
+* Instant automated reactions to detected threats with zero human intervention required.
+* Complete audit trails and compliance reporting for regulatory requirements (GDPR, HIPAA, SOC 2).
 
 <br/><br/>
 
@@ -77,6 +56,7 @@ Monitoring    Learning     Modeling       Actions        Mitigation
 
 <br/>
 
+
 ## Support
 
 - 💬 Ask about Roovix [Facebook](https://facebook.com/roovixx)
@@ -85,11 +65,18 @@ Monitoring    Learning     Modeling       Actions        Mitigation
 
 <br/>
 
+<img align='right' src='https://user-images.githubusercontent.com/5713670/87202985-820dcb80-c2b6-11ea-9f56-7ec461c497c3.gif' width='200"'>
+
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=roovix&" alt="roovix" /></p>
 
 
 <div align="center">
 <br/>
 <br/><br/>
-© Roovix. All rights reserved.
 </div>
+
+<h4 align='center'>⚡️<i>Team Roovix</i>⚡️</h4>
+
+<p align="center">
+        <img src="https://raw.githubusercontent.com/mayhemantt/mayhemantt/Update/svg/Bottom.svg" alt="Roovix Footer" />
+</p>
